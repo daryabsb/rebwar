@@ -1,7 +1,7 @@
 from src.settings.components.env import config
 import dj_database_url
 
-DATABASE_URL = config("B1_DATABASE_URL", default=None)
+DATABASE_URL = config("DATABASE_URL", default=None)
 HOST_ENV = config('HOST_ENV', default='office')
 
 if DATABASE_URL is not None:

@@ -1,8 +1,8 @@
 from src.settings.components.env import config
 from tzlocal import get_localzone
-from src.settings.components import PROJECT_PATH
+from src.settings.components import PROJECT_PATH, BASE_DIR
 
-from src.settings.components.redis import REDIS_HOST, REDIS_PORT
+# from src.settings.components.redis import REDIS_HOST, REDIS_PORT
 
 BASE_ENDPOINT = config('BASE_ENDPOINT', default='http://127.0.0.1:8000')
 WS_ENDPOINT = config('WS_ENDPOINT', default='ws://127.0.0.1:8000')
@@ -59,14 +59,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'src.wsgi.application'
 ASGI_APPLICATION = 'src.asgi.application'
 
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [(REDIS_HOST, REDIS_PORT)],
-        },
-    },
-}
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [(REDIS_HOST, REDIS_PORT)],
+#         },
+#     },
+# }
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -74,7 +74,7 @@ CHANNEL_LAYERS = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'NAME': BASE_DIR + 'db.sqlite3',
 #     }
 # }
 
