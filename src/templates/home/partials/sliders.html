@@ -1,68 +1,25 @@
 {% load static %}
 <div class="slider owl-carousel">
-    <div class="slider-img">
-        <!-- slider-img -->
-        <a href="#"><img src="{% static 'vendor/images/slider-6.jpg' %}"
-                alt="Site - Orthopaedic Surgeon Website Template" class="img-responsive" /></a>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9">
-                    <div class="slider-captions">
-                        <!-- slider-captions -->
-                        <h1 class="slider-title">Arthroscopic Surgery</h1>
-                        <p class="slider-text hidden-sm hidden-xs">
-                            Arthroscopy is a surgical procedure in which an arthroscope is inserted into a joint.
-                        </p>
-                        <a href="#" class="btn btn-default hidden-xs">Make An Appointment</a>
-                    </div>
-                    <!-- /.slider-captions -->
-                </div>
-            </div>
+  {% for slide in slides %}
+  <div class="slider-img">
+    <!-- slider-img -->
+    <a href="#"><img src="{{ slide.image.url }}" alt="{{slide.title}}" class="img-responsive" /></a>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9">
+          <div class="slider-captions">
+            <!-- slider-captions -->
+            <h1 class="slider-title">{{slide.title}}</h1>
+            <p class="slider-text hidden-sm hidden-xs">
+              {{slide.description}}
+            </p>
+            <a href="#" class="btn btn-default hidden-xs">Make An Appointment</a>
+          </div>
+          <!-- /.slider-captions -->
         </div>
+      </div>
     </div>
-    <!-- /.slider-img -->
-    <div class="slider-img">
-        <!-- slider-img -->
-        <a href="#"><img src="{% static 'vendor/images/slider-4.jpg' %}"
-                alt="Site - Orthopaedic Surgeon Website Template" class="img-responsive" /></a>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9">
-                    <div class="slider-captions">
-                        <!-- slider-captions -->
-                        <h1 class="slider-title">Knee Arthroscopy</h1>
-                        <p class="slider-text hidden-sm hidden-xs">
-                            Knee Arthroscopy is a common surgical procedure performed using an arthroscope to treat a
-                            knee
-                            problem.
-                        </p>
-                        <a href="#" class="btn btn-default hidden-xs">View Treatment</a>
-                    </div>
-                    <!-- /.slider-captions -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.slider-img -->
-    <div class="slider-img">
-        <!-- slider-img -->
-        <a href="#"><img src="{% static 'vendor/images/slider-5.jpg' %}"
-                alt="Site - Orthopaedic Surgeon Website Template" class="img-responsive" /></a>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9">
-                    <div class="slider-captions">
-                        <!-- slider-captions -->
-                        <h1 class="slider-title">Specialist in Hip &amp; Knee Disorders</h1>
-                        <p class="slider-text hidden-sm hidden-xs">
-                            Hip joint and knee joint replacements are helping people of all ages live pain - free,
-                            active lives.
-                        </p>
-                        <a href="#" class="btn btn-default hidden-xs">Meet The Expert</a>
-                    </div>
-                    <!-- /.slider-captions -->
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
+  {% endfor %}
+  <!-- /.slider-img -->
 </div>

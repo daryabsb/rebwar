@@ -1,0 +1,1 @@
+from .model_slides import Slide

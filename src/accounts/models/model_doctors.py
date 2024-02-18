@@ -3,6 +3,7 @@ from django.db import models
 from src.accounts.managers import DoctorManager
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from src.core.modules import upload_image_file_path
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -17,7 +18,12 @@ class DoctorProfile(models.Model):
     specialty = models.CharField(max_length=300)
     description = models.CharField(max_length=255)
     featured = models.BooleanField(default=False)
+    image = models.ImageField(null=True, blank=True,
+                              default='uploads/user/default-user-avatar.png',
+                              upload_to=upload_image_file_path)
 
+    def __str__(self):
+        return self.name
 
 '''
 from src.accounts.models import DoctorProfile as DF

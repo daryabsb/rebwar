@@ -3,17 +3,19 @@
 {% load static %}
 <!--  -->
 {% block base_content %}
-<!-- /.header-wrapper -->
-{% include './partials/sliders.html' %}
-<!-- /.slider -->
-{% include './partials/services.html' %}
-<!-- /.space-medium -->
-{% include './partials/featured.html' %}
-<!-- /.space-medium -->
-{% include './partials/journey.html' %}
-<!-- /.space-medium -->
-{% include './partials/testimonial.html' %}
-<!-- /.space-medium -->
-{% include './partials/resources.html' %}
-<!-- /.space-medium -->
+<div>
+  <!-- /.header-wrapper -->
+  {% include './partials/sliders.html' with slides=slides %}
+  <!-- /.slider -->
+  {% include './partials/services.html' %}
+  <!-- /.space-medium -->
+  {% include './partials/featured.html' with doctor=doctor %}
+  <!-- /.space-medium -->
+  {% include './partials/journey.html' %}
+  <!-- /.space-medium -->
+  {% include './partials/testimonial.html' %}
+  <!-- /.space-medium -->
+  {% include './partials/resources.html' %}
+  <!-- /.space-medium -->
+</div>
 {% endblock base_content %}

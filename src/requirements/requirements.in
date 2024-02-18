@@ -13,3 +13,4 @@ tzlocal
 django-split-settings
 icecream
 python-decouple
+cryptography
