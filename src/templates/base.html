@@ -3,17 +3,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <meta name="description" content="Site is perfectly designed for Orthopedic and Halthcare website." />
-  <meta name="keywords"
-    content="medical website templates, bootstrap medical website templates, clinic website template, hospital website template, medical & healthcare Templates, Orthopaedic website templates, Clinic Templates, responsive website template" />
-  <title>Site - Orthopaedic Surgeon Website</title>
-  <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% include 'base/meta.html' %}
 
+<link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}" />
+    <title>Site - Orthopaedic Surgeon Website</title>
   {% include 'base/css.html' %}
 
   <title>
@@ -22,12 +15,14 @@
 </head>
 
 <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
-
-
+  {% include 'base/header.html' %}
   {% block base_content %}
   <!--  -->
   {% endblock base_content %}
-
+  
+  {% include 'base/footer.html' %}
+  <!-- back to top icon -->
+  <a href="#0" class="cd-top" title="Go to top">Top</a>
   {% include 'base/js.html' %}
 
   {% block base_js %} {% endblock base_js %}

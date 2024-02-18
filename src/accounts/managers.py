@@ -1,5 +1,5 @@
 from django.contrib.auth.models import BaseUserManager
-
+from django.db import models
 # from src.core.modules import generate_activation_code
 
 
@@ -27,3 +27,33 @@ class UserManager(BaseUserManager):
         user.is_superuser = True
         user.save(using=self._db)
         return user
+
+
+class DoctorManager(models.Manager):
+    def create_doctor(self, email, name, specialty, description, featured):
+        from django.contrib.auth import get_user_model
+
+        User = get_user_model()
+        # Set a default password for the user
+        default_password = "defaultpassword@1234"
+
+        # Get or create a User with the provided email
+        user = User.objects.get(email=email)
+
+        # If the user already exists, update the username field
+        if not user:
+            user = User.objects.create_user(
+                email, default_password, name
+            )
+
+        # Create the Doctor instance without the user field
+        doctor = self.create(
+            user=user,
+            name=name,
+            email=email,
+            specialty=specialty,
+            description=description,
+            featured=featured
+        )
+
+        return doctor

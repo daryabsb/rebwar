@@ -5,14 +5,12 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 
 
-class User(PermissionsMixin, AbstractBaseUser):
+class UserBase(PermissionsMixin, AbstractBaseUser):
     # Custom user model supports email instead of username
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255, null=True, blank=True)
 
     is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    is_doctor = models.BooleanField(default=False)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -20,3 +18,6 @@ class User(PermissionsMixin, AbstractBaseUser):
     objects = UserManager()
 
     USERNAME_FIELD = "email"
+
+    class Meta:
+        abstract = True
