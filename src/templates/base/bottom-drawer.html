@@ -1,0 +1,74 @@
+<!-- drawer init and toggle -->
+<!-- <div class="text-center">
+    <button
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        type="button" data-drawer-backdrop="false" data-drawer-target="drawer-swipe" data-drawer-show="drawer-swipe"
+        data-drawer-placement="bottom" data-drawer-edge="true" data-drawer-edge-offset="bottom-[5px]"
+        aria-controls="drawer-swipe">
+        <svg class="h-10 w-10" viewBox="0 0 20 20" fill="white" aria-hidden="true">
+            <path
+                d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+        </svg>
+    </button>
+</div> -->
+<!-- <button class="flex items-center justify-center gap-x-4 rounded-xl bg-white/5 p-4 ring-1 ring-inset ring-white/10"
+    @click.prevent="toggleSubscriptionsSlide()" data-drawer-target="drawer-swipe" data-drawer-show="drawer-swipe"
+    data-drawer-placement="bottom" data-drawer-edge="true" data-drawer-edge-offset="bottom-[60px]"
+    aria-controls="drawer-swipe">
+    <svg class="h-10 w-10" viewBox="0 0 20 20" fill="white" aria-hidden="true">
+        <path
+            d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+    </svg>
+</button> -->
+
+<!-- drawer component -->
+<!-- bottom-[60px] -->
+<div
+  id="drawer-swipe"
+  class="hidden fixed z-70 w-full overflow-y-auto bg-white border-t border-gray-200 rounded-t-lg dark:border-gray-700 dark:bg-gray-800 transition-transform bottom-0 left-0 right-0 translate-y-full"
+  tabindex="-1"
+  aria-labelledby="drawer-swipe-label"
+>
+  <div class="p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700" data-drawer-toggle="drawer-swipe">
+    <span
+      class="absolute w-8 h-1 -translate-x-1/2 bg-gray-300 rounded-lg top-3 left-1/2 dark:bg-gray-600"
+    ></span>
+    <h5 id="drawer-swipe-label" class="inline-flex items-center text-base text-gray-500 dark:text-gray-400">
+      <svg
+        class="w-5 h-5 mr-2"
+        aria-hidden="true"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"
+        ></path>
+        <!--  --></svg
+      >Add widget
+    </h5>
+  </div>
+  <div class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-2">
+    {% for item in items.subscriptions %}
+    <div
+      class="p-4 rounded-lg cursor-pointer bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-600 dark:bg-gray-700"
+    >
+      <div
+        class="flex justify-center items-center p-2 mx-auto mb-2 max-w-[48px] bg-gray-200 dark:bg-gray-500 rounded-full w-18 h-18"
+      >
+        <svg
+          class="inline w-8 h-8 text-gray-500 dark:text-gray-400"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+          <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+        </svg>
+      </div>
+      <div class="font-medium text-center text-white dark:text-gray-400">{{item.name}}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
