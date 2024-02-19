@@ -7,6 +7,7 @@ DATABASE_URL = config("DATABASE_URL", default=None)
 HOST_ENV = config('HOST_ENV', default='office')
 
 if DATABASE_URL is not None:
+    print("DATABASE_URL: ", DATABASE_URL)
     DATABASES = {
         'default': dj_database_url.config(
             default=DATABASE_URL,
@@ -15,7 +16,7 @@ if DATABASE_URL is not None:
         )
     }
 else:
-    DATABASE_NAME = config("DATABASE_NAME")
+    DATABASE_NAME = config("DATABASE_NAME", default='allaf_db')
     DATABASE_USER = config("DATABASE_USER")
     DATABASE_PASSWORD = config("DATABASE_PASSWORD")
     DATABASE_HOST = config("DATABASE_HOST")

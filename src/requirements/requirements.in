@@ -4,6 +4,7 @@ django-cors-headers
 djangorestframework>=3.14
 django-filter
 psycopg2
+psycopg2-binary
 dj-database-url
 Pillow
 autopep8

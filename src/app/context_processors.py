@@ -1,4 +1,5 @@
 from django.conf import settings
+from src.core.models import Service  # Replace with your actual model
 
 
 def vendor_files(request):
@@ -12,6 +13,13 @@ def vendor_files(request):
         "vendor_js_files": js_files,
         "vendor_css_files": css_files,
     }
+
+
+def menu_data(request):
+    # Retrieve menu data from the database or any other source
+    menu_items = Service.objects.all()  # Replace with your actual query
+    # Add the menu data to the context
+    return {'menu_items': menu_items}
 
 
 # def global_settings(request):

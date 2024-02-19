@@ -8,5 +8,3 @@ STATIC_ROOT = BASE_DIR.parent / "local-cdn" / "static"
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR.parent / "local-cdn" / "media"
 PROTECTED_MEDIA_ROOT = BASE_DIR.parent / "local-cdn" / "protected"
-
-print(STATIC_ROOT)

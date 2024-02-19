@@ -54,6 +54,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 "src.app.context_processors.vendor_files",
+                "src.app.context_processors.menu_data",
             ],
         },
     },

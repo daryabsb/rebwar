@@ -1,34 +1,24 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    {% include 'base/meta.html' %}
 
-<head>
-{% include 'base/meta.html' %}
-
-<link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}" />
+    <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}" />
     <title>Site - Orthopaedic Surgeon Website</title>
-  {% include 'base/css.html' %}
+    {% include 'base/css.html' %}
 
-  <title>
-    {% block head_title %}Zeneon Software LLC.{% endblock head_title %}
-  </title>
-</head>
+    <title>
+      {% block head_title %}Zeneon Software LLC.{% endblock head_title %}
+    </title>
+  </head>
 
-<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
-  {% include 'base/header.html' %}
-  {% block base_content %}
-  <!--  -->
-  {% endblock base_content %}
-  
-  {% include 'base/footer.html' %}
-  <!-- back to top icon -->
-  <a href="#0" class="cd-top" title="Go to top">Top</a>
-  {% include 'base/js.html' %}
-
-  {% block base_js %} {% endblock base_js %}
-
-
-
-</body>
-
+  <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+    {% include 'base/header.html' with menu_items=menu_items %} {% block base_content %}
+    <!--  -->
+    {% endblock base_content %} {% include 'base/footer.html' %}
+    <!-- back to top icon -->
+    <a href="#0" class="cd-top" title="Go to top">Top</a>
+    {% include 'base/js.html' %} {% block base_js %} {% endblock base_js %}
+  </body>
 </html>
