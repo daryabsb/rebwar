@@ -14,64 +14,22 @@
             </div>
         </div>
         <div class="row">
+        {% for journey in journeys %}
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="step-block bg-default">
-                    <div class="step-icon"><i class="icon-medical-records"></i></div>
+                    <div class="step-icon"><i class="{{ journey.icon }}"></i></div>
                     <div class="step-content">
-                        <h3 class="step-title">Consultation</h3>
+                        <h3 class="step-title">{{ journey.title }}</h3>
                         <ul class="listnone">
-                            <li>Medical History</li>
-                            <li>Physical Examination</li>
-                            <li>X-rays</li>
-                            <li>Other Tests</li>
+                            {% for detail in journey.journey_details.all %}
+                            <li>{{ detail.text }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
-                    <div class="step-number"><span class="step-circle">1</span></div>
+                    <div class="step-number"><span class="step-circle">{{ journey.id }}</span></div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="step-block bg-default">
-                    <div class="step-icon"><i class="icon-stethoscope"></i></div>
-                    <div class="step-content">
-                        <h3 class="step-title">Find Right Surgery</h3>
-                        <ul class="listnone">
-                            <li>Holistic Approach</li>
-                            <li>Age, Pain Level</li>
-                            <li>Functional Impairment</li>
-                            <li>Risk Factors</li>
-                        </ul>
-                    </div>
-                    <div class="step-number"><span class="step-circle">2</span></div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="step-block bg-default">
-                    <div class="step-icon"><i class="icon-drugs-3"></i></div>
-                    <div class="step-content">
-                        <h3 class="step-title">Procedure</h3>
-                        <ul class="listnone">
-                            <li>Preparing for Surgery</li>
-                            <li>Post Procedure</li>
-                            <li>Procedure at time</li>
-                        </ul>
-                    </div>
-                    <div class="step-number"><span class="step-circle">3</span></div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="step-block bg-default">
-                    <div class="step-icon"><i class="icon-wheelchair"></i></div>
-                    <div class="step-content">
-                        <h3 class="step-title">Follow-up Care</h3>
-                        <ul class="listnone">
-                            <li>Caring for Your Incision</li>
-                            <li>Physical Activity</li>
-                            <li>Follow-Up Visit</li>
-                        </ul>
-                    </div>
-                    <div class="step-number"><span class="step-circle">4</span></div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

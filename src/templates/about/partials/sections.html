@@ -1,0 +1,41 @@
+{% for about in abouts %}
+<div class="space-small">
+    <div class="row">
+
+
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="col-lg-offset-1 col-lg-5 col-md-offset-1 col-md-5 col-sm-6 col-xs-12">
+            <div class="about-content">
+                <h1 class="about-title">{{ about.title}}</h1>
+                <p class="mb30">Clinic and is one of the world's leading orthopaedic surgeons.. Quis que eges
+                    tas congu egue consec tetur sodales. Nunc sit amet sagit tis tortor. Aenean facil isis massa
+                    eros, quis condi mentum sem lacinia eu.</p>
+                <a href="#" class="btn btn-default">meet doctors</a>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="about-img">
+                <a href="#" class="imghover"><img src="{{ about.image.url }}"
+                        alt="Practice - Orthopaedic Surgeon Website Template" class="img-responsive"></a>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="about-img">
+                <a href="#" class="imghover"><img src="{{ about.image.url }}"
+                        alt="Practice - Orthopaedic Surgeon Website Template" class="img-responsive"></a>
+            </div>
+        </div>
+        <div class="col-lg-offset-1 col-lg-5 col-md-offset-1 col-md-5 col-sm-6 col-xs-12">
+            <div class="about-content">
+                <h1 class="about-title">{{ about.title}}</h1>
+                <p class="mb30">Clinic and is one of the world's leading orthopaedic surgeons.. Quis que eges
+                    tas congu egue consec tetur sodales. Nunc sit amet sagit tis tortor. Aenean facil isis massa
+                    eros, quis condi mentum sem lacinia eu.</p>
+                <a href="#" class="btn btn-default">meet doctors</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}

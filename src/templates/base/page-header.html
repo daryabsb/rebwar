@@ -1,0 +1,21 @@
+<div class="page-header">
+    <!-- page-header -->
+    <div class="container">
+        <div class="page-section">
+            <div class="row">
+                <!-- page section -->
+                <div class="col-md-6 col-sm-8 col-xs-12">
+                    <div class="page-description">
+                        <!-- page description -->
+                        <h1 class="page-title">{{page_title}}</h1>
+                    </div>
+                    <!-- /.page description -->
+                </div>
+                <!-- /.page section -->
+            </div>
+        </div>
+    </div>
+</div>
+{% if page_crumbs %}
+{% include './breadcrumb.html' with page_crumbs=page_crumbs %}
+{% endif %}

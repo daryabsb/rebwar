@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+<!--  -->
+{% load static %}
+<!--  -->
+{% block base_content %}
+
+{% include 'base/page-header.html' with page_title='About Us' page_crumbs=page_crumbs %}
+
+
+<div class="space-medium">
+    <!-- space-medium -->
+    <div class="container">
+        {% include 'base/opening.html' with opening=opening %}
+        {% include './partials/sections.html' with abouts=abouts %}
+    </div>
+</div>
+<!-- /.space-medium -->
+
+{% include 'base/cta.html' %}
+{% endblock base_content %}
