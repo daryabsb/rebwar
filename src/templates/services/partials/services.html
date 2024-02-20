@@ -9,12 +9,12 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="treatment-circle">
-                                <a href="#"><i class="icon-human-hip"></i></a>
+                                <a href="{{ service.get_absolute_url}}"><i class="{{ service.icon}}"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                             <div class="treatment-content">
-                                <h2 class="treatment-title"><a href="#" class="title">{{ service.title }}</a></h2>
+                                <h2 class="treatment-title"><a href="{{ service.get_absolute_url}}" class="title">{{ service.title }}</a></h2>
                                 <p>
                                     {{ service.description }}
                                 </p>
