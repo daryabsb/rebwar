@@ -24,6 +24,7 @@ LOCAL_APPS = [
     "src.app",
     'src.accounts',
     'src.core',
+    'src.blogs',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
