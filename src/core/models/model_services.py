@@ -48,6 +48,10 @@ class Procedure(models.Model):
         Treatment, on_delete=models.CASCADE, related_name="procedures")
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=300, null=True, blank=True)
+    ordinal = models.SmallIntegerField(null=True, blank=True)
+
+    class Meta:
+        ordering = ['ordinal']
 
     def __str__(self):
-        return f"{self.title}: {self.description}"
+        return f"{self.treatment.title}: {self.title}: {self.description}"

@@ -20,11 +20,11 @@
                     </div>
                 </div>
                 {% include './partials/conditions.html' with treatment=treatment %}
-                {% include './partials/procedures.html' %}
+                {% include './partials/procedures.html' with treatment=treatment %}
 
                 <a href="/services" class="btn-link pull-right">back to services</a>
             </div>
-            {% include './partials/sidebar.html' %}
+            {% include './partials/sidebar.html' with menu_items=menu_items id=service.id %}
         </div>
     </div>
 </div>

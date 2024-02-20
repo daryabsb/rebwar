@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
             <h2>{{ treatment.title }} Conditions</h2>
-            <p>{{ treatment.conditions_description }}</p>
+            <p>{{ treatment.conditions_description | safe }}</p>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <ul class="listnone bullet bullet-circle-right">

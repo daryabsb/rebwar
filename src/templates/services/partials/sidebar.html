@@ -3,19 +3,15 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="side-nav mb-30  ">
                 <ul class="listnone sidenav">
-                    <li class="active"> <a href="#"><i class="icon-human-hip service-sidenav-icon "></i><span
-                                class="sidenav-text">Hip Surgery</span></a></li>
-                    <li> <a href="#"><i class="icon-men-knee service-sidenav-icon"></i><span class="sidenav-text">Knee
-                                Surgery</span> </a></li>
-                    <li> <a href="#"><i class="icon-men-hand service-sidenav-icon"></i><span class="sidenav-text">Hand
-                                &amp; Wrist Surgery</span> </a></li>
-                    <li> <a href="#"><i class="icon-men-elbow service-sidenav-icon"></i><span
-                                class="sidenav-text">Shoulder &amp; Elbow Surgery</span> </a>
-                    </li>
-                    <li> <a href="#"><i class="icon-human-ankle service-sidenav-icon"></i><span
-                                class="sidenav-text">Foot &amp; Ankle Surgery</span> </a></li>
-                    <li> <a href="#"><i class="icon-human-spine service-sidenav-icon"></i><span
-                                class="sidenav-text">Spine Surgery</span> </a></li>
+                    {% for menu in menu_items %}
+                    {% if menu.id == id %}
+                    <li class="active"> <a href="{{ menu.get_absolute_url }}"><i class="{{ menu.icon }} service-sidenav-icon "></i><span
+                                class="sidenav-text">{{ menu.title }}</span></a></li>
+                    {% else %}
+                    <li> <a href="{{ menu.get_absolute_url }}"><i class="{{ menu.icon }} service-sidenav-icon "></i><span
+                                class="sidenav-text">{{ menu.title }}</span></a></li>
+                    {% endif %}
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -69,6 +65,7 @@
                             <label class="control-label" for="Treatment"> </label>
                             <div class="col-md-12">
                                 <select id="Treatment" name="Treatment" class="form-control">
+
                                     <option value="Hip Surgery">Hip Surgery</option>
                                     <option value="Knee Surgery">Knee Surgery</option>
                                     <option value="Hand & Wrist Surgery">Hand &amp; Wrist
