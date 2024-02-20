@@ -7,7 +7,7 @@
                     {% for crumb in page_crumbs %}
                     <li><a href="{{ crumb.url }}"> {{ crumb.title }}</a></li>
                     {% endfor %}
-                    <li class="active">About us</li>
+                    <li class="active">{{ page_title }}</li>
                 </ol>
             </div>
         </div>

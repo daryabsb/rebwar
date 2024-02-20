@@ -22,8 +22,10 @@ from src.app import views
 
 urlpatterns = [
     path('', views.home_view, name='index'),
-    path('about/', views.about_view, name='about'),
     path('admin/', admin.site.urls),
+    path('about/', views.about_view, name='about'),
+    path('services/', views.services_view, name='services'),
+    path('services/<int:id>/', views.services_detail_view, name='services-detail'),
 ]
 
 if settings.DEBUG:

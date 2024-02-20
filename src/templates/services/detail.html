@@ -1,0 +1,31 @@
+{% extends "internal-base.html" %}
+<!--  -->
+{% block page_header %}
+{% include 'base/page-header.html' with page_title=page_title page_crumbs=page_crumbs %}
+<!--  -->
+{% endblock page_header %}
+{% block page_body %}
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="content-area">
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12"> <img src="{{ service.image.url }}" class="img-responsive mb30"
+                            alt="Practice - Orthopaedic Surgeon Website Template">
+                        <div class="mb30">
+                            <h1>{{ service.title }}</h1>
+                            <p class="lead">{{ service.description | safe }}</p>
+                            <p>{{service.detailed_description | safe }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% include './partials/conditions.html' with treatment=treatment %}
+                {% include './partials/procedures.html' %}
+
+                <a href="/services" class="btn-link pull-right">back to services</a>
+            </div>
+            {% include './partials/sidebar.html' %}
+        </div>
+    </div>
+</div>
+{% endblock page_body %}

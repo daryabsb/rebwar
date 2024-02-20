@@ -1,0 +1,16 @@
+<div class="bg-default pinside30 mb30">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <h2>{{ treatment.title }} Conditions</h2>
+            <p>{{ treatment.conditions_description }}</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <ul class="listnone bullet bullet-circle-right">
+                {% for condition in treatment.conditions.all %}
+                <li>{{ condition.text }}</li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+</div>

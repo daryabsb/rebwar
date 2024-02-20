@@ -1,0 +1,30 @@
+<div class="space-medium">
+    <!-- space-medium -->
+    <div class="container">
+
+        <div class="row">
+            {% for service in services %}
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                <div class="treatment-block">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="treatment-circle">
+                                <a href="#"><i class="icon-human-hip"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                            <div class="treatment-content">
+                                <h2 class="treatment-title"><a href="#" class="title">{{ service.title }}</a></h2>
+                                <p>
+                                    {{ service.description }}
+                                </p>
+                                <a href="{{ service.get_absolute_url}}" class="btn-link">view more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -22,7 +22,7 @@
               <a href="/services" title="Services">Services</a>
               <ul>
                 {% for menu in menu_items %}
-                <li><a href="/about" title="About Us">{{menu.title}}</a></li>
+                <li><a href="{{ menu.get_absolute_url }}" title="About Us">{{menu.title}}</a></li>
                 {% endfor %}
               </ul>
             </li>

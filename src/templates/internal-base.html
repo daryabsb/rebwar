@@ -4,7 +4,16 @@
 <!--  -->
 {% block base_content %}
 
+{% block page_header %}{% endblock page_header %}
 
+<div class="space-medium">
+    <!-- space-medium -->
+    <div class="container">
+        {% block page_body %}
+        {% endblock page_body %}
+    </div>
+</div>
+<!-- /.space-medium -->
 
-
+{% include 'base/cta.html' %}
 {% endblock base_content %}

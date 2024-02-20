@@ -14,9 +14,21 @@
   </head>
 
   <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
-    {% include 'base/header.html' with menu_items=menu_items %} {% block base_content %}
+    {% include 'base/header.html' with menu_items=menu_items %}
+
     <!--  -->
-    {% endblock base_content %} {% include 'base/footer.html' %}
+    {% block landing_content %}
+    <!--  -->
+    {% endblock landing_content %}
+    
+    
+    <!--  -->
+    {% block base_content %}
+    <!--  -->
+    {% endblock base_content %}
+    
+    <!--  -->
+    {% include 'base/footer.html' %}
     <!-- back to top icon -->
     <a href="#0" class="cd-top" title="Go to top">Top</a>
     {% include 'base/js.html' %} {% block base_js %} {% endblock base_js %}

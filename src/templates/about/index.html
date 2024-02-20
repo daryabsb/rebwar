@@ -1,20 +1,10 @@
-{% extends "base.html" %}
+{% extends "internal-base.html" %}
 <!--  -->
-{% load static %}
+{% block page_header %}
+{% include 'base/page-header.html' with page_title=page_title page_crumbs=page_crumbs %}
 <!--  -->
-{% block base_content %}
-
-{% include 'base/page-header.html' with page_title='About Us' page_crumbs=page_crumbs %}
-
-
-<div class="space-medium">
-    <!-- space-medium -->
-    <div class="container">
-        {% include 'base/opening.html' with opening=opening %}
-        {% include './partials/sections.html' with abouts=abouts %}
-    </div>
-</div>
-<!-- /.space-medium -->
-
-{% include 'base/cta.html' %}
-{% endblock base_content %}
+{% endblock page_header %}
+{% block page_body %}
+{% include 'base/opening.html' with opening=opening %}
+{% include './partials/sections.html' with abouts=abouts %}
+{% endblock page_body %}
