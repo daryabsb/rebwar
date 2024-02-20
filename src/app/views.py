@@ -71,8 +71,6 @@ def services_detail_view(request, id):
         "description": "We are specializes in treatment of Hip, Knee, Shoulder and Regenerative Medicine. Latest medical technology with the state of art medical facility to provide his patients the best possible outcome."
     }
 
-    print(treatment.conditions_description)
-
     context = {
         "service": service,
         "treatment": treatment,

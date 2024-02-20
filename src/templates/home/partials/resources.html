@@ -1,117 +1,18 @@
 {% load static %}
 <div class="space-medium">
-    <!-- space-medium -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="location-block">
-                    <div class="section-title">
-                        <h1>Locations &amp; Directions</h1>
-                    </div>
-                    <div class="location-area">
-                        <div class="location-map"><img src="{% static 'vendor/images/location-map.jpg' %}" alt=" " />
-                        </div>
-                        <div class="location-captions">
-                            <p>Orthopaedic Clinic, Zeppelinstr 533970, Sydney NSW.</p>
-                            <p>1- 800-1234-567</p>
-                            <a href="#" class="btn-link">more locations</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="resources-block">
-                    <div class="section-title">
-                        <h1>Patient Resources</h1>
-                    </div>
-                    <div class="widget-resources">
-                        <ul class="listnone">
-                            <li>
-                                <a href="#"><i class="fontello-icon icon-3x icon-note"></i> Patient’s Form</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fontello-icon icon-3x icon-avatar"></i> your first Visit</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fontello-icon icon-3x icon-notepad"></i> Instruction After OP</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fontello-icon icon-3x icon-video-player"></i> Patient’s
-                                    Educations</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="appointment-block">
-                    <div class="section-title">
-                        <h1>Book An Appointments</h1>
-                    </div>
-                    <div class="bg-default widget-appointments">
-                        <form class="form-horizontal" method="post" action="booking-form.php">
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="control-label" for="Name"> </label>
-                                <div class="col-md-12">
-                                    <input id="Name" name="Name" type="text" placeholder="Name"
-                                        class="form-control input-md" />
-                                </div>
-                            </div>
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="control-label" for="Email"> </label>
-                                <div class="col-md-12">
-                                    <input id="Email" name="Email" type="email" placeholder="Email"
-                                        class="form-control input-md" />
-                                </div>
-                            </div>
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="control-label" for="Phone"> </label>
-                                <div class="col-md-12">
-                                    <input id="Phone" name="Phone" type="text" placeholder="Phone"
-                                        class="form-control input-md" />
-                                </div>
-                            </div>
-                            <!-- Select Basic -->
-                            <div class="form-group">
-                                <label class="control-label" for="Treatment"> </label>
-                                <div class="col-md-12">
-                                    <select id="Treatment" name="Treatment" class="form-control">
-                                        <option value="Hip Surgery">Hip Surgery</option>
-                                        <option value="Knee Surgery">Knee Surgery</option>
-                                        <option value="Hand & Wrist Surgery">Hand &amp; Wrist Surgery</option>
-                                        <option value="Shoulder & Elbow Surgery">Shoulder &amp; Elbow Surgery</option>
-                                        <option value="Foot & Ankle Surgery">Foot &amp; Ankle Surgery</option>
-                                        <option value="Spine Surgery">Spine Surgery</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="sr-only" for="datepicker">date</label>
-                                <div class="col-md-12">
-                                    <div class="input-group">
-                                        <input id="datepicker" name="datepicker" type="text" placeholder="Date"
-                                            class="form-control" required />
-                                        <span class="input-group-addon" id="basic-addon2"><i
-                                                class="fa fa-calendar"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Button -->
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary">
-                                        Confirm My Appointment
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <!-- space-medium -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        {% include 'base/location-map.html' with title=True %}
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        {% include 'base/resources.html' with title=True %}
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <!--  -->
+        {% include 'base/appointment-form.html' with title=True %}
+      </div>
     </div>
+  </div>
 </div>

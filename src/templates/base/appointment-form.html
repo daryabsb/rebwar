@@ -1,0 +1,62 @@
+<div class="appointment-block">
+  <div class="bg-default widget-appointments">
+    {% if widget_title %}
+    <h3 class="widget-title">Make An Appointments</h3>
+    {% endif %} {% if title %}
+    <div class="section-title">
+      <h1>Book An Appointments</h1>
+    </div>
+    {% endif %}
+
+    <form class="form-horizontal" method="post" action="booking-form.php">
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="control-label" for="Name"> </label>
+        <div class="col-md-12">
+          <input id="Name" name="Name" type="text" placeholder="Name" class="form-control input-md" />
+        </div>
+      </div>
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="control-label" for="Email"> </label>
+        <div class="col-md-12">
+          <input id="Email" name="Email" type="email" placeholder="Email" class="form-control input-md" />
+        </div>
+      </div>
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="control-label" for="Phone"> </label>
+        <div class="col-md-12">
+          <input id="Phone" name="Phone" type="text" placeholder="Phone" class="form-control input-md" />
+        </div>
+      </div>
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label class="control-label" for="Treatment"> </label>
+        <div class="col-md-12">
+          <select id="Treatment" name="Treatment" class="form-control">
+            {% for menu in menu_items %}
+            <option value="{{ menu.id }}">{{ menu.title }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="sr-only" for="datepicker">date</label>
+        <div class="col-md-12">
+          <div class="input-group">
+            <input id="datepicker" name="datepicker" type="text" placeholder="date" class="form-control" required />
+            <span class="input-group-addon" id="basic-addon2"><i class="fa fa-calendar"></i></span>
+          </div>
+        </div>
+      </div>
+      <!-- Button -->
+      <div class="form-group">
+        <div class="col-md-12">
+          <button id="singlebutton" name="singlebutton" class="btn btn-primary">Confirm My Appointment</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
