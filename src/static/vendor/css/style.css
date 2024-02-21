@@ -1941,6 +1941,8 @@ button.btn {
 .gallery-block {
 }
 
+
+
 /*------------------------
  10. Blog pages
 --------------------------*/
@@ -1986,6 +1988,20 @@ button.btn {
 .meta-comment {
 }
 .meta-category {
+}
+
+.comment-thumbnail {
+  display: inline-block;
+  max-width: 116px;
+  height: auto;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 .post-meta span:after {
   margin-left: 10px;

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
+from django.urls import path, include
 
 from src.app import views
 
@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', views.about_view, name='about'),
     path('services/', views.services_view, name='services'),
+    path('blogs/', include('src.blogs.urls')),
     path('services/<int:id>/', views.services_detail_view, name='services-detail'),
 ]
 
