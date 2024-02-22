@@ -1,177 +1,170 @@
 {% extends "internal-base.html" %}
 <!--  -->
-{% block page_header %}
-{% include 'base/page-header.html' with page_title=page_title page_crumbs=page_crumbs %}
+{% block page_header %} {% include 'base/page-header.html' with page_title=page_title page_crumbs=page_crumbs %}
 <!--  -->
-{% endblock page_header %}
-{% block page_body %}
+{% endblock page_header %} {% block page_body %}
 <div class="content">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <div class="content-area">
-                    <div class="row">
-                        <!-- <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12" id="blog-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="content-area">
+          <div class="row">
+            <!-- <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12" id="blog-container">
 
                         </div> -->
-                        {% for blog in blogs %}
-                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
-                            <div class="post-block">
-                                <div class="meta-box">
-                                    <p class="meta-date">10 FEB</p>
-                                </div>
-                                <div class="post-img">
-                                    <a href="blog-single.html" class="imghover"><img src="{{ blog.image.url}}"
-                                            class="img-responsive"
-                                            alt="Practice - Orthopaedic Surgeon Website Template"></a>
-                                </div>
-                                <div class="post-content">
-                                    <h1 class="post-title"><a href="blog-single.html" class="title">{{ blog.title }}</a>
-                                    </h1>
-                                    <div class="post-meta mb20">
-                                        <span class="meta-author"> By <a href="#" class="title"> {{ blog.author.name }}
-                                            </a>
-                                        </span>
-                                        <span class="meta-category"><a href="#" class="title">Spinal Surgery</a></span>
-                                        <span class="meta-comment"> {{ blog.comments.count}} <a href="#" class="title">
-                                                Comments </a></span>
-                                        <span class="meta-comment"> {{ blog.likes.count}} <a href="#" class="title">
-                                                Likes </a></span>
-                                    </div>
-                                    <p class="mb30">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                                        dictum purus non graviduis congue arcu. Cras tincidunt volutpat magna ut
-                                        teaesent ullamcorper dui id porttitor ultrices. Maecenas et augue eu nibh
-                                        suscipit iaculis in nec massa. Nunc idn, esbus orci ligulusto, ultrices semper
-                                        dolor mattis vitae.</p>
-                                    <a href="blog-single.html" class="btn btn-primary">read more</a>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <h1>Quote of the day</h1>
-                            <div class="quote-block">
-                                <p>“ In aliquam orci in urna vestibulum, at vestibulum erat lacinia. lorem Aliquam
-                                    egestas mollis non net vestibulum aliquam.”</p>
-                                <h3 class="quote-name">- John Deo</h3>
-                            </div>
-                        </div>
-                    </div>
+            {% for blog in blogs %}
+            <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+              <div class="post-block">
+                <div class="meta-box">
+                  <p class="meta-date">10 FEB</p>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <div class="sidebar">
-                    <!-- sidebar-area -->
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="widget widget-search">
-                                <!--widget-search -->
-                                <form>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search Here">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button"><i
-                                                    class="fa fa-search"></i></button>
-                                        </span>
-                                    </div>
-                                    <!-- /input-group -->
-                                </form>
-                            </div>
-                            <!--/.widget-search -->
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="widget widget-category">
-                                <h3 class="widget-title">Orthopadiec Treatments</h3>
-                                <ul class="listnone bullet-double-angle">
-                                    <li> <a href="#">Hip Surgery</a></li>
-                                    <li><a href="#">Knee Surgery</a></li>
-                                    <li><a href="#">Hand &amp; Wrist Surgery</a></li>
-                                    <li><a href="#">Shoulder &amp; Elbow Surgery</a></li>
-                                    <li><a href="#">Foot &amp; Ankle Surgery</a></li>
-                                    <li><a href="#">Spine Surgery</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="widget widget-archives">
-                                <h3 class="widget-title">archives</h3>
-                                <ul class="listnone bullet-double-angle">
-                                    <li> <a href="#">January 2017</a></li>
-                                    <li><a href="#">December 2016</a></li>
-                                    <li><a href="#">November 2016</a></li>
-                                    <li><a href="#">October 2016</a></li>
-                                    <li><a href="#">September 2016</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="widget widget-recent-post">
-                                <h3 class="widget-title mb30">Latest News</h3>
-                                <ul class="listnone">
-                                    <li>
-                                        <div class="recent-block mb20">
-                                            <div class="row">
-                                                <div class="col-md-12 col-sm-6 col-xs-12">
-                                                    <div class="meta-box">
-                                                        <p class="meta-date">15 FEB</p>
-                                                    </div>
-                                                    <a href="#" class="imghover"><img
-                                                            src="/static/vendor/images/recent-img-1.jpg" alt=""
-                                                            class="img-responsive"></a>
-
-
-                                                    <h4 class="recent-title"><a href="#" class="title">3 Simple Tips to
-                                                            Improve Your Orthopedic Health.</a></h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="recent-block mb20">
-                                            <div class="row">
-                                                <div class="col-md-12 col-sm-6 col-xs-12">
-                                                    <div class="meta-box">
-                                                        <p class="meta-date">14 FEB</p>
-                                                    </div>
-                                                    <a href="#" class="imghover"><img
-                                                            src="/static/vendor/images/recent-img-2.jpg" alt=""
-                                                            class="img-responsive mb10"></a>
-
-                                                    <h4 class="recent-title"><a href="#" class="title">Heading of
-                                                            orthopeadic News</a></h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 ">
-                            <!--  tags -->
-                            <div class="widget widget-tags">
-                                <!--widget-tags-->
-                                <h3 class="widget-title mb30">Tags</h3>
-                                <!-- widget title -->
-                                <div class="widget-tag">
-                                    <a href="#" title="ortho">ortho</a> <a href="#" title="surgery">surgery</a> <a
-                                        href="#" title="knee surgery">knee surgery</a> <a href="#"
-                                        title="foot and ankel">foot and ankel</a> <a href="#"
-                                        title="spine surgery">spine surgery</a> <a href="#" title="elbow">elbow</a> <a
-                                        href="#" title="wrist surgery">wrist surgery</a> <a href="#"
-                                        title="surgery">surgery</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="post-img">
+                  <a href="{{ blog.get_absolute_url }}" class="imghover"
+                    ><img
+                      src="{{ blog.image.url}}"
+                      class="img-responsive"
+                      alt="Practice - Orthopaedic Surgeon Website Template"
+                  /></a>
                 </div>
-                <!-- /.sidebar-area -->
+                <div class="post-content">
+                  <h1 class="post-title"><a href="{{ blog.get_absolute_url }}" class="title">{{ blog.title }}</a></h1>
+                  <div class="post-meta mb20">
+                    <span class="meta-author"> By <a href="#" class="title"> {{ blog.author.name }} </a> </span>
+                    <span class="meta-category"><a href="#" class="title">Spinal Surgery</a></span>
+                    <span class="meta-comment"> {{ blog.comments.count}} <a href="#" class="title"> Comments </a></span>
+                    <span class="meta-comment"> {{ blog.likes.count}} <a href="#" class="title"> Likes </a></span>
+                  </div>
+                  <p class="mb30">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum purus non graviduis congue
+                    arcu. Cras tincidunt volutpat magna ut teaesent ullamcorper dui id porttitor ultrices. Maecenas et
+                    augue eu nibh suscipit iaculis in nec massa. Nunc idn, esbus orci ligulusto, ultrices semper dolor
+                    mattis vitae.
+                  </p>
+                  <a href="{{ blog.get_absolute_url }}" class="btn btn-primary">read more</a>
+                </div>
+              </div>
             </div>
+            {% endfor %}
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <h1>Quote of the day</h1>
+              <div class="quote-block">
+                <p>
+                  “ In aliquam orci in urna vestibulum, at vestibulum erat lacinia. lorem Aliquam egestas mollis non net
+                  vestibulum aliquam.”
+                </p>
+                <h3 class="quote-name">- John Deo</h3>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
-<script>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="sidebar">
+          <!-- sidebar-area -->
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="widget widget-search">
+                <!--widget-search -->
+                <form>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search Here" />
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                  </div>
+                  <!-- /input-group -->
+                </form>
+              </div>
+              <!--/.widget-search -->
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="widget widget-category">
+                <h3 class="widget-title">Orthopadiec Treatments</h3>
+                <ul class="listnone bullet-double-angle">
+                  <li><a href="#">Hip Surgery</a></li>
+                  <li><a href="#">Knee Surgery</a></li>
+                  <li><a href="#">Hand &amp; Wrist Surgery</a></li>
+                  <li><a href="#">Shoulder &amp; Elbow Surgery</a></li>
+                  <li><a href="#">Foot &amp; Ankle Surgery</a></li>
+                  <li><a href="#">Spine Surgery</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="widget widget-archives">
+                <h3 class="widget-title">archives</h3>
+                <ul class="listnone bullet-double-angle">
+                  <li><a href="#">January 2017</a></li>
+                  <li><a href="#">December 2016</a></li>
+                  <li><a href="#">November 2016</a></li>
+                  <li><a href="#">October 2016</a></li>
+                  <li><a href="#">September 2016</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="widget widget-recent-post">
+                <h3 class="widget-title mb30">Latest News</h3>
+                <ul class="listnone">
+                  <li>
+                    <div class="recent-block mb20">
+                      <div class="row">
+                        <div class="col-md-12 col-sm-6 col-xs-12">
+                          <div class="meta-box">
+                            <p class="meta-date">15 FEB</p>
+                          </div>
+                          <a href="#" class="imghover"
+                            ><img src="/static/vendor/images/recent-img-1.jpg" alt="" class="img-responsive"
+                          /></a>
 
-</script>
+                          <h4 class="recent-title">
+                            <a href="#" class="title">3 Simple Tips to Improve Your Orthopedic Health.</a>
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="recent-block mb20">
+                      <div class="row">
+                        <div class="col-md-12 col-sm-6 col-xs-12">
+                          <div class="meta-box">
+                            <p class="meta-date">14 FEB</p>
+                          </div>
+                          <a href="#" class="imghover"
+                            ><img src="/static/vendor/images/recent-img-2.jpg" alt="" class="img-responsive mb10"
+                          /></a>
+
+                          <h4 class="recent-title"><a href="#" class="title">Heading of orthopeadic News</a></h4>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <!--  tags -->
+              <div class="widget widget-tags">
+                <!--widget-tags-->
+                <h3 class="widget-title mb30">Tags</h3>
+                <!-- widget title -->
+                <div class="widget-tag">
+                  <a href="#" title="ortho">ortho</a> <a href="#" title="surgery">surgery</a>
+                  <a href="#" title="knee surgery">knee surgery</a>
+                  <a href="#" title="foot and ankel">foot and ankel</a>
+                  <a href="#" title="spine surgery">spine surgery</a> <a href="#" title="elbow">elbow</a>
+                  <a href="#" title="wrist surgery">wrist surgery</a> <a href="#" title="surgery">surgery</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.sidebar-area -->
+      </div>
+    </div>
+  </div>
+</div>
+<script></script>
 
 {% endblock page_body %}

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
+from django.urls import reverse
 from src.core.modules import upload_image_file_path
 from django.contrib.auth import get_user_model
 
@@ -34,6 +35,9 @@ class Blog(models.Model):
 
     def __str__(self):
         return f"{self.title} by {self.author.name}"
+
+    def get_absolute_url(self):
+        return reverse('blog_detail', kwargs={'pk': self.pk})
 
 
 class Comment(models.Model):

@@ -79,3 +79,19 @@ def services_detail_view(request, id):
         "page_title": page_title,
     }
     return render(request, "services/detail.html", context=context)
+
+def contact_view(request):
+    abouts = About.objects.filter(featured=True).order_by('id')
+    page_crumbs = [{"title": "Home", "url": "/"}]
+    page_title = 'Contact Us'
+    opening = {
+        "title": "We are happy to hear from you,",
+        "description": "Please contact us using the information below."
+    }
+    context = {
+        "abouts": abouts,
+        "page_crumbs": page_crumbs,
+        "opening": opening,
+        "page_title": page_title,
+    }
+    return render(request, "contact/index.html", context=context)

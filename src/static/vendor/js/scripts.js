@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    // Get blogs when the page loads
-    $.get('/blogs/api/list/', function (data) {
-        // Iterate through the blogs and populate the HTML
-        $.each(data, function (index, blog) {
-            // Format date (you may need to adjust this based on your date format)
-            var formattedDate = new Date(blog.created).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  // Get blogs when the page loads
+  $.get("/blogs/api/list/", function (data) {
+    // Iterate through the blogs and populate the HTML
+    $.each(data, function (index, blog) {
+      // Format date (you may need to adjust this based on your date format)
+      var formattedDate = new Date(blog.created).toLocaleDateString("en-US", { month: "short", day: "numeric" });
 
-            // Generate HTML for each blog
-            var blogHtml = `
+      // Generate HTML for each blog
+      var blogHtml = `
                 <div class="post-block">
                     <div class="meta-box">
                         <p class="meta-date">${formattedDate}</p>
@@ -31,20 +31,24 @@ $(document).ready(function () {
                     </div>
                 </div>`;
 
-            // Append the generated HTML to the container
-            $('#blog-container').append(blogHtml);
-        });
+      // Append the generated HTML to the container
+      $("#blog-container").append(blogHtml);
     });
-    var blogId = $('#comment-area').data('blog-id');
+  });
+  var blogId = $("#comment-area").data("blog-id");
 
-    var commentsApiURL = `/blogs/api/${blogId}/comments/`
-    var commentsApiURL = `/blogs/api/${blogId}/comments/`
+  var commentsApiURL = `/blogs/api/${blogId}/comments/`;
+  var commentsApiURL = `/blogs/api/${blogId}/comments/`;
 
-    $.get(commentsApiURL, function(data){
-        $.each(data, function (index, comment) {
-            var commentFormattedDate = new Date(comment.pub_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-            var commentHtml = `<ul class="comment-list listnone">
-                    <li class="comment" id="comment" data-comment-id="${comment.id }">
+  $.get(commentsApiURL, function (data) {
+    $.each(data, function (index, comment) {
+      var commentFormattedDate = new Date(comment.pub_date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+      var commentHtml = `<ul class="comment-list listnone">
+                    <li class="comment" id="comment" data-comment-id="${comment.id}">
                     <div class="comment-body">
                     <div class="comment-author"><img src="${comment.user.image}"
                     alt="Practice - Orthopaedic Surgeon Website Template"
@@ -66,11 +70,15 @@ $(document).ready(function () {
                     </li>
                     </ul>`;
 
-                    $('#comment-area').append(commentHtml);
-                    if (comment.replies && comment.replies.length > 0) {
-                        $.each(comment.replies, function (replyIndex, reply) {
-                            var replyFormattedDate = new Date(reply.pub_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                            var childCommentNode = `
+      $("#comment-area").append(commentHtml);
+      if (comment.replies && comment.replies.length > 0) {
+        $.each(comment.replies, function (replyIndex, reply) {
+          var replyFormattedDate = new Date(reply.pub_date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+          var childCommentNode = `
                                 <ul class="childern listnone">
                                 <li class="comment">
                                     <div class="comment-body">
@@ -95,25 +103,90 @@ $(document).ready(function () {
                                     </div>
                                 </li>
                                 </ul>
-                                `
-                                $(`#replies-${comment.id}`).append(childCommentNode);
-                        })
-                    }
-            console.log(comment)
+                                `;
+          $(`#replies-${comment.id}`).append(childCommentNode);
         });
+      }
+      console.log(comment);
     });
+  });
 
-    // Submit a new comment
-    $('#submit-comment').on('click', function () {
-        var commentText = $('#comment-text').val();
-        $.post('/blogs/1/comments/', { 'text': commentText }, function (data) {
-            // Add the new comment to the list
-            $('#comment-list').append('<li>' + data.text + '</li>');
-        });
+  // Submit a new comment
+  $("#submit-comment").on("click", function () {
+    var commentText = $("#comment-text").val();
+    $.post("/blogs/1/comments/", { text: commentText }, function (data) {
+      // Add the new comment to the list
+      $("#comment-list").append("<li>" + data.text + "</li>");
     });
+  });
+});
+
+function loadMapScenario() {
+  // Replace 'YOUR_BING_MAPS_API_KEY' with your actual Bing Maps API key
+  var apiKey = "Av0A1_U_WYU7h7uKufynKoldlyplZ9gUaEQWEOFFVZG4fe9H8iYBL-mUqibHp97J";
+  var mapContainer = $("#bingMap");
+
+  // Check if Bing Maps API key is provided
+  //   if (apiKey === "YOUR_BING_MAPS_API_KEY") {
+  //     mapContainer.html("Please provide a valid Bing Maps API key.");
+  //     return;
+  //   }
+
+  // Replace LATITUDE and LONGITUDE with your desired coordinates
+  var latitude = 35.573611;
+  var longitude = 45.421012;
+
+  // Generate the Bing Maps API URL
+  var mapUrl = `https://www.bing.com/maps?cp=35.573611%7E45.421012&lvl=18.7&lvl=15&sty=r`;
+
+  // Embed the map using an iframe
+
+  mapContainer.html(
+    `<iframe src="${mapUrl}" 
+            style="width:600px;height:400px;" frameborder="0" scrolling="no"></iframe>`
+  );
+}
+
+// Initialize the map when the document is ready
+// $(document).ready(function () {
+//   loadMapScenario();
+// });
+
+function initMap() {
+  // Replace YOUR_API_KEY with your actual Google Maps API key
+  var apiKey = "AIzaSyBOvBbcbUmSo_S9RCgHhA2xpPRK318LFEs";
+  var mapContainer = $("#googleMap");
+
+  // Check if Google Maps API key is provided
+  // if (apiKey === 'YOUR_API_KEY') {
+  //   mapContainer.html('Please provide a valid Google Maps API key.');
+  //   return;
+  // }
+
+  // Replace LATITUDE and LONGITUDE with your desired coordinates
+  var latitude = 35.573611;
+  var longitude = 45.421012;
+
+  // Generate the Google Maps Embed API URL
+  var mapUrl = "https://www.google.com/maps/embed/v1/place?key=" + apiKey + "&q=" + latitude + "," + longitude;
+
+  // Embed the map using an iframe
+  mapContainer.html(
+    '<iframe width="100%" height="100%" frameborder="0" style="border:0" src="' + mapUrl + '" allowfullscreen></iframe>'
+  );
+}
+
+// Initialize the map when the document is ready
+$(document).ready(function () {
+  initMap();
 });
 
 /*
+
+bing map api key: Av0A1_U_WYU7h7uKufynKoldlyplZ9gUaEQWEOFFVZG4fe9H8iYBL-mUqibHp97J
+google api key: AIzaSyBOvBbcbUmSo_S9RCgHhA2xpPRK318LFEs
+
+
 var commentHtml = `
 
 <ul class="comment-list listnone">

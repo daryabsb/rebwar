@@ -1,342 +1,304 @@
 {% extends "internal-base.html" %}
 <!--  -->
-{% block page_header %}
-{% include 'base/page-header.html' with page_title=page_title page_crumbs=page_crumbs %}
+{% block page_header %} {% include 'base/page-header.html' with page_title=page_title page_crumbs=page_crumbs %}
 <!--  -->
-{% endblock page_header %}
-{% block page_body %}
+{% endblock page_header %} {% block page_body %}
 <div class="content">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <div class="content-area">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="post-block">
-                                <div class="meta-box">
-                                    <p class="meta-date">10 FEB</p>
-                                </div>
-                                <div class="post-img">
-                                    <img src="{{ blog.image.url}}" class="img-responsive"
-                                        alt="Practice - Orthopaedic Surgeon Website Template">
-                                </div>
-                                <div class="post-content">
-                                    <h1 class="post-title">Safe Removal of Spinal Tumors </h1>
-                                    <div class="post-meta mb20"> <span class="meta-author"> By <a href="#"
-                                                class="title"> admin </a></span> <span class="meta-comment"> 22 <a
-                                                href="#" class="title"> Comments </a></span> <span
-                                            class="meta-category"><a href="#" class="title">Spinal Surgery</a></span>
-                                    </div>
-                                    <p class="mb30">{{ blog.content | safe }}</p>
-                                </div>
-                            </div>
-                            <div class="post-navigation">
-                                <!-- post navigation -->
-                                <div class="row">
-                                    <div class="nav-links">
-                                        <!-- nav-links-->
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <div class="nav-previous"> <a href="#" class="prev-link"><i
-                                                        class="fa fa-arrow-circle-o-left"></i> previous post </a>
-                                                <h4 class="previous-title"><a href="#" class="title">The Benefits of
-                                                        Minimally Invasive Spine Surgery</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <div class="nav-next text-right"> <a href="#" class="next-link"> next post
-                                                    <i class="fa fa-arrow-circle-o-right"></i></a>
-                                                <h4 class="next-title"><a href="#" class="title">3 Simple Tips to
-                                                        Improve Your Orthopedic Health for Life</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.nav-links-->
-                                </div>
-                            </div>
-                            <div class="post-author mb40">
-                                <!-- post author -->
-                                <div class="author-block bg-default">
-                                    <!-- author-block-->
-                                    <div class="row">
-                                        <div class="col-md-5 col-sm-3 col-xs-12">
-                                            <div class="author-img">
-                                                <a href="#"><img src="{{blog.author.doctor.image.url}}"
-                                                        class="img-responsive"
-                                                        alt="Practice - Orthopaedic Surgeon Website Template"></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7 col-sm-9 col-xs-12">
-                                            <div class="author-bio">
-                                                <!-- author-bio-->
-                                                <div class="author-header">
-                                                    <h3 class="post-author-name">{{ blog.author.name}}</h3>
-                                                    <span class="author-meta">{{ blog.author.doctor.specialty}}</span>
-                                                </div>
-                                                <div class="author-content">
-                                                    <p>{{ blog.author.doctor.description}}</p>
-                                                </div>
-                                                <a href="#" class="btn-link">view all post</a>
-                                            </div>
-                                            <!-- /.author-bio-->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.author-block-->
-                            </div>
-                            <div class="related-post">
-                                <!-- related-post -->
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h2 class="related-post-title">Related post</h2>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    {% for post in blog.related_posts.all %}
-                                    {% if post %}
-                                    <div class="col-md-6 mb30 col-sm-6 col-xs-6">
-                                        <div class="related-post-block">
-                                            <!-- related-post-block-->
-                                            <div class="related-img">
-                                                <!-- related-img-->
-                                                <a href="#" class="imghover"><img src="{{ post.image.url }}"
-                                                        class="img-responsive"
-                                                        alt="Practice - Orthopaedic Surgeon Website Template"></a>
-                                            </div>
-                                            <!-- /.related-img-->
-                                            <div class="related-content">
-                                                <!-- related-post-content-->
-                                                <h4 class="related-title  "><a href="#" class="title">{{
-                                                        post.title}}</a></h4>
-                                                <div class="meta"><span class="meta-category"> in <a href="#"
-                                                            class="title">“ {{ post.subject }} ”</a></span></div>
-                                            </div>
-                                            <!-- /.related-post-content-->
-                                        </div>
-                                        <!-- /.related-post-block-->
-                                    </div>
-                                    {% else %}
-                                    <h2>This author only has this post!</h2>
-                                    {% endif %}
-                                    {% endfor %}
-
-                                </div>
-                            </div>
-
-                            <div class="comment-area" id="comment-area" data-blog-id="{{ blog.id }}">
-                                <!-- comments-area-->
-                                <h2 class=" comments-title">4 Comments</h2>
-
-                                <ul class="comment-list listnone">
-                                    <li class="comment" id="comment">
-                                        <div class="comment-body  ">
-                                            <div class="comment-author"><img src="/static/vendor/images/user2.jpg"
-                                                    alt="Practice - Orthopaedic Surgeon Website Template"
-                                                    class="img-responsive img-circle"> </div>
-                                            <div class="comment-info">
-                                                <div class="comment-header">
-                                                    <h4 class="user-title">Sophie Willmore</h4>
-                                                    <div class="comment-meta"><span class="comment-meta-date">February
-                                                            16, 2017</span></div>
-                                                </div>
-                                                <div class="comment-content">
-                                                    <p>Suspen disse condi mentum ante sem, nec posuere massa lobortis
-                                                        id. Sed eu justo quis elit vevel odio posuere erat accumsan
-                                                        tincidunt. </p>
-                                                    <a href="#" class="btn-link">reply</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <ul class="childern listnone">
-                                            <li class="comment">
-                                                <div class="comment-body">
-                                                    <div class="comment-author"><img
-                                                            src="/static/vendor/images/user3.jpg"
-                                                            alt="Practice - Orthopaedic Surgeon Website Template"
-                                                            class="img-responsive img-circle"> </div>
-                                                    <div class="comment-info">
-                                                        <div class="comment-header">
-                                                            <h4 class="user-title">Sean Brierly</h4>
-                                                            <div class="comment-meta"><span
-                                                                    class="comment-meta-date">February 16, 2017</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="comment-content">
-                                                            <p>Donec ac est ut nulla ricursus at urna a, male suada
-                                                                cursus dmodo enim ut conse ctetur convallis.</p>
-                                                            <a href="#" class="btn-link">reply</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-
-                            </div>
-                            <div class="leave-comments">
-                                <!--leave-comments-->
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <h2 class="reply-title">Leave Comments</h2>
-                                    </div>
-                                </div>
-                                <form class="reply-form">
-                                    <div class="row">
-                                        <!-- Textarea -->
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label class="sr-only control-label" for="textarea">Message</label>
-                                                <textarea class="form-control" id="textarea" name="textarea" rows="6"
-                                                    placeholder="Message"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <!-- Text input-->
-                                            <div class="form-group">
-                                                <label class="sr-only control-label" for="name">Name</label>
-                                                <input id="name" name="name" type="text" class="form-control"
-                                                    placeholder="Name">
-                                            </div>
-                                        </div>
-                                        <!-- Text input-->
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="sr-only control-label" for="email">E-mail</label>
-                                                <input id="email" name="email" type="text" class="form-control"
-                                                    placeholder="Email" required>
-                                            </div>
-                                        </div>
-                                        <!-- Text input-->
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="sr-only control-label" for="Website">Website </label>
-                                                <input id="Website" name="Website" type="text" class="form-control"
-                                                    placeholder="Website">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <!-- Button -->
-                                            <div class="form-group">
-                                                <button id="singlebutton" name="singlebutton"
-                                                    class="btn btn-default">send reply</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="content-area">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="post-block">
+                <div class="meta-box">
+                  <p class="meta-date">10 FEB</p>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <div class="sidebar">
-                    <!-- sidebar-area -->
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="widget widget-search">
-                                <!--widget-search -->
-                                <form>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search Here">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button"><i
-                                                    class="fa fa-search"></i></button>
-                                        </span>
-                                    </div>
-                                    <!-- /input-group -->
-                                </form>
-                            </div>
-                            <!--/.widget-search -->
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="widget widget-category">
-                                <h3 class="widget-title">Orthopadiec Treatments</h3>
-                                <ul class="listnone bullet-double-angle">
-                                    <li> <a href="#">Hip Surgery</a></li>
-                                    <li><a href="#">Knee Surgery</a></li>
-                                    <li><a href="#">Hand &amp; Wrist Surgery</a></li>
-                                    <li><a href="#">Shoulder &amp; Elbow Surgery</a></li>
-                                    <li><a href="#">Foot &amp; Ankle Surgery</a></li>
-                                    <li><a href="#">Spine Surgery</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="widget widget-archives">
-                                <h3 class="widget-title">archives</h3>
-                                <ul class="listnone bullet-double-angle">
-                                    <li> <a href="#">January 2017</a></li>
-                                    <li><a href="#">December 2016</a></li>
-                                    <li><a href="#">November 2016</a></li>
-                                    <li><a href="#">October 2016</a></li>
-                                    <li><a href="#">September 2016</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="widget widget-recent-post">
-                                <h3 class="widget-title mb30">Latest News</h3>
-                                <ul class="listnone">
-                                    <li>
-                                        <div class="recent-block mb20">
-                                            <div class="row">
-                                                <div class="col-md-12 col-sm-6 col-xs-12">
-                                                    <div class="meta-box">
-                                                        <p class="meta-date">15 FEB</p>
-                                                    </div>
-                                                    <a href="#" class="imghover"><img
-                                                            src="/static/vendor/images/recent-img-1.jpg" alt=""
-                                                            class="img-responsive"></a>
-
-
-                                                    <h4 class="recent-title"><a href="#" class="title">3 Simple Tips to
-                                                            Improve Your Orthopedic Health.</a></h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="recent-block mb20">
-                                            <div class="row">
-                                                <div class="col-md-12 col-sm-6 col-xs-12">
-                                                    <div class="meta-box">
-                                                        <p class="meta-date">14 FEB</p>
-                                                    </div>
-                                                    <a href="#" class="imghover"><img
-                                                            src="/static/vendor/images/recent-img-2.jpg" alt=""
-                                                            class="img-responsive mb10"></a>
-
-                                                    <h4 class="recent-title"><a href="#" class="title">Heading of
-                                                            orthopeadic News</a></h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 ">
-                            <!--  tags -->
-                            <div class="widget widget-tags">
-                                <!--widget-tags-->
-                                <h3 class="widget-title mb30">Tags</h3>
-                                <!-- widget title -->
-                                <div class="widget-tag">
-                                    <a href="#" title="ortho">ortho</a> <a href="#" title="surgery">surgery</a> <a
-                                        href="#" title="knee surgery">knee surgery</a> <a href="#" title="foot and ankel
-">foot and ankel</a> <a href="#" title="spine surgery">spine surgery</a> <a href="#" title="elbow">elbow</a> <a
-                                        href="#" title="wrist surgery">wrist surgery</a> <a href="#"
-                                        title="surgery">surgery</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="post-img">
+                  <img
+                    src="{{ blog.image.url}}"
+                    class="img-responsive"
+                    alt="Practice - Orthopaedic Surgeon Website Template"
+                  />
                 </div>
-                <!-- /.sidebar-area -->
+                <div class="post-content">
+                  <h1 class="post-title">Safe Removal of Spinal Tumors</h1>
+                  <div class="post-meta mb20">
+                    <span class="meta-author"> By <a href="#" class="title"> admin </a></span>
+                    <span class="meta-comment"> 22 <a href="#" class="title"> Comments </a></span>
+                    <span class="meta-category"><a href="#" class="title">Spinal Surgery</a></span>
+                  </div>
+                  <p class="mb30">{{ blog.content | safe }}</p>
+                </div>
+              </div>
+              <div class="post-navigation">
+                <!-- post navigation -->
+                <div class="row">
+                  <div class="nav-links">
+                    <!-- nav-links-->
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <div class="nav-previous">
+                        <a href="#" class="prev-link"><i class="fa fa-arrow-circle-o-left"></i> previous post </a>
+                        <h4 class="previous-title">
+                          <a href="#" class="title">The Benefits of Minimally Invasive Spine Surgery</a>
+                        </h4>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <div class="nav-next text-right">
+                        <a href="#" class="next-link"> next post <i class="fa fa-arrow-circle-o-right"></i></a>
+                        <h4 class="next-title">
+                          <a href="#" class="title">3 Simple Tips to Improve Your Orthopedic Health for Life</a>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.nav-links-->
+                </div>
+              </div>
+              <div class="post-author mb40">
+                <!-- post author -->
+                <div class="author-block bg-default">
+                  <!-- author-block-->
+                  <div class="row">
+                    <div class="col-md-5 col-sm-3 col-xs-12">
+                      <div class="author-img">
+                        <a href="#"
+                          ><img
+                            src="{{blog.author.doctor.image.url}}"
+                            class="img-responsive"
+                            alt="Practice - Orthopaedic Surgeon Website Template"
+                        /></a>
+                      </div>
+                    </div>
+                    <div class="col-md-7 col-sm-9 col-xs-12">
+                      <div class="author-bio">
+                        <!-- author-bio-->
+                        <div class="author-header">
+                          <h3 class="post-author-name">{{ blog.author.name}}</h3>
+                          <span class="author-meta">{{ blog.author.doctor.specialty}}</span>
+                        </div>
+                        <div class="author-content">
+                          <p>{{ blog.author.doctor.description}}</p>
+                        </div>
+                        <a href="#" class="btn-link">view all post</a>
+                      </div>
+                      <!-- /.author-bio-->
+                    </div>
+                  </div>
+                </div>
+                <!-- /.author-block-->
+              </div>
+              <div class="related-post">
+                <!-- related-post -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <h2 class="related-post-title">Related post</h2>
+                  </div>
+                </div>
+                <div class="row">
+                  {% for post in blog.related_posts.all %} {% if post %}
+                  <div class="col-md-6 mb30 col-sm-6 col-xs-6">
+                    <div class="related-post-block">
+                      <!-- related-post-block-->
+                      <div class="related-img">
+                        <!-- related-img-->
+                        <a href="#" class="imghover"
+                          ><img
+                            src="{{ post.image.url }}"
+                            class="img-responsive"
+                            alt="Practice - Orthopaedic Surgeon Website Template"
+                        /></a>
+                      </div>
+                      <!-- /.related-img-->
+                      <div class="related-content">
+                        <!-- related-post-content-->
+                        <h4 class="related-title"><a href="#" class="title">{{ post.title}}</a></h4>
+                        <div class="meta">
+                          <span class="meta-category"> in <a href="#" class="title">“ {{ post.subject }} ”</a></span>
+                        </div>
+                      </div>
+                      <!-- /.related-post-content-->
+                    </div>
+                    <!-- /.related-post-block-->
+                  </div>
+                  {% else %}
+                  <h2>This author only has this post!</h2>
+                  {% endif %} {% endfor %}
+                </div>
+              </div>
+
+              <div class="comment-area" id="comment-area" data-blog-id="{{ blog.id }}">
+                <!-- comments-area-->
+                <h2 class="comments-title">{{ blog.comments.count }} Comment</h2>
+              </div>
+              <div class="leave-comments">
+                <!--leave-comments-->
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <h2 class="reply-title">Leave Comments</h2>
+                  </div>
+                </div>
+                <form class="reply-form">
+                  <div class="row">
+                    <!-- Textarea -->
+                    <div class="form-group">
+                      <div class="col-md-12">
+                        <label class="sr-only control-label" for="textarea">Message</label>
+                        <textarea
+                          class="form-control"
+                          id="textarea"
+                          name="textarea"
+                          rows="6"
+                          placeholder="Message"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="sr-only control-label" for="name">Name</label>
+                        <input id="name" name="name" type="text" class="form-control" placeholder="Name" />
+                      </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="sr-only control-label" for="email">E-mail</label>
+                        <input id="email" name="email" type="text" class="form-control" placeholder="Email" required />
+                      </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="sr-only control-label" for="Website">Website </label>
+                        <input id="Website" name="Website" type="text" class="form-control" placeholder="Website" />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <!-- Button -->
+                      <div class="form-group">
+                        <button id="singlebutton" name="singlebutton" class="btn btn-default">send reply</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="sidebar">
+          <!-- sidebar-area -->
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="widget widget-search">
+                <!--widget-search -->
+                <form>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search Here" />
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                  </div>
+                  <!-- /input-group -->
+                </form>
+              </div>
+              <!--/.widget-search -->
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="widget widget-category">
+                <h3 class="widget-title">Orthopadiec Treatments</h3>
+                <ul class="listnone bullet-double-angle">
+                  <li><a href="#">Hip Surgery</a></li>
+                  <li><a href="#">Knee Surgery</a></li>
+                  <li><a href="#">Hand &amp; Wrist Surgery</a></li>
+                  <li><a href="#">Shoulder &amp; Elbow Surgery</a></li>
+                  <li><a href="#">Foot &amp; Ankle Surgery</a></li>
+                  <li><a href="#">Spine Surgery</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="widget widget-archives">
+                <h3 class="widget-title">archives</h3>
+                <ul class="listnone bullet-double-angle">
+                  <li><a href="#">January 2017</a></li>
+                  <li><a href="#">December 2016</a></li>
+                  <li><a href="#">November 2016</a></li>
+                  <li><a href="#">October 2016</a></li>
+                  <li><a href="#">September 2016</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="widget widget-recent-post">
+                <h3 class="widget-title mb30">Latest News</h3>
+                <ul class="listnone">
+                  <li>
+                    <div class="recent-block mb20">
+                      <div class="row">
+                        <div class="col-md-12 col-sm-6 col-xs-12">
+                          <div class="meta-box">
+                            <p class="meta-date">15 FEB</p>
+                          </div>
+                          <a href="#" class="imghover"
+                            ><img src="/static/vendor/images/recent-img-1.jpg" alt="" class="img-responsive"
+                          /></a>
+
+                          <h4 class="recent-title">
+                            <a href="#" class="title">3 Simple Tips to Improve Your Orthopedic Health.</a>
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="recent-block mb20">
+                      <div class="row">
+                        <div class="col-md-12 col-sm-6 col-xs-12">
+                          <div class="meta-box">
+                            <p class="meta-date">14 FEB</p>
+                          </div>
+                          <a href="#" class="imghover"
+                            ><img src="/static/vendor/images/recent-img-2.jpg" alt="" class="img-responsive mb10"
+                          /></a>
+
+                          <h4 class="recent-title"><a href="#" class="title">Heading of orthopeadic News</a></h4>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <!--  tags -->
+              <div class="widget widget-tags">
+                <!--widget-tags-->
+                <h3 class="widget-title mb30">Tags</h3>
+                <!-- widget title -->
+                <div class="widget-tag">
+                  <a href="#" title="ortho">ortho</a> <a href="#" title="surgery">surgery</a>
+                  <a href="#" title="knee surgery">knee surgery</a>
+                  <a
+                    href="#"
+                    title="foot and ankel
+"
+                    >foot and ankel</a
+                  >
+                  <a href="#" title="spine surgery">spine surgery</a> <a href="#" title="elbow">elbow</a>
+                  <a href="#" title="wrist surgery">wrist surgery</a> <a href="#" title="surgery">surgery</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.sidebar-area -->
+      </div>
     </div>
+  </div>
 </div>
 
 {% endblock page_body %}

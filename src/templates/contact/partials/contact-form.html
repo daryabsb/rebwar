@@ -1,0 +1,65 @@
+<div class="space-medium">
+  <div class="container">
+    <div class="contact-form">
+      <div class="row">
+        <div class="col-lg-offset-2 col-lg-8 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-xs-12">
+          {% include 'base/opening.html' with opening=opening %}
+        </div>
+      </div>
+      <form class=" " method="post" action="contact-us.php">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="Name"> </label>
+              <input id="Name" name="Name" type="text" placeholder="Name" class="form-control input-md" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="Email"> </label>
+              <input id="Email" name="Email" type="email" placeholder="Email" class="form-control input-md" />
+            </div>
+            <!-- Text input-->
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="Phone"> </label>
+              <input id="Phone" name="Phone" type="text" placeholder="Phone" class="form-control input-md" />
+            </div>
+            <!-- Select Basic -->
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="sr-only" for="Treatment"> </label>
+              <select id="Treatment" name="Treatment" class="form-control">
+                <option value="Hip Surgery">Hip Surgery</option>
+                <option value="Knee Surgery">Knee Surgery</option>
+                <option value="Hand & Wrist Surgery">Hand &amp; Wrist Surgery</option>
+                <option value="Shoulder & Elbow Surgery">Shoulder &amp; Elbow Surgery</option>
+                <option value="Foot & Ankle Surgery">Foot &amp; Ankle Surgery</option>
+                <option value="Spine Surgery">Spine Surgery</option>
+              </select>
+            </div>
+          </div>
+          <!-- Text input-->
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="sr-only" for="date">date</label>
+              <div class="input-group">
+                <input id="datepicker" name="date" type="text" placeholder="Date" class="form-control" required />
+                <span class="input-group-addon" id="basic-addon2"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="sr-only" for="textarea">Message</label>
+              <textarea class="form-control" id="textarea" name="textarea" rows="6" placeholder="Message"></textarea>
+            </div>
+          </div>
+          <div class="col-md-12"><a href="#" class="btn btn-primary pull-right">send inquiry</a></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
