@@ -121,37 +121,6 @@ $(document).ready(function () {
   });
 });
 
-function loadMapScenario() {
-  // Replace 'YOUR_BING_MAPS_API_KEY' with your actual Bing Maps API key
-  var apiKey = "Av0A1_U_WYU7h7uKufynKoldlyplZ9gUaEQWEOFFVZG4fe9H8iYBL-mUqibHp97J";
-  var mapContainer = $("#bingMap");
-
-  // Check if Bing Maps API key is provided
-  //   if (apiKey === "YOUR_BING_MAPS_API_KEY") {
-  //     mapContainer.html("Please provide a valid Bing Maps API key.");
-  //     return;
-  //   }
-
-  // Replace LATITUDE and LONGITUDE with your desired coordinates
-  var latitude = 35.573611;
-  var longitude = 45.421012;
-
-  // Generate the Bing Maps API URL
-  var mapUrl = `https://www.bing.com/maps?cp=35.573611%7E45.421012&lvl=18.7&lvl=15&sty=r`;
-
-  // Embed the map using an iframe
-
-  mapContainer.html(
-    `<iframe src="${mapUrl}" 
-            style="width:600px;height:400px;" frameborder="0" scrolling="no"></iframe>`
-  );
-}
-
-// Initialize the map when the document is ready
-// $(document).ready(function () {
-//   loadMapScenario();
-// });
-
 function initMap() {
   // Replace YOUR_API_KEY with your actual Google Maps API key
   var apiKey = "AIzaSyBOvBbcbUmSo_S9RCgHhA2xpPRK318LFEs";
@@ -180,6 +149,68 @@ function initMap() {
 $(document).ready(function () {
   initMap();
 });
+
+// POPUP BOOK AN APPOINTMENT
+$(document).ready(function () {
+  // Initialize Magnific Popup
+  $("#open-popup").magnificPopup({
+    items: {
+      src: "#appointment-popup",
+      type: "inline",
+    },
+    closeBtnInside: true,
+  });
+
+  // Handle form submission
+  $("#appointment-form").submit(function (event) {
+    // Prevent the default form submission
+    event.preventDefault();
+
+    // Add your form submission logic here
+    var name = $("#name").val();
+    var email = $("#email").val();
+
+    // Example: You can perform an AJAX request to submit the form data
+    // $.ajax({
+    //   url: 'your_submission_endpoint',
+    //   type: 'POST',
+    //   data: { name: name, email: email },
+    //   success: function(response) {
+    //     // Handle success response
+    //   },
+    //   error: function(error) {
+    //     // Handle error
+    //   }
+    // });
+
+    // Close the Magnific Popup after form submission
+    $.magnificPopup.close();
+  });
+});
+
+// POPUP SAMPLE
+
+$(document).ready(function () {
+  $(".popup-with-form").magnificPopup({
+    type: "inline",
+    preloader: false,
+    focus: "#name",
+
+    // When elemened is focused, some mobile browsers in some cases zoom in
+    // It looks not nice, so we disable it:
+    callbacks: {
+      beforeOpen: function () {
+        if ($(window).width() < 700) {
+          this.st.focus = false;
+        } else {
+          this.st.focus = "#name";
+        }
+      },
+    },
+  });
+});
+
+// POPUP SAMPLE END
 
 /*
 

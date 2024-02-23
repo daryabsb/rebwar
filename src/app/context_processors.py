@@ -22,6 +22,12 @@ def menu_data(request):
     return {'menu_items': menu_items}
 
 
+def language_ref(request):
+
+    language_code = 'en'
+    return {'language_code': language_code}
+
+
 # def global_settings(request):
 #     return {
 #         "is_settings": True,

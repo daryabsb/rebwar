@@ -5,4 +5,4 @@ from django.contrib import admin
 from src.accounts.models import User, DoctorProfile
 
 admin.site.register(User)
-admin.site.register(DoctorProfile)
+# admin.site.register(DoctorProfile)

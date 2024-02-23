@@ -1,12 +1,40 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{% if language_code == 'ar' %}ar{% else %}en{% endif %}">
   <head>
     {% include 'base/meta.html' %}
 
     <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}" />
     <title>Site - Orthopaedic Surgeon Website</title>
+
+    <!-- Include Bootstrap RTL CSS if language is Arabic -->
     {% include 'base/css.html' %}
+    <!--  -->
+    {% if language_code == 'ar' %}
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/bootstrap-rtl.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/bootstrap-rtl.min.css' %}" />
+    <style>
+      /* Arabic font */
+      body[lang="ar"] {
+        font-family: "Cairo", sans-serif;
+      }
+      .cairo {
+        font-family: "Cairo", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+      .cairo-bold {
+        font-family: "Cairo", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings: "slnt" 0;
+      }
+    </style>
+
+    {% endif %}
 
     <title>
       {% block head_title %}Zeneon Software LLC.{% endblock head_title %}
@@ -20,13 +48,12 @@
     {% block landing_content %}
     <!--  -->
     {% endblock landing_content %}
-    
-    
+
     <!--  -->
     {% block base_content %}
     <!--  -->
     {% endblock base_content %}
-    
+
     <!--  -->
     {% include 'base/footer.html' %}
     <!-- back to top icon -->

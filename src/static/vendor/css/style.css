@@ -1941,8 +1941,6 @@ button.btn {
 .gallery-block {
 }
 
-
-
 /*------------------------
  10. Blog pages
 --------------------------*/
@@ -1999,9 +1997,9 @@ button.btn {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 50%;
-  -webkit-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .post-meta span:after {
   margin-left: 10px;
@@ -2565,6 +2563,13 @@ button.btn {
   .page-header {
     padding: 0px 0px 0px 0px;
   }
+}
+
+.owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  direction: ltr;
 }
 
 /* Extra Small Devices, Phones */

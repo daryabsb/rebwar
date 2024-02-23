@@ -1,13 +1,30 @@
 <div class="cta">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-                <h1 class="cta-title">Book An Appointment</h1>
-                <p class="cta-text">We are the largest and most complete orthopaedic group in Australia. For all
-                    appointments and inquires, please call (000) 123-4567 or click here to request an appointment
-                    online.</p>
-                <a href="#" class="btn btn-primary">Book An Appointment</a>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+        <h1 class="cta-title">Book An Appointment</h1>
+        <p class="cta-text">
+          We are the largest and most complete orthopaedic group in Australia. For all appointments and inquires, please
+          call (000) 123-4567 or click here to request an appointment online.
+        </p>
+
+        {% include 'base/modal.html' with text='Book An Appointment' %}
+      </div>
+      <!-- link that opens popup -->
+
+      <!-- form itself -->
+
+      <!-- <div id="appointment-popup2" class="white-popup mfp-hide">
+        <form id="appointment-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <button type="submit">Submit</button>
+        </form>
+      </div> -->
     </div>
+  </div>
 </div>

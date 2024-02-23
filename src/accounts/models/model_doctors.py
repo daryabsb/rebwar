@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.urls import reverse
 from src.accounts.managers import DoctorManager
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -14,6 +15,7 @@ class DoctorProfile(models.Model):
     user = models.OneToOneField(
         User, null=True, blank=True, on_delete=models.SET_NULL, related_name='doctor')
     name = models.CharField(max_length=255)
+    arabic_name = models.CharField(max_length=255, null=True, blank=True)
     email = models.EmailField()
     specialty = models.CharField(max_length=300)
     description = models.CharField(max_length=255)
@@ -24,6 +26,9 @@ class DoctorProfile(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('doctor_detail', kwargs={'pk': self.pk})
 
 '''
 from src.accounts.models import DoctorProfile as DF

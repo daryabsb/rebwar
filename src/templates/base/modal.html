@@ -1,0 +1,60 @@
+<a class="popup-with-form btn btn-primary" href="#modal-form">{{ text }}</a>
+<div class="mfp-hide white-popup appointment-block" id="modal-form">
+  <div class="container">
+    <div class="row">
+      <!-- Offset by 3 columns on the left, and centered with a col-6 -->
+      <div class="col-md-4 col-md-offset-3 bg-default" style="padding: 40px;">
+        <form class="form-vertical m-3" method="post" action="booking-form.php">
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="control-label" for="Name"> </label>
+            <div class="col-md-12">
+              <input id="Name" name="Name" type="text" placeholder="Name" class="form-control input-md" />
+            </div>
+          </div>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="control-label" for="Email"> </label>
+            <div class="col-md-12">
+              <input id="Email" name="Email" type="email" placeholder="Email" class="form-control input-md" />
+            </div>
+          </div>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="control-label" for="Phone"> </label>
+            <div class="col-md-12">
+              <input id="Phone" name="Phone" type="text" placeholder="Phone" class="form-control input-md" />
+            </div>
+          </div>
+          <!-- Select Basic -->
+          <div class="form-group">
+            <label class="control-label" for="Treatment"> </label>
+            <div class="col-md-12">
+              <select id="Treatment" name="Treatment" class="form-control">
+                {% for menu in menu_items %}
+                <option value="{{ menu.id }}">{{ menu.title }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="sr-only" for="datepicker">date</label>
+            <div class="col-md-12">
+              <div class="input-group">
+                <input id="datepicker" name="datepicker" type="text" placeholder="date" class="form-control" required />
+                <span class="input-group-addon" id="basic-addon2"><i class="fa fa-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+          <!-- Button -->
+          <div class="form-group">
+            <div class="col-md-12 m-6">
+              <button id="singlebutton" name="singlebutton" class="btn btn-primary">Confirm My Appointment</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
