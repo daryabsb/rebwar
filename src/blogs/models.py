@@ -3,6 +3,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelatio
 from django.contrib.contenttypes.models import ContentType
 from django.urls import reverse
 from src.core.modules import upload_image_file_path
+from src.app.const import LANGUAGES_CHOICES
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -23,6 +24,8 @@ class Blog(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     title = models.CharField(max_length=255)
     subject = models.CharField(max_length=50)
+    language = models.CharField(
+        max_length=3, default='en', choices=LANGUAGES_CHOICES, unique=True)
     short_description = models.CharField(max_length=500)
     content = models.TextField()
     likes = GenericRelation(Like, related_query_name='blog_likes')

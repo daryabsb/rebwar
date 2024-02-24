@@ -23,9 +23,14 @@ def menu_data(request):
 
 
 def language_ref(request):
-
+    from src.app.const import LANGUAGES_CHOICES
+    rtl = False
     language_code = 'en'
-    return {'language_code': language_code}
+    print(LANGUAGES_CHOICES[0])
+
+    if language_code != 'en':
+        rtl = True
+    return {'language_code': language_code, 'rtl': rtl}
 
 
 # def global_settings(request):

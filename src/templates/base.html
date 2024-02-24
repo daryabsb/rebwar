@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="{% if language_code == 'ar' %}ar{% else %}en{% endif %}">
+<html lang="{{ language_code}}">
   <head>
     {% include 'base/meta.html' %}
 
@@ -10,7 +10,7 @@
     <!-- Include Bootstrap RTL CSS if language is Arabic -->
     {% include 'base/css.html' %}
     <!--  -->
-    {% if language_code == 'ar' %}
+    {% if rtl %}
     <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/bootstrap-rtl.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/bootstrap-rtl.min.css' %}" />
     <style>
