@@ -1,3 +1,4 @@
+import os
 from src.settings.components.env import config
 from tzlocal import get_localzone
 from src.settings.components import PROJECT_PATH, BASE_DIR
@@ -48,7 +49,8 @@ ROOT_URLCONF = 'src.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [PROJECT_PATH + "\\templates"],
+        # 'DIRS': [PROJECT_PATH + "\\templates"],
+        'DIRS': [os.path.join(PROJECT_PATH, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
