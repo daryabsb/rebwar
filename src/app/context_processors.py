@@ -16,6 +16,13 @@ def vendor_files(request):
         "vendor_css_files": css_files,
     }
 
+def general_data(request):
+    site_title = "Dr Rebwar : Orthopedic Clinic"
+
+    return {
+        "site_title": site_title
+    }
+
 
 def menu_data(request):
     # Retrieve menu data from the database or any other source
