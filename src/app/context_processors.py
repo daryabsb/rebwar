@@ -1,10 +1,12 @@
+import os
+from pathlib import Path
 from django.conf import settings
 from src.core.models import Service  # Replace with your actual model
 
 
 def vendor_files(request):
     # static_dir = settings.BASE_DIR / "static"
-    static_dir = settings.STATIC_ROOT
+    static_dir = Path(settings.STATIC_ROOT)
     # print("vendor_dir/: ", static_dir / "vendor")
     vendor_dir = static_dir / "vendor"
     js_files = [x.relative_to(static_dir) for x in vendor_dir.glob("**/*.js")]
