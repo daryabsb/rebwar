@@ -58,7 +58,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                "src.app.context_processors.vendor_files",
+                # "src.app.context_processors.vendor_files",
                 "src.app.context_processors.menu_data",
                 "src.app.context_processors.language_ref",
             ],
