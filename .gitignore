@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+git-credentials.txt
 
 # Spyder project settings
 .spyderproject
