@@ -1,0 +1,56 @@
+<!-- language_switcher.html -->
+
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% trans "Multilingual Blog" %}</title>
+  </head>
+  <body>
+    <div>
+      <h1>{% trans "Welcome to our multilingual blog!" %}</h1>
+      <!-- Language Switcher -->
+      <div>
+        <span>{% trans "Switch Language:" %}</span>
+        {% get_current_language as CURRENT_LANGUAGE %} {% get_available_languages as AVAILABLE_LANGUAGES %}
+        <ul>
+          {% for lang in AVAILABLE_LANGUAGES %}
+          <li>
+            {% if lang.0 != CURRENT_LANGUAGE %}
+            <a
+              href="{% url 'set_language' %}"
+              onclick="event.preventDefault();document.getElementById('language-form-{{ lang.0 }}').submit();"
+            >
+              {{ lang.1 }}
+            </a>
+            <form id="language-form-{{ lang.0 }}" action="{% url 'set_language' %}" method="post">
+              {% csrf_token %}
+              <input name="next" type="hidden" value="{{ request.path }}" />
+              <input name="language" type="hidden" value="{{ lang.0 }}" />
+            </form>
+            {% else %}
+            <strong>{{ lang.1 }}</strong>
+            <!-- Current language -->
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <!-- Blog Posts Content -->
+      <div>
+        <p>{% trans "Here you can find various blog posts in different languages." %}</p>
+        <!-- Blog Posts List -->
+        <div>
+          {% for post in blog_posts %}
+          <div>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
