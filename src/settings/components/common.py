@@ -4,6 +4,7 @@ import os
 from src.settings.components.env import config
 from tzlocal import get_localzone
 from src.settings.components import PROJECT_PATH, BASE_DIR
+from django.utils.translation import gettext_lazy as _
 
 # from src.settings.components.redis import REDIS_HOST, REDIS_PORT
 
@@ -38,7 +39,6 @@ AUTH_USER_MODEL = "accounts.User"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -70,9 +70,9 @@ TEMPLATES = [
     },
 ]
 
-# LOCALE_PATHS = [
-#     os.path.join(BASE_DIR, 'locale'),
-# ]
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 print("CHECK LOCALE PATH BASE_DIR: ", os.path.join(BASE_DIR, 'locale'))
 
 WSGI_APPLICATION = 'src.wsgi.application'
@@ -127,11 +127,15 @@ def gettext_noop(s):
 
 LANGUAGE_CODE = "en-us"
 MODELTRANSLATION_LANGUAGES = ('en', 'ar', 'ckb')
+
 LANGUAGES = [
-    ('en', 'English'),
-    ('ar', 'Arabic'),
-    ("ckb", gettext_noop("Central Kurdish (Sorani)")),
+    ('en', _('English')),
+    ('ar', _('Arabic')),
+    ("ckb", _("Kurdish")),
 ]
+
+
+# Languages using BiDi (right-to-left) layout
 LANGUAGES_BIDI = ["ar", "ckb"]
 
 TIME_ZONE = str(get_localzone())
@@ -158,7 +162,6 @@ USE_TZ = True
 # LANG_INFO = dict(django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO)
 # django.conf.locale.LANG_INFO = LANG_INFO
 
-# Languages using BiDi (right-to-left) layout
 
 
 
