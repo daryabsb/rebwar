@@ -1,9 +1,9 @@
+import django.conf.locale
+from django.conf import global_settings
 import os
 from src.settings.components.env import config
 from tzlocal import get_localzone
 from src.settings.components import PROJECT_PATH, BASE_DIR
-
-from django.utils.translation import gettext_lazy as _
 
 # from src.settings.components.redis import REDIS_HOST, REDIS_PORT
 
@@ -70,9 +70,9 @@ TEMPLATES = [
     },
 ]
 
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
-]
+# LOCALE_PATHS = [
+#     os.path.join(BASE_DIR, 'locale'),
+# ]
 print("CHECK LOCALE PATH BASE_DIR: ", os.path.join(BASE_DIR, 'locale'))
 
 WSGI_APPLICATION = 'src.wsgi.application'
@@ -120,8 +120,19 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'ar'
-MODELTRANSLATION_LANGUAGES = ('en', 'ar', 'ku')
+
+def gettext_noop(s):
+    return s
+
+
+LANGUAGE_CODE = "en-us"
+MODELTRANSLATION_LANGUAGES = ('en', 'ar', 'ckb')
+LANGUAGES = [
+    ('en', 'English'),
+    ('ar', 'Arabic'),
+    ("ckb", gettext_noop("Central Kurdish (Sorani)")),
+]
+LANGUAGES_BIDI = ["ar", "ckb"]
 
 TIME_ZONE = str(get_localzone())
 
@@ -130,21 +141,25 @@ USE_L10N = True
 
 USE_TZ = True
 
-MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'  # Set your default language code
-MODELTRANSLATION_AUTO_POPULATE = True
+# MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'  # Set your default language code
+# MODELTRANSLATION_AUTO_POPULATE = True
 # Set the language code to prepopulate
-MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
-MODELTRANSLATION_FALLBACK_LANGUAGES = (
-    'en', 'ar', 'ku')  # Replace with your language codes
+# MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
 
 
-LANGUAGES = [
-    ('en', _('English')),
-    ('ar', _('Arabic')),
-    ('ku', _('Kurdish')),
-    # Add more languages as needed
-]
-LANGUAGES_BIDI = ['ar', 'ku']
+# EXTRA_LANG_INFO = {
+#     'ku': {
+#         'bidi': True,  # right-to-left
+#         'code': 'ku',
+#         'name': 'Kurdish',
+#     },
+# }
+
+# LANG_INFO = dict(django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO)
+# django.conf.locale.LANG_INFO = LANG_INFO
+
+# Languages using BiDi (right-to-left) layout
+
 
 
 # Static files (CSS, JavaScript, Images)

@@ -25,7 +25,7 @@
                                     <a href="{% url 'set_language' %}"
                                         onclick="event.preventDefault();document.getElementById('language-form-{{ lang.0 }}').submit();">
                                         <!--  -->
-                                        {{ lang.1 }}
+                                        {{lang.0}}: {{ lang.1 }}
                                     </a>
                                     <form id="language-form-{{ lang.0 }}" action="{% url 'set_language' %}" method="post">
                                         {% csrf_token %}
