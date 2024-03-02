@@ -3,6 +3,8 @@ from src.settings.components.env import config
 from tzlocal import get_localzone
 from src.settings.components import PROJECT_PATH, BASE_DIR
 
+from django.utils.translation import gettext_lazy as _
+
 # from src.settings.components.redis import REDIS_HOST, REDIS_PORT
 
 BASE_ENDPOINT = config('BASE_ENDPOINT', default='http://127.0.0.1:8000')
@@ -11,6 +13,7 @@ WS_ENDPOINT = config('WS_ENDPOINT', default='ws://127.0.0.1:8000')
 # Application definition
 
 DJANGO_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -35,6 +38,7 @@ AUTH_USER_MODEL = "accounts.User"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -65,6 +69,11 @@ TEMPLATES = [
         },
     },
 ]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+print("CHECK LOCALE PATH BASE_DIR: ", os.path.join(BASE_DIR, 'locale'))
 
 WSGI_APPLICATION = 'src.wsgi.application'
 ASGI_APPLICATION = 'src.asgi.application'
@@ -111,13 +120,31 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ar'
+MODELTRANSLATION_LANGUAGES = ('en', 'ar', 'ku')
 
 TIME_ZONE = str(get_localzone())
 
 USE_I18N = True
+USE_L10N = True
 
 USE_TZ = True
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'  # Set your default language code
+MODELTRANSLATION_AUTO_POPULATE = True
+# Set the language code to prepopulate
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
+MODELTRANSLATION_FALLBACK_LANGUAGES = (
+    'en', 'ar', 'ku')  # Replace with your language codes
+
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('ar', _('Arabic')),
+    ('ku', _('Kurdish')),
+    # Add more languages as needed
+]
+LANGUAGES_BIDI = ['ar', 'ku']
 
 
 # Static files (CSS, JavaScript, Images)

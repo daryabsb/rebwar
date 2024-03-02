@@ -15,6 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf import settings
+
+from django.conf.urls.i18n import i18n_patterns
+from django.views.i18n import set_language
+
+
 from django.conf.urls.static import static
 from django.urls import path, include
 
@@ -31,6 +36,12 @@ urlpatterns = [
     path('services/', views.services_view, name='services'),
     path('services/<int:id>/', views.services_detail_view, name='services-detail'),
 ]
+
+urlpatterns += i18n_patterns(
+    # ... your translatable url patterns ...
+    path('set_language/', set_language, name='set_language'),
+)
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

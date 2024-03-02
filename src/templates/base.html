@@ -1,6 +1,16 @@
+{% load i18n %}
+{% load set_var %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% if LANGUAGE_BIDI %}
+{% set dir = "rtl" %}
+{% else %}
+{% set dir = "ltr" %}
+{% endif %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}" dir="{{ dir }}">
   <head>
     {% include 'base/meta.html' %}
 
@@ -8,6 +18,38 @@
 
     <!-- Include Bootstrap RTL CSS if language is Arabic -->
     {% include 'base/landing-css.html' %}
+
+    {% if LANGUAGE_BIDI %}
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.rtl.min.css' %}" />
+    <style>
+      /* Arabic font */
+      body[lang="ar"] {
+        font-family: "Cairo", sans-serif;
+      }
+    
+      .cairo {
+        font-family: "Cairo", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+    
+      .cairo-bold {
+        font-family: "Cairo", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings: "slnt" 0;
+      }
+    
+      .owl-carousel {
+        direction: ltr !important;
+      }
+    </style>
+    
+    {% endif %}
 
     <title>
       {% block head_title %}{{ site_title }}{% endblock head_title %}
