@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-03 12:42+0300\n"
+"POT-Creation-Date: 2024-03-03 20:21+0300\n"
 "PO-Revision-Date: 2023-04-25 06:49+0000\n"
 "Last-Translator: Swara <swara09@gmail.com>, 2022-2023\n"
 "Language-Team: Central Kurdish (http://app.transifex.com/django/django/"
@@ -21,13 +21,103 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\src\app\context_processors.py:23 .\src\app\globals.py:7
+#: .\src\app\context_processors.py:24 .\src\app\globals.py:7
 msgid "make_appointment"
 msgstr "داوای چاوپێكەوتن بكە"
 
-#: .\src\app\context_processors.py:24
+#: .\src\app\context_processors.py:25
 msgid "welcome_top_line"
 msgstr "بەخێربێیت بۆ كلینیكی دكتۆر رێبوار عەلاف"
+
+#: .\src\core\__init__.py:3
+msgid "about_page_title"
+msgstr ""
+
+#: .\src\core\__init__.py:4
+msgid "about_page_opening_title"
+msgstr ""
+
+#: .\src\core\__init__.py:5
+msgid "about_page_opening_description"
+msgstr ""
+
+#: .\src\core\__init__.py:7
+msgid "services_page_title"
+msgstr ""
+
+#: .\src\core\__init__.py:9
+msgid "services_page_opening_title"
+msgstr ""
+
+#: .\src\core\__init__.py:10
+msgid "services_page_opening_description"
+msgstr ""
+
+#: .\src\core\__init__.py:12
+msgid "services_detail_opening_title"
+msgstr ""
+
+#: .\src\core\__init__.py:13
+msgid "services_detail_opening_description"
+msgstr ""
+
+#: .\src\core\__init__.py:15
+msgid "journey_page_title"
+msgstr ""
+
+#: .\src\core\__init__.py:16
+msgid "journey_page_opening_title"
+msgstr ""
+
+#: .\src\core\__init__.py:17
+msgid "journey_page_opening_description"
+msgstr ""
+
+#: .\src\core\__init__.py:19 .\src\core\__init__.py:24
+msgid "contact_page_title"
+msgstr ""
+
+#: .\src\core\__init__.py:20
+msgid "contact_page_opening_title"
+msgstr ""
+
+#: .\src\core\__init__.py:21
+msgid "contact_page_opening_description"
+msgstr ""
+
+#: .\src\core\admin\__init__.py:34
+msgid "Content Details"
+msgstr ""
+
+#: .\src\core\admin\__init__.py:37
+msgid "Translated Content"
+msgstr ""
+
+#: .\src\core\models\model_content.py:15
+msgid "Title"
+msgstr ""
+
+#: .\src\core\models\model_content.py:16
+#, fuzzy
+#| msgid "Duration"
+msgid "Description"
+msgstr "ماوە"
+
+#: .\src\core\models\model_content.py:19
+msgid "Translated Title"
+msgstr ""
+
+#: .\src\core\models\model_content.py:21
+msgid "Translated Description"
+msgstr ""
+
+#: .\src\core\models\model_content.py:27
+msgid "Section Content"
+msgstr ""
+
+#: .\src\core\models\model_content.py:28
+msgid "Section Contents"
+msgstr ""
 
 #: .\src\settings\components\common.py:134
 msgid "English"
