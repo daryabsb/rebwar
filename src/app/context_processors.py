@@ -26,13 +26,24 @@ def general_data(request):
 
     primary_phone = Contact.objects.filter(
         category='phone', is_primary=True).first()
+
+    phones = Contact.objects.filter(category='phone')
+    primary_address = Contact.objects.filter(
+        category='address', is_primary=True).first()
+    addresses = Contact.objects.filter(category='address')
+    emails = Contact.objects.filter(category='email')
+
     print("{% trans primary_phone %}: ", primary_phone)
 
     return {
         "site_title": site_title,
         "make_appointment": make_appointment,
         "welcome_top_line": welcome_top_line,
-        "top_phone": primary_phone
+        "top_phone": primary_phone,
+        "phones": phones,
+        "addresses": addresses,
+        "primary_address": primary_address,
+        "emails": emails,
     }
 
 

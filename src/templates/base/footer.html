@@ -9,10 +9,10 @@
         </div>
         <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Donec dictum purus non graviduis congue arcu. Cras tincidunt voluLorem ipsum dolor sit
-            amet, consectetur adipisnon graviduis cotempor.Donec dictum purus non graviduis congue arcu. Cras
-            tincidunt volutpat magna ut tempor.
+            Welcome to Dr. Rebwar A. Allaf Orthopedic Clinic, where compassionate care and cutting-edge
+            expertise converge to provide unparalleled orthopedic solutions. Our clinic is dedicated to
+            promoting musculoskeletal health, ensuring that every patient receives personalized and comprehensive
+            care for a range of orthopedic conditions.
           </p>
         </div>
       </div>
@@ -21,21 +21,23 @@
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
           <div class="ft_address">
-            <span class="ft_icon"> <i class="icon-placeholder icon-1x"></i></span>
-            <span class="address_text">Orthopaedic Clinic, Zeppelinstr 53 3970 SYDNEY NSW</span>
+            <span class="address_text"><span class="ft_icon"> <i class="icon-placeholder icon-1x"></i>
+              </span>
+              <!--  -->
+              {{ primary_address }}</span>
           </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
           <div class="ft_phone">
             <span class="ft_icon"><i class="icon-phone-call-3 icon-1x"></i></span>
-            <span class="phone_text">1- 800-1234-567 <br />
-              1- 800-1234-567</span>
+            <span class="phone_text">
+              {% for phone in phones %}{{phone}}<br />{% endfor %}</span>
           </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
           <div class="ft_email">
             <span class="ft_icon"><i class="icon-mail-4 icon-1x"></i></span>
-            <span class="email_text">info@orthopedic.com</span>
+            <span class="email_text">{% for email in emails %}{{email}}<br />{% endfor %}</span>
           </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-8 col-xs-12">

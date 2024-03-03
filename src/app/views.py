@@ -80,6 +80,7 @@ def services_detail_view(request, id):
     }
     return render(request, "services/detail.html", context=context)
 
+
 def contact_view(request):
     abouts = About.objects.filter(featured=True).order_by('id')
     page_crumbs = [{"title": "Home", "url": "/"}]
