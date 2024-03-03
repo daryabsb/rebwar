@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 from django.conf import settings
 from src.core.models import Service  # Replace with your actual model
+from django.utils.translation import gettext as _
 
 
 def vendor_files(request):
@@ -16,11 +17,22 @@ def vendor_files(request):
         "vendor_css_files": css_files,
     }
 
+
 def general_data(request):
+    from src.contact.models import Contact
     site_title = "Dr Rebwar : Orthopedic Clinic"
+    make_appointment = _("make_appointment")
+    welcome_top_line = _("welcome_top_line")
+
+    primary_phone = Contact.objects.filter(
+        category='phone', is_primary=True).first()
+    print("{% trans primary_phone %}: ", primary_phone)
 
     return {
-        "site_title": site_title
+        "site_title": site_title,
+        "make_appointment": make_appointment,
+        "welcome_top_line": welcome_top_line,
+        "top_phone": primary_phone
     }
 
 

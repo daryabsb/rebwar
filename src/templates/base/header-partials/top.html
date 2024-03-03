@@ -5,15 +5,18 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-md-6 hidden-sm hidden-xs">
-        <p class="welcome-msg">Welcome to Our Orthopaedic Clinic Center</p>
+        <p class="welcome-msg">{% trans welcome_top_line %}</p>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="header-top-links">
-          <span class="call-text hidden-sm hidden-xs">1-800-1234-567</span>
-
-          <span class="cta-text"><a href="#" class="btn btn-primary btn-xs">Make an Appointment</a></span>
+          <span class="call-text hidden-sm hidden-xs">{{ top_phone }}</span>
+          <span class="cta-text"><a href="#" class="btn btn-primary btn-xs">
+              <!--  -->
+              {% trans make_appointment %}
+            </a></span>
           <span class="cta-text">
             {% get_current_language as CURRENT_LANGUAGE %} {% get_available_languages as AVAILABLE_LANGUAGES %}
+            {% get_language_info for CURRENT_LANGUAGE as lang %}
             <div class="btn-group">
               <a
                 href="#"
@@ -21,7 +24,7 @@
                 class="btn btn-success dropdown-toggle btn-xs"
                 type="button"
                 aria-expanded="false"
-                >{{ CURRENT_LANGUAGE }} <span class="caret"></span
+                >{% trans lang.name %} <span class="caret"></span
               ></a>
               <ul role="menu" class="dropdown-menu">
                 {% for lang in AVAILABLE_LANGUAGES %}

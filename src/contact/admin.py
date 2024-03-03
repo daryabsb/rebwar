@@ -1,3 +1,6 @@
 from django.contrib import admin
+from src.contact.models import Contact
+from modeltranslation.admin import TranslationAdmin
 
-# Register your models here.
+
+admin.site.register(Contact, TranslationAdmin)
