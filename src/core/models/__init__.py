@@ -1,3 +1,4 @@
+from .model_content import SectionContent
 from .model_slides import Slide
 from .model_services import Service, Treatment, Condition, Procedure
 from .model_journey import Journey, JourneyDetail
