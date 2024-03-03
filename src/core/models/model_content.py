@@ -9,10 +9,12 @@ class SectionContent(models.Model):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
 
+    parent = models.ForeignKey('self', null=True, blank=True,
+                               related_name='subsections', on_delete=models.CASCADE)
+
     title = models.CharField(_('Title'), max_length=255)
     description = models.TextField(_('Description'))
 
-    # Translated fields
     title_translated = models.JSONField(
         _('Translated Title'), blank=True, null=True)
     description_translated = models.JSONField(
