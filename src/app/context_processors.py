@@ -31,6 +31,20 @@ def menu_data(request):
     return {'menu_items': menu_items}
 
 
+def menu_items(request):
+    from src.core.models import Menu
+    # Retrieve all menus with submenus and order them by ordinal
+    menus = Menu.objects.filter(
+        parent_menu__isnull=True
+    ).order_by('ordinal').prefetch_related('submenus')
+
+    # Preload submenus within their parent menus
+    # for menu in menus:
+    #     menu.submenus = menu.submenus.set().order_by('ordinal')
+
+    return {"menus": menus}
+
+
 def language_ref(request):
     from src.app.const import LANGUAGES_CHOICES
     rtl = False

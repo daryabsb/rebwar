@@ -10,7 +10,7 @@ class Service(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     title = models.CharField(max_length=100)
     icon = models.CharField(max_length=50)
-    description = models.CharField(max_length=300, null=True, blank=True)
+    description = models.CharField(max_length=500, null=True, blank=True)
     detailed_description = models.TextField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True,
                               default='uploads/user/default-user-avatar.png',
