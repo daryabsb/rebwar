@@ -17,3 +17,4 @@ python-decouple
 cryptography
 gunicorn
 django-modeltranslation
+googletrans

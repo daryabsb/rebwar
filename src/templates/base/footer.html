@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <div class="footer">
   <!-- footer -->
@@ -5,14 +6,10 @@
     <div class="footer_sections footer_about">
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-          <div class="footer_logo"><img src="{% static 'images/logo.png' %}" alt="" /></div>
+          <div class="footer_logo"><img src="{% static 'images/Logo-white-01-01.svg' %}" alt="" /></div>
         </div>
         <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
-          <p>
-            Welcome to Dr. Rebwar A. Allaf Orthopedic Clinic, where compassionate care and cutting-edge
-            expertise converge to provide unparalleled orthopedic solutions. Our clinic is dedicated to
-            promoting musculoskeletal health, ensuring that every patient receives personalized and comprehensive
-            care for a range of orthopedic conditions.
+          <p>{{ footer_description }}
           </p>
         </div>
       </div>
@@ -66,7 +63,7 @@
     <div class="footer_sections">
       <div class="row">
         <div class="ccol-lg-3 col-md-3 col-sm-6 col-xs-6">
-          <h3 class="footer_title">Quick links</h3>
+          <h3 class="footer_title">{% trans 'quick_links' %}</h3>
           <div class="ft_menu">
             <ul>
               <li><a href="#">Who we are</a></li>
@@ -78,7 +75,7 @@
           </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-          <h3 class="footer_title">Serve we area</h3>
+          <h3 class="footer_title">{% trans 'serve_we_area' %}</h3>
           <div class="ft_menu">
             <ul>
               <li><a href="#">Melbourne</a></li>
@@ -90,19 +87,16 @@
           </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <h3 class="footer_title">Subscribe the newsletter</h3>
-          <p>
-            Subscribe to our newsletter and stay updated on the latest news. We will keep you informed about special
-            offers.
-          </p>
+          <h3 class="footer_title">{% trans 'subscribe_the_newsletter' %}</h3>
+          <p>{% trans 'subscribe_the_newsletter_descrition' %}</p>
           <div class="newsletter_form">
             <form action="newsletter.php" method="post">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Write Email Address" />
+                    <input type="text" class="form-control" placeholder="{% trans 'write_email_address_placeholder' %}" />
                     <span class="input-group-btn">
-                      <button class="btn btn-default" type="submit">subscribe</button>
+                      <button class="btn btn-default" type="submit">{% trans 'subscribe_button' %}</button>
                     </span>
                   </div>
                   <!-- /input-group -->
@@ -120,7 +114,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <small>2017-2018 © Orthopaedic Surgery &amp; Sports</small>
+          <small>{% trans 'footer_bottom_text' %}</small>
         </div>
       </div>
     </div>

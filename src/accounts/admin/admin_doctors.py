@@ -6,7 +6,7 @@ from django.utils.translation import gettext as _
 
 @admin.register(DoctorProfile)
 class DoctorAdmin(TranslationAdmin):
-    list_display = ('id', 'name', 'arabic_name', 'specialty', 'email')
+    list_display = ('id', 'name', 'specialty', 'email')
     ordering = ('id', )
 
     class Media:

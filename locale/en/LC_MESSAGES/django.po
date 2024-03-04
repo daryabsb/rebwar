@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-03 12:42+0300\n"
+"POT-Creation-Date: 2024-03-04 13:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,160 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\src\app\context_processors.py:23 .\src\app\globals.py:7
+#: .\src\app\__init__.py:4 .\src\templates\home\partials\services.html:29
+msgid "view_services_button"
+msgstr "View Services"
+
+#: .\src\app\__init__.py:5 .\src\templates\home\partials\featured.html:33
+msgid "view_profile_button"
+msgstr "View Profile"
+
+#: .\src\app\__init__.py:6
+#| msgid "confirm_appt_button"
+msgid "confirm_appt_button"
+msgstr "Confirm my appointment"
+
+#: .\src\app\__init__.py:7
+msgid "subscribe_button"
+msgstr "Subscribe"
+
+#: .\src\app\__init__.py:8 .\src\templates\home\partials\testimonial.html:86
+msgid "watch_video_button"
+msgstr "Watch Video"
+
+#: .\src\app\__init__.py:9 .\src\templates\base\location-map.html:13
+msgid "more_locations_button"
+msgstr "More Locations"
+
+#: .\src\app\__init__.py:14 .\src\templates\home\partials\testimonial.html:76
+msgid "patients_educations_videos"
+msgstr "Patients Educations Videos"
+
+#: .\src\app\__init__.py:16 .\src\templates\home\partials\testimonial.html:81
+msgid "patients_educations_videos_description"
+msgstr ""
+"Our Orthopadic surgon provides educations video to new patient for "
+"Acknowledgement & Awarness."
+
+#: .\src\app\__init__.py:18 .\src\templates\home\partials\testimonial.html:10
+msgid "patients_what_say"
+msgstr "Patients, What say about us"
+
+#: .\src\app\__init__.py:20 .\src\templates\base\location-map.html:4
+msgid "locations_and_directions"
+msgstr "Locations & Directions"
+
+#: .\src\app\__init__.py:21 .\src\templates\base\resources.html:5
+msgid "patient_resources"
+msgstr "Patient Resources"
+
+#: .\src\app\__init__.py:22 .\src\templates\base\resources.html:11
+msgid "patients_form"
+msgstr "Patient’s Form"
+
+#: .\src\app\__init__.py:23 .\src\templates\base\resources.html:14
+msgid "your_first_visit"
+msgstr "Your First Visit"
+
+#: .\src\app\__init__.py:24 .\src\templates\base\resources.html:17
+msgid "instruction_after_op"
+msgstr "Instruction After OP"
+
+#: .\src\app\__init__.py:25 .\src\templates\base\resources.html:20
+msgid "patients_education"
+msgstr "Patient’s Educations"
+
+#: .\src\app\__init__.py:26
+msgid "quick_links"
+msgstr "QUICK LINKS"
+
+#: .\src\app\__init__.py:27
+msgid "serve_we_area"
+msgstr "ERVE WE AREA"
+
+#: .\src\app\__init__.py:30
+msgid "subscribe_the_newsletter"
+msgstr "SUBSCRIBE THE NEWSLETTER"
+
+#: .\src\app\__init__.py:31
+msgid "subscribe_the_newsletter_descrition"
+msgstr ""
+"Subscribe to our newsletter and stay updated on the latest news. We will "
+"keep you informed about special offers."
+
+#: .\src\app\__init__.py:39
+msgid "write_email_address_placeholder"
+msgstr "Write Email Address"
+
+#: .\src\app\__init__.py:42
+msgid "footer_bottom_text"
+msgstr "2024 © Dr Rebwar Allaf - Orthopaedic & Hand Clinic"
+
+#: .\src\app\__init__.py:44
+#| msgid "make_appointment"
+msgid "booking_appointment"
+msgstr "Booking appointments"
+
+#: .\src\app\context_processors.py:24 .\src\app\globals.py:7
+#: .\src\templates\base\appointment-form.html:53
 msgid "make_appointment"
 msgstr "Make an appointment"
 
-#: .\src\app\context_processors.py:24
+#: .\src\app\context_processors.py:25
 msgid "welcome_top_line"
 msgstr "Welcome to Our Orthopaedic Clinic Center"
+
+#: .\src\core\__init__.py:3
+msgid "contact_page_title"
+msgstr ""
+
+#: .\src\core\__init__.py:5
+msgid "crumb_home"
+msgstr "Home"
+
+#: .\src\core\__init__.py:6
+msgid "app_services"
+msgstr "Services"
+
+#: .\src\core\__init__.py:7
+msgid "app_abount_us"
+msgstr "About Us"
+
+#: .\src\core\__init__.py:8
+msgid "app_blogs"
+msgstr "Blogs"
+
+#: .\src\core\admin\__init__.py:34
+msgid "Content Details"
+msgstr ""
+
+#: .\src\core\admin\__init__.py:37
+msgid "Translated Content"
+msgstr ""
+
+#: .\src\core\models\model_content.py:15
+msgid "Title"
+msgstr ""
+
+#: .\src\core\models\model_content.py:16
+msgid "Description"
+msgstr ""
+
+#: .\src\core\models\model_content.py:19
+msgid "Translated Title"
+msgstr ""
+
+#: .\src\core\models\model_content.py:21
+msgid "Translated Description"
+msgstr ""
+
+#: .\src\core\models\model_content.py:27
+msgid "Section Content"
+msgstr ""
+
+#: .\src\core\models\model_content.py:28
+msgid "Section Contents"
+msgstr ""
 
 #: .\src\settings\components\common.py:134
 msgid "English"

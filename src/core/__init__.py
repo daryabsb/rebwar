@@ -1,27 +1,13 @@
 from django.utils.translation import gettext_lazy as _
 
-about_page_title = _('about_page_title')
-about_page_opening_title = _('about_page_opening_title')
-about_page_opening_description = _('about_page_opening_description')
-
-services_page_title = _('services_page_title')
-
-services_page_opening_title = _('services_page_opening_title')
-services_page_opening_description = _('services_page_opening_description')
-
-services_detail_opening_title = _('services_detail_opening_title')
-services_detail_opening_description = _('services_detail_opening_description')
-
-journey_page_title = _('journey_page_title')
-journey_page_opening_title = _('journey_page_opening_title')
-journey_page_opening_description = _('journey_page_opening_description')
-
-contact_page_title = _('contact_page_title')
-contact_page_opening_title = _('contact_page_opening_title')
-contact_page_opening_description = _('contact_page_opening_description')
-
-
 footer_description = _('contact_page_title')
+
+crumb_home = _('crumb_home')
+app_services = _('app_services')
+app_abount_us = _('app_abount_us')
+app_blogs = _('app_blogs')
+
+
 
 
 '''

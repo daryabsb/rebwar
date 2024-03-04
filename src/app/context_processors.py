@@ -18,8 +18,16 @@ def vendor_files(request):
     }
 
 
+def get_value(key):
+    from src.application.models import Application
+    obj = Application.objects.get(key=key)
+    return obj.value
+
+
 def general_data(request):
     from src.contact.models import Contact
+
+    footer_description = get_value('footer_description')
     site_title = "Dr Rebwar : Orthopedic Clinic"
     make_appointment = _("make_appointment")
     welcome_top_line = _("welcome_top_line")
@@ -44,6 +52,7 @@ def general_data(request):
         "addresses": addresses,
         "primary_address": primary_address,
         "emails": emails,
+        "footer_description": footer_description,
     }
 
 

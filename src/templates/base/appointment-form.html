@@ -1,12 +1,14 @@
+{% load i18n %}
+
+{% if widget_title %}
+<h3 class="widget-title">{% trans 'booking_appointment' %}</h3>
+{% endif %} {% if title %}
+<div class="section-title">
+  <h1>{% trans 'booking_appointment' %}</h1>
+  </div>
+  {% endif %}
 <div class="appointment-block">
   <div class="bg-default widget-appointments">
-    {% if widget_title %}
-    <h3 class="widget-title">Make An Appointments</h3>
-    {% endif %} {% if title %}
-    <div class="section-title">
-      <h1>Book An Appointments</h1>
-    </div>
-    {% endif %}
 
     <form class="form-horizontal" method="post" action="booking-form.php">
       <!-- Text input-->
@@ -17,12 +19,12 @@
         </div>
       </div>
       <!-- Text input-->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label class="control-label" for="Email"> </label>
         <div class="col-md-12">
           <input id="Email" name="Email" type="email" placeholder="Email" class="form-control input-md" />
         </div>
-      </div>
+      </div> -->
       <!-- Text input-->
       <div class="form-group">
         <label class="control-label" for="Phone"> </label>
@@ -54,7 +56,7 @@
       <!-- Button -->
       <div class="form-group">
         <div class="col-md-12">
-          <button id="singlebutton" name="singlebutton" class="btn btn-primary">Confirm My Appointment</button>
+          <button id="singlebutton" name="singlebutton" class="btn btn-primary">{% trans 'make_appointment' %}</button>
         </div>
       </div>
     </form>

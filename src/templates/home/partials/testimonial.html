@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 
 <div class="space-medium bg-primary">
@@ -6,7 +7,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="section-title">
-                    <h1 class="text-white">Patients, What say about us</h1>
+                    <h1 class="text-white">{% trans 'patients_what_say' %}</h1>
                 </div>
                 <div class="well-section">
                     <div class="testimonial owl-carousel">
@@ -72,20 +73,17 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="section-title">
-                    <h1 class="text-white">Patients Educations Videos</h1>
+                    <h1 class="text-white">{% trans 'patients_educations_videos' %}</h1>
                 </div>
                 <div class="well-section">
                     <div class="video-block">
                         <div class="video-area">
-                            <p>
-                                Our Orthopadic surgon provides educations video to new patient for Acknowledgement &amp;
-                                Awarness.
-                            </p>
+                            <p>{% trans 'patients_educations_videos_description' %}</p>
                             <div class="video-img-block">
                                 <a href="#" class="imghover"> <img src="{% static 'images/video-img.jpg' %}"
                                         alt="" class="video-img" /></a>
                                 <div class="video-sign">
-                                    <a href="#" class="video-link">Watch Video <span><img
+                                    <a href="#" class="video-link">{% trans 'watch_video_button' %}<span><img
                                                 src="{% static 'images/play-sign.png' %}" alt=""
                                                 class="" /></span></a>
                                 </div>

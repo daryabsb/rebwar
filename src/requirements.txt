@@ -12,8 +12,12 @@ asttokens==2.4.1
     # via icecream
 autopep8==2.0.4
     # via -r src/requirements/requirements.in
+certifi==2024.2.2
+    # via httpx
 cffi==1.16.0
     # via cryptography
+chardet==3.0.4
+    # via httpx
 colorama==0.4.6
     # via icecream
 cryptography==42.0.3
@@ -43,10 +47,28 @@ djangorestframework==3.14.0
     # via -r src/requirements/requirements.in
 executing==2.0.1
     # via icecream
+googletrans==3.0.0
+    # via -r src/requirements/requirements.in
 gunicorn==21.2.0
     # via -r src/requirements/requirements.in
+h11==0.9.0
+    # via httpcore
+h2==3.2.0
+    # via httpcore
+hpack==3.0.0
+    # via h2
+hstspreload==2024.3.1
+    # via httpx
+httpcore==0.9.1
+    # via httpx
+httpx==0.13.3
+    # via googletrans
+hyperframe==5.2.0
+    # via h2
 icecream==2.1.3
     # via -r src/requirements/requirements.in
+idna==2.10
+    # via httpx
 packaging==23.2
     # via gunicorn
 pillow==10.2.0
@@ -67,10 +89,16 @@ pytz==2024.1
     # via
     #   -r src/requirements/requirements.in
     #   djangorestframework
+rfc3986==1.5.0
+    # via httpx
 six==1.16.0
     # via
     #   -r src/requirements/requirements.in
     #   asttokens
+sniffio==1.3.1
+    # via
+    #   httpcore
+    #   httpx
 sqlparse==0.4.4
     # via django
 typing-extensions==4.9.0

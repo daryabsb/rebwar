@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-03 20:21+0300\n"
+"POT-Creation-Date: 2024-03-04 13:07+0300\n"
 "PO-Revision-Date: 2023-04-25 06:49+0000\n"
 "Last-Translator: Swara <swara09@gmail.com>, 2022-2023\n"
 "Language-Team: Central Kurdish (http://app.transifex.com/django/django/"
@@ -21,7 +21,104 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\src\app\__init__.py:4 .\src\templates\home\partials\services.html:29
+msgid "view_services_button"
+msgstr "بینینی خزمەتگوزارییەكان"
+
+#: .\src\app\__init__.py:5 .\src\templates\home\partials\featured.html:33
+msgid "view_profile_button"
+msgstr "پێشاندانی پرۆفایلی كەسی"
+
+#: .\src\app\__init__.py:6
+#| msgid "more_locations_button"
+msgid "confirm_appt_button"
+msgstr "شوێنی زیاتر"
+
+#: .\src\app\__init__.py:7
+msgid "subscribe_button"
+msgstr "بەشداربوون"
+
+#: .\src\app\__init__.py:8 .\src\templates\home\partials\testimonial.html:86
+msgid "watch_video_button"
+msgstr "بینینی ڤیدیۆ"
+
+#: .\src\app\__init__.py:9 .\src\templates\base\location-map.html:13
+msgid "more_locations_button"
+msgstr "شوێنی زیاتر"
+
+#: .\src\app\__init__.py:14 .\src\templates\home\partials\testimonial.html:76
+msgid "patients_educations_videos"
+msgstr "ڤیدیۆی پەروەردەیی نەخۆش"
+
+#: .\src\app\__init__.py:16 .\src\templates\home\partials\testimonial.html:81
+msgid "patients_educations_videos_description"
+msgstr ""
+"لەماڵپەڕەكەماندا ڤیدیۆی پەروەردەیی پێشکەش بە نەخۆشەكان دەكەین بۆ زیاتر "
+"وشیاربوونەوە و ئاگاداربوون."
+
+#: .\src\app\__init__.py:18 .\src\templates\home\partials\testimonial.html:10
+msgid "patients_what_say"
+msgstr "نەخۆشەکان، چی دەڵێن دەربارەی ئێمە"
+
+#: .\src\app\__init__.py:20 .\src\templates\base\location-map.html:4
+msgid "locations_and_directions"
+msgstr "شوێنەکان و ڕێنماییەکان"
+
+#: .\src\app\__init__.py:21 .\src\templates\base\resources.html:5
+msgid "patient_resources"
+msgstr "سەرچاوە بۆ نەخۆش"
+
+#: .\src\app\__init__.py:22 .\src\templates\base\resources.html:11
+msgid "patients_form"
+msgstr "فۆرمی نەخۆش"
+
+#: .\src\app\__init__.py:23 .\src\templates\base\resources.html:14
+msgid "your_first_visit"
+msgstr "یەكەم سەردانی نەخۆش"
+
+#: .\src\app\__init__.py:24 .\src\templates\base\resources.html:17
+msgid "instruction_after_op"
+msgstr "رێنمایی دوای نەشتەرگەری"
+
+#: .\src\app\__init__.py:25 .\src\templates\base\resources.html:20
+msgid "patients_education"
+msgstr "پەروەردەی نەخۆش"
+
+#: .\src\app\__init__.py:26
+msgid "quick_links"
+msgstr "لینكی خێرا"
+
+#: .\src\app\__init__.py:27
+msgid "serve_we_area"
+msgstr "ناوچەكانی سنوری ئێمە"
+
+#: .\src\app\__init__.py:30
+msgid "subscribe_the_newsletter"
+msgstr "بەشداربوون لەلیستی هەواڵنامە"
+
+#: .\src\app\__init__.py:31
+msgid "subscribe_the_newsletter_descrition"
+msgstr ""
+"بەشداری هەواڵنامەکانمان بکەن و ئاگاداری نوێترین هەواڵەکان بن. ئاگادارتان "
+"دەکەینەوە لە ئۆفەرە تایبەتەکان."
+
+#: .\src\app\__init__.py:39
+msgid "write_email_address_placeholder"
+msgstr "ئیمەیڵەكەت بنوسە لێرە"
+
+#: .\src\app\__init__.py:42
+msgid "footer_bottom_text"
+msgstr ""
+"هەموو مافەکان پارێزراوە © 2024 کلینیکی دکتۆر ڕێبوار عەلاف - نەشتەرگەری ئێسک "
+"و دەست"
+
+#: .\src\app\__init__.py:44
+#| msgid "make_appointment"
+msgid "booking_appointment"
+msgstr "داواكردنی چاوپێكەوتن"
+
 #: .\src\app\context_processors.py:24 .\src\app\globals.py:7
+#: .\src\templates\base\appointment-form.html:53
 msgid "make_appointment"
 msgstr "داوای چاوپێكەوتن بكە"
 
@@ -30,60 +127,24 @@ msgid "welcome_top_line"
 msgstr "بەخێربێیت بۆ كلینیكی دكتۆر رێبوار عەلاف"
 
 #: .\src\core\__init__.py:3
-msgid "about_page_title"
-msgstr ""
-
-#: .\src\core\__init__.py:4
-msgid "about_page_opening_title"
-msgstr ""
-
-#: .\src\core\__init__.py:5
-msgid "about_page_opening_description"
-msgstr ""
-
-#: .\src\core\__init__.py:7
-msgid "services_page_title"
-msgstr ""
-
-#: .\src\core\__init__.py:9
-msgid "services_page_opening_title"
-msgstr ""
-
-#: .\src\core\__init__.py:10
-msgid "services_page_opening_description"
-msgstr ""
-
-#: .\src\core\__init__.py:12
-msgid "services_detail_opening_title"
-msgstr ""
-
-#: .\src\core\__init__.py:13
-msgid "services_detail_opening_description"
-msgstr ""
-
-#: .\src\core\__init__.py:15
-msgid "journey_page_title"
-msgstr ""
-
-#: .\src\core\__init__.py:16
-msgid "journey_page_opening_title"
-msgstr ""
-
-#: .\src\core\__init__.py:17
-msgid "journey_page_opening_description"
-msgstr ""
-
-#: .\src\core\__init__.py:19 .\src\core\__init__.py:24
 msgid "contact_page_title"
 msgstr ""
 
-#: .\src\core\__init__.py:20
-msgid "contact_page_opening_title"
-msgstr ""
+#: .\src\core\__init__.py:5
+msgid "crumb_home"
+msgstr "سەرەكی"
 
-#: .\src\core\__init__.py:21
-msgid "contact_page_opening_description"
-msgstr ""
+#: .\src\core\__init__.py:6
+msgid "app_services"
+msgstr "خزمەتگوزارییەكان"
+
+#: .\src\core\__init__.py:7
+msgid "app_abount_us"
+msgstr "دەربارەی ئێمە"
+
+#: .\src\core\__init__.py:8
+msgid "app_blogs"
+msgstr "بیروڕا"
 
 #: .\src\core\admin\__init__.py:34
 msgid "Content Details"

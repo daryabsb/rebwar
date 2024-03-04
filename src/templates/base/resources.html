@@ -1,22 +1,23 @@
 <div class="resources-block">
   {% if title %}
+  {% load i18n %}
   <div class="section-title">
-    <h1>Patient Resources</h1>
+    <h1>{% trans 'patient_resources' %}</h1>
   </div>
   {% endif %}
   <div class="widget-resources">
     <ul class="listnone">
       <li>
-        <a href="#"><i class="fontello-icon icon-2x icon-note"></i> Patient’s Form</a>
+        <a href="#"><i class="fontello-icon icon-2x icon-note"></i>{% trans 'patients_form' %}</a>
       </li>
       <li>
-        <a href="#"><i class="fontello-icon icon-2x icon-avatar"></i> your first Visit</a>
+        <a href="#"><i class="fontello-icon icon-2x icon-avatar"></i>{% trans 'your_first_visit' %}</a>
       </li>
       <li>
-        <a href="#"><i class="fontello-icon icon-2x icon-notepad"></i> Instruction After OP</a>
+        <a href="#"><i class="fontello-icon icon-2x icon-notepad"></i>{% trans 'instruction_after_op' %}</a>
       </li>
       <li>
-        <a href="#"><i class="fontello-icon icon-2x icon-video-player"></i> Patient’s Educations</a>
+        <a href="#"><i class="fontello-icon icon-2x icon-video-player"></i>{% trans 'patients_education' %}</a>
       </li>
     </ul>
   </div>

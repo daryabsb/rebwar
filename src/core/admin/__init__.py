@@ -6,10 +6,10 @@ from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 # Register your models here.
 
 
+admin.site.register(About, TranslationAdmin)
 admin.site.register(Slide, TranslationAdmin)
 admin.site.register(Journey)
 admin.site.register(JourneyDetail)
-admin.site.register(About)
 
 admin.site.register(Service, TranslationAdmin)
 admin.site.register(Treatment, TranslationAdmin)

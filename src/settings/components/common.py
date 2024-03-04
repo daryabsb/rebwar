@@ -26,6 +26,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
 ]
 LOCAL_APPS = [
+    'src.application',
     "src.app",
     'src.accounts',
     'src.core',

@@ -1,7 +1,14 @@
 from modeltranslation.translator import register, TranslationOptions
 from src.core.models import (
     Slide, Service, Treatment, Condition, Procedure,
-    Menu, SectionContent)
+    Menu, SectionContent, About)
+
+
+@register(About)
+class AboutTranslationOptions(TranslationOptions):
+    fields = ('title', 'description', 'action',)
+    # fallback_languages = {'default': ('ku', 'ar')}
+    # fallback_values = _('-- sorry, no translation provided --')
 
 
 @register(Slide)

@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <div class="space-medium bg-default">
   <!-- space-medium -->
@@ -29,7 +30,7 @@
                 He has treated close to 500 Professional and Olympic athletes successfully. Dr.Martine is a Master
                 Instructor with the Arthroscopy Associationof Australia.
               </p> -->
-              <a href="{{ doctor.get_absolute_url }}" class="btn btn-primary mb30">View profile</a>
+              <a href="{{ doctor.get_absolute_url }}" class="btn btn-primary mb30">{% trans 'view_profile_button' %}</a>
             </div>
           </div>
         </div>
