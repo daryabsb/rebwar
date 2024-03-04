@@ -6,7 +6,15 @@ from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 # Register your models here.
 
 
-admin.site.register(About, TranslationAdmin)
+class AboutAdmin(TranslationAdmin):
+    # Your admin configuration here
+    def save_model(self, request, obj, form, change):
+        obj.user = request.user
+        super().save_model(request, obj, form, change)
+
+
+admin.site.register(About, AboutAdmin)
+
 admin.site.register(Slide, TranslationAdmin)
 admin.site.register(Journey)
 admin.site.register(JourneyDetail)

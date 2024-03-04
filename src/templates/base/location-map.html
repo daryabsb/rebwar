@@ -1,7 +1,6 @@
 {% if title %}
-{% load i18n %}
 <div class="section-title">
-  <h1>{% trans 'locations_and_directions' %}</h1>
+  <h1>{{ locations_and_directions }}</h1>
 </div>
 {% endif %}
 <div class="location-block">
@@ -10,7 +9,7 @@
     <div class="location-captions">
       <p>Orthopaedic Clinic, Zeppelinstr 533970, Sydney NSW.</p>
       <p>1- 800-1234-567</p>
-      <a href="#" class="btn-link">{% trans 'more_locations_button' %}</a>
+      <a href="#" class="btn-link">{{ more_locations_button }}</a>
     </div>
   </div>
 </div>

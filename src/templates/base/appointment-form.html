@@ -1,15 +1,12 @@
-{% load i18n %}
-
 {% if widget_title %}
-<h3 class="widget-title">{% trans 'booking_appointment' %}</h3>
+<h3 class="widget-title">{{ booking_appointment }}</h3>
 {% endif %} {% if title %}
 <div class="section-title">
-  <h1>{% trans 'booking_appointment' %}</h1>
-  </div>
-  {% endif %}
+  <h1>{{ booking_appointment }}</h1>
+</div>
+{% endif %}
 <div class="appointment-block">
   <div class="bg-default widget-appointments">
-
     <form class="form-horizontal" method="post" action="booking-form.php">
       <!-- Text input-->
       <div class="form-group">
@@ -56,7 +53,7 @@
       <!-- Button -->
       <div class="form-group">
         <div class="col-md-12">
-          <button id="singlebutton" name="singlebutton" class="btn btn-primary">{% trans 'make_appointment' %}</button>
+          <button id="singlebutton" name="singlebutton" class="btn btn-primary">{{ make_appointment }}</button>
         </div>
       </div>
     </form>

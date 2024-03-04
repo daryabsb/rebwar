@@ -87,7 +87,7 @@ msgstr "QUICK LINKS"
 
 #: .\src\app\__init__.py:27
 msgid "serve_we_area"
-msgstr "ERVE WE AREA"
+msgstr "SERVE WE AREA"
 
 #: .\src\app\__init__.py:30
 msgid "subscribe_the_newsletter"

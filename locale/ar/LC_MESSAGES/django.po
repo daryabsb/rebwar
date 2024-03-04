@@ -96,8 +96,7 @@ msgstr "سجل لتعرف عنا اكثر"
 #: .\src\app\__init__.py:31
 msgid "subscribe_the_newsletter_descrition"
 msgstr ""
-"اشترك لدينا وكن مطلعًا على آخر المتطورات في عيادتنا. سنبقيك على علم بالعروض "
-"الخاصة."
+"اشترك لدينا وكن مطلعًا على آخر المتطورات في عيادتنا. سنبقيك على علم بالعروض الخاصة."
 
 #: .\src\app\__init__.py:39
 msgid "write_email_address_placeholder"

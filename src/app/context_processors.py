@@ -4,7 +4,6 @@ from django.conf import settings
 from src.core.models import Service  # Replace with your actual model
 from django.utils.translation import gettext as _
 
-
 def vendor_files(request):
     # static_dir = settings.BASE_DIR / "static"
     static_dir = Path(settings.STATIC_ROOT)
@@ -17,20 +16,17 @@ def vendor_files(request):
         "vendor_css_files": css_files,
     }
 
-
-def get_value(key):
+def global_data(request):
     from src.application.models import Application
-    obj = Application.objects.get(key=key)
-    return obj.value
+
+    all_objects = Application.objects.all()
+    data = {obj.key: obj.value for obj in all_objects}
+    # Unpack the dictionary directly in the context
+    return {**data}
 
 
 def general_data(request):
     from src.contact.models import Contact
-
-    footer_description = get_value('footer_description')
-    site_title = "Dr Rebwar : Orthopedic Clinic"
-    make_appointment = _("make_appointment")
-    welcome_top_line = _("welcome_top_line")
 
     primary_phone = Contact.objects.filter(
         category='phone', is_primary=True).first()
@@ -41,18 +37,12 @@ def general_data(request):
     addresses = Contact.objects.filter(category='address')
     emails = Contact.objects.filter(category='email')
 
-    print("{% trans primary_phone %}: ", primary_phone)
-
     return {
-        "site_title": site_title,
-        "make_appointment": make_appointment,
-        "welcome_top_line": welcome_top_line,
         "top_phone": primary_phone,
         "phones": phones,
         "addresses": addresses,
         "primary_address": primary_address,
         "emails": emails,
-        "footer_description": footer_description,
     }
 
 

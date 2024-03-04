@@ -2,13 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-        <h1 class="cta-title">Book An Appointment</h1>
-        <p class="cta-text">
-          We are the largest and most complete orthopaedic group in Australia. For all appointments and inquires, please
-          call (000) 123-4567 or click here to request an appointment online.
-        </p>
-
-        {% include 'base/modal.html' with text='Book An Appointment' %}
+        <h1 class="cta-title">{{ book_an_appointment }}</h1>
+        <p class="cta-text">{{ book_an_appointment_description|safe}}</p>
+        <a href="#" class="btn btn-primary">{{ book_an_appointment }}</a>
       </div>
       <!-- link that opens popup -->
 

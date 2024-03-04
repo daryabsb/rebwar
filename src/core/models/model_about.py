@@ -2,6 +2,9 @@ from django.db import models
 from src.core.modules import upload_image_file_path
 from django.contrib.auth import get_user_model
 
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+
 User = get_user_model()
 
 
@@ -18,46 +21,54 @@ class About(models.Model):
 
     def __str__(self):
         return self.title
-
+    
     def save(self, *args, **kwargs):
-        from django.conf import settings
-        from googletrans import Translator
-        from modeltranslation import settings as mt_settings
+        print("save called!!")
+        
 
-        try:
-            super().save(*args, **kwargs)
+# @receiver(post_save, sender=About)
+def translate_about_model(sender, instance, **kwargs):
+    from django.conf import settings
+    from googletrans import Translator
+    print("signal trigered")
+    try:
+        # Get the languages dynamically from settings
+        languages = settings.LANGUAGES
 
-            # Get the languages dynamically from settings
-            languages = settings.LANGUAGES
+        # Initialize translator
+        translator = Translator()
 
-            # Initialize translator
-            translator = Translator()
+        # Fields to translate
+        translation_fields = ['title', 'description', 'action']
 
-            # Fields to translate
-            translation_fields = ['title', 'description', 'action']
+        for lang_code, lang_name in languages:
+            # Initialize source text as None
+            source_text = None
 
-            # Iterate over each language
-            for lang_code, lang_name in languages:
-                # Iterate over fields that need translation
-                for field_name in translation_fields:
-                    # Form the source text from the available fields
-                    source_text = getattr(self, f'{field_name}_en', '')
+            # Iterate over fields that need translation
+            for field_name in translation_fields:
+                # Try to get the source text for the current language
+                source_text_candidate = getattr(instance, f'{field_name}_{lang_code}', '')
 
-                    # Skip empty fields
-                    if not source_text:
-                        continue
+                # If the source text is not empty, use it
+                if source_text_candidate:
+                    source_text = source_text_candidate
+                    break
 
-                    # Perform translation
-                    translated_text = translator.translate(
-                        source_text, dest=lang_code)
+            # If no source text is found, skip this language
+            if not source_text:
+                continue
 
-                    # Set the translated text in the corresponding translated field
-                    setattr(self, f'{field_name}_{lang_code}',
-                            translated_text.text)
+            # Perform translation
+            translated_text = translator.translate(source_text, dest=lang_code)
+            print("translated_text: ", translated_text)
 
-            # Save the model again to store the translated values
-            super().save(*args, **kwargs)
+            # Set the translated text in the corresponding translated field
+            setattr(instance, f'{field_name}_{lang_code}', translated_text.text)
 
-        except Exception as e:
-            print(f"An error occurred during the save operation: {e}")
-            # Handle the error as needed
+        # Save the model again to store the translated values
+        instance.save()
+
+    except Exception as e:
+        print(f"An error occurred during the save operation: {e}")
+        # Handle the error as needed
