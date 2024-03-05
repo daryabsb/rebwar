@@ -1602,21 +1602,22 @@ button.btn {
 }
 .widget-resources ul li a {
   background-color: #fbf9f4;
-  padding: 29px;
+  padding: 33px;
   display: block;
   color: #192121;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 18px;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
+  margin-block: 10px;
 }
 .widget-resources ul li a:hover {
   background-color: #00b0b8;
   color: #fff;
 }
 .widget-resources .fontello-icon {
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 .widget-appointments {
   padding: 40px;
@@ -2684,4 +2685,24 @@ button.btn {
   .cta {
     padding: 20px 0px 20px 0px;
   }
+}
+
+
+/*
+<uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 100 to 900
+*/ 
+
+
+.noto-kufi-arabic-regular {
+  font-family: "Noto Kufi Arabic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+.noto-kufi-arabic-bold {
+  font-family: "Noto Kufi Arabic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }

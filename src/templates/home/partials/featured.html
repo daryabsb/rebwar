@@ -17,12 +17,8 @@
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="doctor-profile-info">
-              {% if language_code == 'ar' %}
-              <h1 class="cairo-bold">{{doctor.arabic_name }}, {{ doctor.specialty }}.</h1>
-              {% else %}
-              <h1>{{doctor.name }}, {{ doctor.specialty }}.</h1>
-              {% endif %}
-              <p class="lead">
+              <h1 class="noto-kufi-arabic-bold">{{doctor.name }}, {{ doctor.specialty }}.</h1>
+              <p class="lead noto-kufi-arabic-regular">
                 {{ doctor.description }}
               </p>
               <!-- <p>
