@@ -8,6 +8,7 @@ asgiref==3.7.2
     # via
     #   django
     #   django-cors-headers
+    #   django-countries
 asttokens==2.4.1
     # via icecream
 autopep8==2.0.4
@@ -34,6 +35,8 @@ django==5.0.2
     #   django-modeltranslation
     #   djangorestframework
 django-cors-headers==4.3.1
+    # via -r src/requirements/requirements.in
+django-countries==7.5.1
     # via -r src/requirements/requirements.in
 django-extensions==3.2.3
     # via -r src/requirements/requirements.in
@@ -104,6 +107,7 @@ sqlparse==0.4.4
 typing-extensions==4.9.0
     # via
     #   dj-database-url
+    #   django-countries
     #   django-modeltranslation
 tzdata==2024.1
     # via

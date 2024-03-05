@@ -14,10 +14,10 @@ class User(PermissionsMixin, AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_doctor = models.BooleanField(default=False)
+    is_patient = models.BooleanField(default=False)
     image = models.ImageField(null=True, blank=True,
                               default='uploads/user/default-user-avatar.png',
                               upload_to=upload_image_file_path)
-
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

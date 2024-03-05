@@ -1,7 +1,7 @@
 from modeltranslation.translator import register, TranslationOptions
 from src.core.models import (
-    Slide, Service, Treatment, Condition, Procedure,
-    Menu, SectionContent, About)
+    Slide, Service, Treatment, Condition, Procedure, Testimonial,
+    Menu, SectionContent, About, Journey, JourneyDetail)
 
 
 @register(About)
@@ -47,3 +47,18 @@ class MenuTranslationOptions(TranslationOptions):
 @register(SectionContent)
 class SectionContentTranslationOptions(TranslationOptions):
     fields = ('title', 'description')
+
+
+@register(Journey)
+class JourneyTranslationOptions(TranslationOptions):
+    fields = ('title',)
+
+
+@register(JourneyDetail)
+class JourneyDetailTranslationOptions(TranslationOptions):
+    fields = ('text',)
+
+
+@register(Testimonial)
+class TestimonialTranslationOptions(TranslationOptions):
+    fields = ('text',)

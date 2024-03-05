@@ -29,11 +29,18 @@ class DoctorProfile(models.Model):
     def get_absolute_url(self):
         return reverse('doctor_detail', kwargs={'pk': self.pk})
 
-'''
-from src.accounts.models import DoctorProfile as DF
-d = DF(name='Rebwar A. Allaf',email='rebwar.allaf@gmail.com',description='This is our doctor',specialty='MD',featured=True)
-d.save()
-'''
+
+class DoctorLocation(models.Model):
+    doctor = models.ForeignKey(
+        DoctorProfile, on_delete=models.CASCADE, related_name="procedures")
+    name = models.CharField(max_length=50)
+    ordinal = models.SmallIntegerField(null=True, blank=True)
+
+    class Meta:
+        ordering = ['id']
+
+    def __str__(self):
+        return f"{self.doctor.name}: {self.name}"
 
 
 @receiver(post_save, sender=DoctorProfile)

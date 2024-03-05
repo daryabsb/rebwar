@@ -77,7 +77,6 @@ TEMPLATES = [
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
-print("CHECK LOCALE PATH BASE_DIR: ", os.path.join(BASE_DIR, 'locale'))
 
 WSGI_APPLICATION = 'src.wsgi.application'
 ASGI_APPLICATION = 'src.asgi.application'

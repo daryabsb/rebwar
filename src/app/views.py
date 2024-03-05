@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from src.accounts.models import DoctorProfile
-from src.core.models import Slide, Service, Journey, About
+from src.core.models import Slide, Service, Journey, About, Testimonial
 
 
 def get_app_content(app_label, model_name):
@@ -22,6 +22,7 @@ def get_app_content(app_label, model_name):
 
 def home_view(request):
     doctor = DoctorProfile.objects.filter(featured=True).first()
+    quotes = Testimonial.objects.all()
     slides = Slide.objects.all()
     services = Service.objects.all()
     journeys = Journey.objects.prefetch_related(
@@ -41,6 +42,7 @@ def home_view(request):
     context = {
         "doctor": doctor,
         "slides": slides,
+        "quotes": quotes,
         "journeys": journeys,
         "services": services,
         "journey_opening": journey_opening,

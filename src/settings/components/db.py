@@ -8,7 +8,6 @@ DATABASE_URL="postgres://postgres:postgres2019@database.rebwarallaf.com/allaf_db
 HOST_ENV = config('HOST_ENV', default='office')
 
 if DATABASE_URL is not None:
-    print("DATABASE_URL: ", DATABASE_URL)
     DATABASES = {
         'default': dj_database_url.config(
             default=DATABASE_URL,
@@ -33,7 +32,7 @@ else:
             'PORT': DATABASE_PORT,
         }
     }
-print("DATABASES HOST: ", DATABASES)
+
 # else:
 
 #     DATABASES = {

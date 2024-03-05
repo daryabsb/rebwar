@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from src.accounts.models import DoctorProfile, Patient
+from src.accounts.models import DoctorProfile, Patient, DoctorLocation
 from django.utils.translation import gettext as _
 
 
@@ -14,4 +14,9 @@ class DoctorProfileTranslationOptions(TranslationOptions):
 class PatientTranslationOptions(TranslationOptions):
     fields = ('name',)
     fallback_languages = {'default': ('ckb', 'ar')}
-    # fallback_values = _('-- sorry, no translation provided --')
+
+
+@register(DoctorLocation)
+class DoctorLocationTranslationOptions(TranslationOptions):
+    fields = ('name',)
+    fallback_languages = {'default': ('ckb', 'ar')}

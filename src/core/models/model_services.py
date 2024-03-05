@@ -55,3 +55,4 @@ class Procedure(models.Model):
 
     def __str__(self):
         return f"{self.treatment.title}: {self.title}: {self.description}"
+

@@ -1,12 +1,29 @@
+from django_countries.fields import CountryField
+from django_countries.widgets import CountrySelectWidget
+from django.utils.translation import gettext_lazy as _
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
-from src.accounts.models import Patient
+from src.accounts.models import Patient, City
 
 
 @admin.register(Patient)
 class PatientAdmin(TranslationAdmin):
-    list_display = ('id', 'name', 'email')
-    ordering = ('id', )
+    list_display = ('name', 'email', 'country', 'city')  #
+    list_filter = ('country',)
+    # search_fields = ('name', 'email', 'city__name')
+    show_facets = admin.ShowFacets.ALWAYS
+
+    fieldsets = (
+        (_('Personal Information'), {
+            'fields': ('name', 'email', 'user')
+        }),
+        (_('Location Information'), {
+            'fields': ('country', 'city')
+        }),
+        (_('Profile Picture'), {
+            'fields': ('image',),
+        }),
+    )
 
     class Media:
         js = (
@@ -19,8 +36,4 @@ class PatientAdmin(TranslationAdmin):
         }
 
 
-# Register your models here.
-
-
-# @admin.register(DoctorProfile)
-# class YourModelAdmin(DoctorAdmin, TranslationAdmin):
+# admin.site.register(Patient, PatientAdmin)

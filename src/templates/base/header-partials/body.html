@@ -1,13 +1,20 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
 <div class="header">
   <!-- header -->
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-        <a href="/"><img src="{% static 'images/Logo-white-01-01.svg' %}"
-            alt="Site - Orthopaedic Surgeon Website Template" /></a>
+      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <a href="/">
+          {% if LANGUAGE_BIDI %}
+          <img class="img-responsive" src="{% static 'images/Logo-dark-01.png' %}" alt="{{ site_title}}" />
+          {% else %}
+          <img class="img-responsive" src="{% static 'images/Logo-white-01.png' %}" alt="{{ site_title}}" />
+          {% endif %}
+        </a>
       </div>
-      <div class="col-lg-8">
+      <div class="col-lg-9 col-md-8">
         <div id="navigation">
           <ul>
             {% for menu in menus %}

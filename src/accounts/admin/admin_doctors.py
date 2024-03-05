@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
-from src.accounts.models import DoctorProfile
+from src.accounts.models import DoctorProfile, DoctorLocation
 
 from django.utils.translation import gettext as _
 
@@ -20,8 +20,4 @@ class DoctorAdmin(TranslationAdmin):
         }
 
 
-# Register your models here.
-
-
-# @admin.register(DoctorProfile)
-# class YourModelAdmin(DoctorAdmin, TranslationAdmin):
+admin.site.register(DoctorLocation, TranslationAdmin)

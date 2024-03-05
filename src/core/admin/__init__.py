@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.utils.translation import gettext as _
 from src.core.models import (Slide, Service, Journey, JourneyDetail, About,
-                             Treatment, Condition, Procedure, Menu, SectionContent)
+                             Treatment, Condition, Procedure, Menu,
+                             Testimonial, SectionContent)
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 # Register your models here.
 
@@ -16,8 +17,8 @@ class AboutAdmin(TranslationAdmin):
 admin.site.register(About, AboutAdmin)
 
 admin.site.register(Slide, TranslationAdmin)
-admin.site.register(Journey)
-admin.site.register(JourneyDetail)
+admin.site.register(Journey, TranslationAdmin)
+admin.site.register(JourneyDetail, TranslationAdmin)
 
 admin.site.register(Service, TranslationAdmin)
 admin.site.register(Treatment, TranslationAdmin)
@@ -25,6 +26,7 @@ admin.site.register(Condition, TranslationAdmin)
 admin.site.register(Procedure, TranslationAdmin)
 
 admin.site.register(Menu, TranslationAdmin)
+admin.site.register(Testimonial, TranslationAdmin)
 
 
 class SectionContentInline(TranslationTabularInline):

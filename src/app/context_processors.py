@@ -27,6 +27,9 @@ def global_data(request):
 
 def general_data(request):
     from src.contact.models import Contact
+    from src.accounts.models import DoctorLocation
+
+    locations_footer = DoctorLocation.objects.all().order_by('ordinal')
 
     primary_phone = Contact.objects.filter(
         category='phone', is_primary=True).first()
@@ -43,6 +46,7 @@ def general_data(request):
         "addresses": addresses,
         "primary_address": primary_address,
         "emails": emails,
+        "locations_footer": locations_footer,
     }
 
 
@@ -71,7 +75,6 @@ def language_ref(request):
     from src.app.const import LANGUAGES_CHOICES
     rtl = False
     language_code = 'en'
-    print(LANGUAGES_CHOICES[0])
 
     if language_code != 'en':
         rtl = True

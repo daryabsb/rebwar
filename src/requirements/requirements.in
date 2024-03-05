@@ -3,6 +3,7 @@ django-extensions
 django-cors-headers
 djangorestframework>=3.14
 django-filter
+django-countries
 psycopg2
 psycopg2-binary
 dj-database-url

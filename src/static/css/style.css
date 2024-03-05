@@ -1239,9 +1239,9 @@ button.btn {
 }
 .slider-captions {
   position: absolute;
-  bottom: 140px;
+  bottom: 100px;
   background-color: #fff;
-  padding: 40px;
+  padding: 20px 25px;
   border-radius: 4px;
 }
 .slider .owl-dots {
