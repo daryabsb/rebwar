@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from src.accounts.models import DoctorProfile
+from src.accounts.models import DoctorProfile, DoctorResume, TitleChoice
 from src.core.models import Slide, Service, Journey, About, Testimonial
 
 
@@ -20,8 +20,35 @@ def get_app_content(app_label, model_name):
 
     return app_title, app_description
 
+
 def home_view(request):
+    from django.db import models
+    from django.db.models import Count, Value
+    from django.db.models.functions import Concat
     doctor = DoctorProfile.objects.filter(featured=True).first()
+    subjects = TitleChoice.objects.all()
+    doctor_resume = []
+    for subject in subjects:
+        if subject.value in ['achievement', 'special_expertise', 'member_of_foundation']:
+            cv = {"title": subject.display}
+            items = []
+            for item in subject.titles.all():
+                if item.doctor == doctor:
+                    items.append(item.description)
+            cv["items"] = items
+            doctor_resume.append(cv)
+
+    # doctor_resume_queryset = DoctorResume.objects.filter(doctor=doctor)
+    # grouped_resumes = doctor_resume_queryset.values('title').annotate(
+    #     title_description_list=Concat('description', Value(
+    #         '|'), output_field=models.TextField())
+    # )
+    # for group in grouped_resumes:
+    #     title = group['title']
+    #     descriptions_list = group['title_description_list'].split('|')
+    #     for description in descriptions_list:
+    #         print(f'  Description: {description.strip()}')
+
     quotes = Testimonial.objects.all()
     slides = Slide.objects.all()
     services = Service.objects.all()
@@ -41,6 +68,7 @@ def home_view(request):
 
     context = {
         "doctor": doctor,
+        "resume": doctor_resume,
         "slides": slides,
         "quotes": quotes,
         "journeys": journeys,

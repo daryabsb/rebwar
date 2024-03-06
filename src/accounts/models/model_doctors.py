@@ -16,8 +16,10 @@ class DoctorProfile(models.Model):
         User, null=True, blank=True, on_delete=models.SET_NULL, related_name='doctor')
     name = models.CharField(max_length=255)
     email = models.EmailField()
-    specialty = models.CharField(max_length=300)
+    field = models.CharField(max_length=30, default='MD')
+    specialty = models.CharField(max_length=500)
     description = models.CharField(max_length=255)
+    journey = models.TextField(blank=True, null=True)
     featured = models.BooleanField(default=False)
     image = models.ImageField(null=True, blank=True,
                               default='uploads/user/default-user-avatar.png',

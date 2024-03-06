@@ -19,23 +19,29 @@
         <div class="widget-dr-contact">
           <h3 class="widget-title">Contact Details</h3>
           <address>
-            Orthopaedic Clinic, Zeppelinstr 53
+            {% for address in addresses %}
+            {{ address }}
+            {% endfor %}
             <br />
-            3970 Sydney NSW
           </address>
-          <span class="call-no">1- 800-1234-567</span>
-          <div class="email_text">info@orthopedic.com</div>
+          {% for phone in phones %}
+          <p class="call-no">{{ phone }}</p>
+          {% endfor %}
+          {% for email in emails %}
+          <div class="email_text">{{ email }}</div>
+          {% endfor %}
         </div>
         <div class="widget-clinic-hrs">
           <h3 class="widget-title">Clinic hours</h3>
-          <p>Monday to Friday :<strong> 9.00 am to 4.00pm</strong></p>
-          <p>Saturday : <strong> 11.00 am to 3.00pm</strong></p>
+          {% for schedule in schedules %}
+          <p>{{ schedule.description }} :<strong> {{ schedule.start|time:"g:i A" }} to {{ schedule.end|time:"g:i A" }}</strong>
+          </p>
+          {% endfor %}
         </div>
         <div class="widget-story">
           <h3 class="widget-title">Read stroy</h3>
           <ul class="listnone">
-            <li><a href="#">blog.martineorho.com</a></li>
-            <li><a href="#">blog.martineorho.com</a></li>
+            <li><a href="/blogs/">blogs.rebwarallaf.com/dr-rebwar</a></li>
           </ul>
         </div>
         <div class="dr-social">
@@ -64,73 +70,23 @@
       </div>
       <div class="col-lg-offset-1 col-lg-7 col-md-offset-1 col-md-7 col-sm-8 col-xs-12">
         <div class="dr-header">
-          <h1 class="dr-name">Rebwar A. Allaf, MD.</h1>
+          <h1 class="dr-name">{{ doctor.name }}</h1>
           <span class="dr-meta">MBBS(Hons), BSc(Hons), FRCS(Tr &amp; Orth)</span>
         </div>
-        <p class="lead">
-          Dr. Rebwar A. Allaf is a partner at Orthopedic Clinic one of the world's leading orthopaedic surgeons.
-        </p>
-        <p>
-          He has treated close to 500 Professional and Olympic athletes successfully. Dr.Martine is a Master Instructor
-          with the Arthroscopy Associationof Australia. Aenean urna magna, lobortis in metus id, semper gravida nibh.
-          Nullam in mi felis.
-        </p>
-        <p class="mb30">
-          Mauris ut tellus a est giat egestas. Integer id luctus neque, vitaes secidunt eu, molestie suscipit.Aenean
-          urna magna, lobortis in metus id, semper gravida nibh. Nullam in mi felisgiat. Integer id luctus neque, vitaes
-          sem esem es sit amMauris ut tellus a est giat egestasInteger id luctus n es sit amet tincidunt eu, molestie
-          suscipit.
-        </p>
+        <p class="lead">{{ doctor.description }}</p>
+        {{ doctor.journey|safe}}
+        
+        {% for item in resume %}
         <div class="dr-profile-block">
-          <div class="dr-profile-icon"><i class="icon-mortarboard"></i></div>
+          <div class="dr-profile-icon"><i class="{{ item.icon }}"></i></div>
           <div class="dr-profile-content">
-            <h3 class="dr-profile-title">education</h3>
-            <p>
-              MBBS(Hons) BSc(Hons) FRCS(Tr &amp; Orth), He became an attending Orthopaedic surgeon at the Hospital for
-              Special Surgery. Etiam sit amet magnulus ullam in congue lacus.
-            </p>
+            <h3 class="dr-profile-title">{{ item.title }}</h3>
+            {% for description in item.items %}
+            <p>{{ description }}</p>
+            {% endfor %}
           </div>
         </div>
-        <div class="dr-profile-block">
-          <div class="dr-profile-icon"><i class="icon-suitcase"></i></div>
-          <div class="dr-profile-content">
-            <h3 class="dr-profile-title">Experiance</h3>
-            <p>
-              Martine has 8 year experiance of Orthopadic Instituet Surgery as Professor. Ante sem, posuere massa
-              lobortis id. Sed eu justo quis elit vehicula iaculi vel odio posuere erat accumsan tincidunt.
-            </p>
-          </div>
-        </div>
-        <div class="dr-profile-block">
-          <div class="dr-profile-icon"><i class="icon-cup"></i></div>
-          <div class="dr-profile-content">
-            <h3 class="dr-profile-title">Achivement</h3>
-            <p>
-              Treated close to 500 Professional &amp; Olympic athletes successfully. Suspendisse condimentumis elit
-              vehicula iaculis. Aliquam vel odio posuere eratamet gravida dui, vel ullamcorper metus.
-            </p>
-          </div>
-        </div>
-        <div class="dr-profile-block">
-          <div class="dr-profile-icon"><i class="icon-light-bulb"></i></div>
-          <div class="dr-profile-content">
-            <h3 class="dr-profile-title">Special expertise</h3>
-            <p>
-              Hip &amp; knee replacement, Primary and Revision total joint surgery. ante Posuere massa lobortis id. Sed
-              eu justo accumsan tincidunt. Sed sit amcorper metussuspendisse condimentum .
-            </p>
-          </div>
-        </div>
-        <div class="dr-profile-block">
-          <div class="dr-profile-icon"><i class="icon-avatar"></i></div>
-          <div class="dr-profile-content">
-            <h3 class="dr-profile-title">Member of Foundation</h3>
-            <p>
-              Member &amp; Trustee for team of Australia Olympic Foundation. Ante sem, posuere massa lobortis id. Sed eu
-              justo quis elit vehicula iaculi vel odio posuere erat accumsan tincidunt.
-            </p>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
