@@ -28,8 +28,8 @@ except ValueError:
 # CELERY_RESULT_DB = config('CELERY_RESULT_DB', default=2)
 
 
-ALLOWED_HOSTS = ['172.16.10.49']
-ALLOWED_HOST = config("ALLOWED_HOST", cast=str, default="")
+ALLOWED_HOSTS = ['172.16.10.49', 'https://rebwarallaf.com']
+ALLOWED_HOST = config("ALLOWED_HOST", cast=str, default="*")
 if ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(ALLOWED_HOST.strip())
 
