@@ -3,9 +3,9 @@ import dj_database_url
 from src.settings.components import PROJECT_PATH, BASE_DIR
 
 
-# DATABASE_URL = config("DATABASE_URL", default=None)
-DATABASE_URL="postgres://postgres:postgres2019@database.rebwarallaf.com/allaf_db"
+DATABASE_URL = config("DATABASE_URL", default=None)
 HOST_ENV = config('HOST_ENV', default='office')
+
 
 if DATABASE_URL is not None:
     DATABASES = {

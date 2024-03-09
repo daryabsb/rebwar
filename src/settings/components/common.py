@@ -23,6 +23,7 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 THIRD_PARTY_APPS = [
+    'corsheaders',
     'rest_framework',
 ]
 LOCAL_APPS = [
