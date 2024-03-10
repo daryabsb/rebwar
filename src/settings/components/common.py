@@ -1,6 +1,7 @@
 import django.conf.locale
 from django.conf import global_settings
 import os
+import platform
 from src.settings.components.env import config
 from tzlocal import get_localzone
 from src.settings.components import PROJECT_PATH, BASE_DIR
@@ -10,6 +11,19 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_ENDPOINT = config('BASE_ENDPOINT', default='http://127.0.0.1:8000')
 WS_ENDPOINT = config('WS_ENDPOINT', default='ws://127.0.0.1:8000')
+
+
+# if os.name == 'nt':
+#     OSGEO4W = r"C:\OSGeo4W"  # Use raw string to handle backslashes on Windows
+    # if '64' in platform.architecture()[0]:
+    #     OSGEO4W += r"64"
+    #     print(OSGEO4W)
+    # assert os.path.isdir(OSGEO4W), "Directory does not exist: " + OSGEO4W
+    # os.environ['OSGEO4W_ROOT'] = OSGEO4W
+    # os.environ['GDAL_DATA'] = os.path.join(OSGEO4W, "share", "gdal")
+    # os.environ['PROJ_LIB'] = os.path.join(OSGEO4W, "share", "proj")
+    # os.environ['PATH'] = os.path.join(OSGEO4W, "bin") + ";" + os.environ['PATH']
+
 
 # Application definition
 
