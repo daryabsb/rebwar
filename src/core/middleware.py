@@ -111,7 +111,7 @@ class GeoIPMiddleware(LocaleMiddleware):
         print(language, "==", locale)
         print(language != locale)
         if language != locale:
-            translation.activate(language)
+            translation.activate(locale)
             request.LANGUAGE_CODE = translation.get_language()
 
     def get_client_ip(self, request):
