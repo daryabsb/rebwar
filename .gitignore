@@ -128,7 +128,8 @@ ENV/
 env.bak/
 venv.bak/
 git-credentials.txt
-
+OSGeo4W/
+OSGeo4W
 # Spyder project settings
 .spyderproject
 .spyproject

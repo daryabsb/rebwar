@@ -3,7 +3,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+# GDAL_LIBRARY_PATH = 'venv/Lib/site-packages/osgeo/gdal304.dll'
 
 # Static files (CSS, JavaScript, images)
 STATIC_URL = "static/"

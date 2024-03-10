@@ -84,6 +84,8 @@ pycodestyle==2.11.1
     # via autopep8
 pycparser==2.21
     # via cffi
+pygeoip==0.3.2
+    # via -r src/requirements/requirements.in
 pygments==2.17.2
     # via icecream
 python-decouple==3.8

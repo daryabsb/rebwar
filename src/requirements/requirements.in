@@ -19,3 +19,4 @@ cryptography
 gunicorn
 django-modeltranslation
 googletrans
+pygeoip
