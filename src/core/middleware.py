@@ -1,7 +1,9 @@
 import os
 from pygeoip import GeoIP
 from django.conf import settings
-import pytz
+from django.middleware.locale import LocaleMiddleware
+from django.utils import translation
+from django.urls import reverse
 
 MAPS_FOLDER_PATH = os.path.join(settings.PROJECT_PATH, 'core', 'maps')
 
@@ -79,39 +81,38 @@ def get_locale_from_geolocation(geolocation_data):
     if country_code in arab_countries:
         locale = 'ar'
     else:
-        locale = 'en-US'
+        locale = 'en'
     return locale
 
 
-class GeoIPMiddleware:
-    def __init__(self, get_response):
-        self.get_response = get_response
+class GeoIPMiddleware(LocaleMiddleware):
 
-    def __call__(self, request):
+    def get_locale(self, request):
+        from django.utils import translation
         # Get the user's IP address from the request
         user_ip = self.get_client_ip(request)
-
         # Use pygeoip to get geolocation information
-        # geolocation_data = self.get_geolocation_data('86.96.239.132') # DUBAI
-        # geolocation_data = self.get_geolocation_data('192.44.242.19') # STOCKHOLM
-        geolocation_data = self.get_geolocation_data(user_ip)
-
+        geolocation_data = self.get_geolocation_data('86.96.239.132')  # DUBAI
+        # geolocation_data = self.get_geolocation_data(
+        #     '192.44.242.19')  # STOCKHOLM
+        # geolocation_data = self.get_geolocation_data(user_ip)
         locale = get_locale_from_geolocation(geolocation_data)
 
-        response = self.get_response(request)
+        return locale
 
-        # if request.headers['Accept-Language'].split(',')[0] != locale:
-        response.set_cookie(
-            settings.LANGUAGE_COOKIE_NAME,
-            locale,
-            max_age=settings.LANGUAGE_COOKIE_AGE,
-            path=settings.LANGUAGE_COOKIE_PATH,
-            domain=settings.LANGUAGE_COOKIE_DOMAIN,
-            secure=settings.LANGUAGE_COOKIE_SECURE,
-            httponly=settings.LANGUAGE_COOKIE_HTTPONLY,
-            samesite=settings.LANGUAGE_COOKIE_SAMESITE,
-        )
-        return response
+    def process_request(self, request):
+
+        locale = self.get_locale(request)
+        language = translation.get_language_from_request(request)
+        translation.activate(language)
+        request.LANGUAGE_CODE = translation.get_language()
+
+        language = translation.get_language_from_request(request)
+        print(language, "==", locale)
+        print(language != locale)
+        if language != locale:
+            translation.activate(language)
+            request.LANGUAGE_CODE = translation.get_language()
 
     def get_client_ip(self, request):
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -123,11 +124,15 @@ class GeoIPMiddleware:
 
     def get_geolocation_data(self, ip):
         # Path to the GeoIP database file
+
         geoip_db_path = os.path.join(MAPS_FOLDER_PATH, 'GeoLiteCity.dat')
+
         # Create a GeoIP object
         geoip = GeoIP(geoip_db_path)
+
         # Get geolocation information for the given IP
         geolocation_data = geoip.record_by_addr(ip)
+
         return geolocation_data
 
 
