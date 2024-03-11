@@ -69,6 +69,21 @@
     .header {
       direction: ltr !important;
     }
+    .fixed-bottom-messages {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000; /* Adjust the z-index to make sure it's on top of other elements */
+      width: 80%; /* Adjust the width as needed */
+      max-width: 80vw; /* Set a maximum width if desired */
+      padding: 10px;
+      background-color: rgba(76, 175, 80, 0.95); /* Background color for success messages (adjust as needed) */
+      color: #ffffff; /* Text color (adjust as needed) */
+      border-radius: 5px;
+      text-align: center;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a box shadow for a subtle effect */
+    }
   </style>
 
   <title>
@@ -77,6 +92,13 @@
   </head>
 
 <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+  {% if messages %}
+  <div class="fixed-bottom-messages">
+    {% for message in messages %}
+    {{ message|safe}}
+    {% endfor %}
+  </div>
+  {% endif %}
   {% include 'base/header.html' with menu_items=menu_items %}
 
   <!--  -->
@@ -91,6 +113,7 @@
 
   <!--  -->
   {% include 'base/footer.html' %}
+  
   <!-- back to top icon -->
   <a href="#0" class="cd-top" title="Go to top">Top</a>
   {% include 'base/js.html' %} {% block base_js %} {% endblock base_js %}
