@@ -1,7 +1,6 @@
 from django.middleware.locale import LocaleMiddleware
 from django.utils import translation
 from django.contrib import messages
-from src.core.utils import GeoLocaleDetector
 from django.conf import settings
 
 
@@ -12,6 +11,7 @@ from django.conf import settings
 class GeoIPMiddleware(LocaleMiddleware):
 
     def get_locale(self, request):
+        from src.core.utils import GeoLocaleDetector
         # Get the user's IP address from the request
         # user_ip = self.get_client_ip(request)
         user_ip = '86.96.239.132'
@@ -23,21 +23,38 @@ class GeoIPMiddleware(LocaleMiddleware):
         user_prefered_lang = request.COOKIES.get('locale', None)
         language = request.COOKIES.get('django_language', None)
 
-        if user_prefered_lang is not None or language is not None:
-            # translation.activate(user_prefered_lang)
-            # request.LANGUAGE_CODE = translation.get_language()
+        if language is not None:
+            translation.activate(language)
+            request.LANGUAGE_CODE = translation.get_language()
+            print("language found and activated!")
             return
 
-        locale = self.get_locale(request)
+        elif user_prefered_lang is not None:
+            translation.activate(user_prefered_lang)
+            request.LANGUAGE_CODE = translation.get_language()
+            print("user_prefered_lang found and activated!")
+            return
 
-        print("language is None = ", language is None and language !=
-              locale and user_prefered_lang is None)
-        if language is None and language != locale and user_prefered_lang is None:
+
+        elif language is None and user_prefered_lang is None:
+            print("language and user_p not found!")
+            locale = self.get_locale(request)
             request.session['locale_modified'] = True
             request.session['locale'] = locale
             # Activate the detected locale
             translation.activate(locale)
             request.LANGUAGE_CODE = translation.get_language()
+            messages.info(
+                request, '''
+                    <div class="alert alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Your first visit to Dr Rebwar Allaf Clinic website</strong> <br />
+                        We served the language based on your location. You can choose other available languages.
+                    </div>
+                '''
+            )
 
     def process_response(self, request, response):
         # Check if the locale was modified
@@ -65,18 +82,6 @@ class GeoIPMiddleware(LocaleMiddleware):
                 secure=settings.LANGUAGE_COOKIE_SECURE,
                 httponly=settings.LANGUAGE_COOKIE_HTTPONLY,
                 samesite=settings.LANGUAGE_COOKIE_SAMESITE,
-            )
-
-            messages.info(
-                request, '''
-                    <div class="alert alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong>Your first visit to Dr Rebwar Allaf Clinic website</strong> <br />
-                        We served the language based on your location. You can choose other available languages.
-                    </div>
-                '''
             )
 
         return response
