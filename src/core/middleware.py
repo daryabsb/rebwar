@@ -13,48 +13,39 @@ class GeoIPMiddleware(LocaleMiddleware):
     def get_locale(self, request):
         from src.core.utils import GeoLocaleDetector
         # Get the user's IP address from the request
-        # user_ip = self.get_client_ip(request)
-        user_ip = '86.96.239.132'
+        user_ip = self.get_client_ip(request)
+        # user_ip = '62.201.217.174'  # SLEMANI
+        # user_ip = '130.193.241.255'  # ERBIL
+        user_ip = '86.96.239.132'  # DUBAI
+        # user_ip = '192.44.242.19'  # STOCKHOLM
         locale_detector = GeoLocaleDetector(user_ip)
         locale = locale_detector.detect_locale()
         return locale
 
     def process_request(self, request):
+        from src.core.utils import create_message
         user_prefered_lang = request.COOKIES.get('locale', None)
         language = request.COOKIES.get('django_language', None)
 
         if language is not None:
             translation.activate(language)
             request.LANGUAGE_CODE = translation.get_language()
-            print("language found and activated!")
             return
 
         elif user_prefered_lang is not None:
             translation.activate(user_prefered_lang)
             request.LANGUAGE_CODE = translation.get_language()
-            print("user_prefered_lang found and activated!")
             return
 
 
         elif language is None and user_prefered_lang is None:
-            print("language and user_p not found!")
             locale = self.get_locale(request)
             request.session['locale_modified'] = True
             request.session['locale'] = locale
             # Activate the detected locale
             translation.activate(locale)
             request.LANGUAGE_CODE = translation.get_language()
-            messages.info(
-                request, '''
-                    <div class="alert alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong>Your first visit to Dr Rebwar Allaf Clinic website</strong> <br />
-                        We served the language based on your location. You can choose other available languages.
-                    </div>
-                '''
-            )
+            create_message(request, locale)
 
     def process_response(self, request, response):
         # Check if the locale was modified

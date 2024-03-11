@@ -11,112 +11,105 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}" dir="{{ dir }}">
+  <head>
+    {% include 'base/meta.html' %}
 
-<head>
-  {% include 'base/meta.html' %}
+    <!--  -->
+    <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}" />
 
-  <!--  -->
-  <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}" />
+    <!-- Include Bootstrap RTL CSS if language is Arabic -->
+    {% include 'base/landing-css.html' %} {% if LANGUAGE_BIDI %}
 
-  <!-- Include Bootstrap RTL CSS if language is Arabic -->
-  {% include 'base/landing-css.html' %} {% if LANGUAGE_BIDI %}
-
-  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.rtl.min.css' %}" />
-  <!-- <link
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.rtl.min.css' %}" />
+    <!-- <link
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
       rel="stylesheet"
     /> -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
-  <style>
-    /* Arabic font */
-    body {
-      font-family: "Noto Kufi Arabic", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 300;
-      font-style: normal;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Arabic font */
+      body {
+        font-family: "Noto Kufi Arabic", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+      }
 
-    .cairo {
-      font-family: "Cairo", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 300;
-      font-style: normal;
-      font-variation-settings: "wdth" 100;
-    }
+      .cairo {
+        font-family: "Cairo", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
 
-    .cairo-bold {
-      font-family: "Cairo", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 500;
-      font-style: normal;
-      font-variation-settings: "slnt" 0;
-    }
+      .cairo-bold {
+        font-family: "Cairo", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings: "slnt" 0;
+      }
 
-    .owl-carousel {
-      direction: ltr !important;
-    }
+      .owl-carousel {
+        direction: ltr !important;
+      }
 
-    .slider-captions-ltr {
-      margin-right: 50%;
-      margin-left: 0;
-    }
-  </style>
+      .slider-captions-ltr {
+        margin-right: 50%;
+        margin-left: 0;
+      }
+    </style>
 
-  {% endif %}
-  <style>
-    .header {
-      direction: ltr !important;
-    }
-    .fixed-bottom-messages {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000; /* Adjust the z-index to make sure it's on top of other elements */
-      width: 80%; /* Adjust the width as needed */
-      max-width: 80vw; /* Set a maximum width if desired */
-      padding: 10px;
-      background-color: rgba(76, 175, 80, 0.95); /* Background color for success messages (adjust as needed) */
-      color: #ffffff; /* Text color (adjust as needed) */
-      border-radius: 5px;
-      text-align: center;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a box shadow for a subtle effect */
-    }
-  </style>
+    {% endif %}
+    <style>
+      .fixed-bottom-messages {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000; /* Adjust the z-index to make sure it's on top of other elements */
+        width: 80%; /* Adjust the width as needed */
+        max-width: 480vw; /* Set a maximum width if desired */
+        padding: 10px;
+        background-color: rgba(76, 175, 80, 0.95); /* Background color for success messages (adjust as needed) */
+        color: #ffffff; /* Text color (adjust as needed) */
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a box shadow for a subtle effect */
+      }
+    </style>
 
-  <title>
-    {% block head_title %}{{ site_title }}{% endblock head_title %}
-  </title>
+    <title>
+      {% block head_title %}{{ site_title }}{% endblock head_title %}
+    </title>
   </head>
 
-<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
-  {% if messages %}
-  <div class="fixed-bottom-messages">
-    {% for message in messages %}
-    {{ message|safe}}
-    {% endfor %}
-  </div>
-  {% endif %}
-  {% include 'base/header.html' with menu_items=menu_items %}
+  <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+    {% if messages %} {% for message in messages %} {{ message|safe}} {% endfor %} {% endif %}
+    <!--  -->
+    {% include 'base/header.html' with menu_items=menu_items %}
 
-  <!--  -->
-  {% block landing_content %}
-  <!--  -->
-  {% endblock landing_content %}
+    <!--  -->
+    {% block landing_content %}
+    <!--  -->
+    {% endblock landing_content %}
 
-  <!--  -->
-  {% block base_content %}
-  <!--  -->
-  {% endblock base_content %}
+    <!--  -->
+    {% block base_content %}
+    <!--  -->
+    {% endblock base_content %}
 
-  <!--  -->
-  {% include 'base/footer.html' %}
-  
-  <!-- back to top icon -->
-  <a href="#0" class="cd-top" title="Go to top">Top</a>
-  {% include 'base/js.html' %} {% block base_js %} {% endblock base_js %}
+    <!--  -->
+    {% include 'base/footer.html' %}
+
+    <!-- back to top icon -->
+    <a href="#0" class="cd-top" title="Go to top">Top</a>
+    {% include 'base/js.html' %} {% block base_js %} {% endblock base_js %}
   </body>
-
 </html>

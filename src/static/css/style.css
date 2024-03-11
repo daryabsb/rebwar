@@ -2687,12 +2687,10 @@ button.btn {
   }
 }
 
-
 /*
 <uniquifier>: Use a unique and descriptive class name
 <weight>: Use a value from 100 to 900
-*/ 
-
+*/
 
 .noto-kufi-arabic-regular {
   font-family: "Noto Kufi Arabic", sans-serif;
@@ -2707,3 +2705,7 @@ button.btn {
   font-style: normal;
 }
 
+.message-link {
+  text-decoration: none;
+  color: #fff;
+}

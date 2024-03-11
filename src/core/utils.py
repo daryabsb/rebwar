@@ -3,7 +3,8 @@ from pygeoip import GeoIP
 from django.conf import settings
 
 MAPS_FOLDER_PATH = os.path.join(settings.PROJECT_PATH, 'core', 'maps')
-geoip_db_path = os.path.join(MAPS_FOLDER_PATH, 'GeoLiteCity.dat')
+# geoip_db_path = os.path.join(MAPS_FOLDER_PATH, 'GeoLiteCity.dat')
+geoip_db_path = os.path.join(MAPS_FOLDER_PATH, 'maxmind4.dat')
 
 geolocation_data = {
     'dma_code': 0,
@@ -109,6 +110,38 @@ class GeoLocaleDetector:
             # Handle exceptions (e.g., GeoIPError, KeyError) as needed
             print(f"Error getting geolocation data: {e}")
             return '', ''
+
+
+
+
+
+
+
+def create_message(request, locale):
+    from django.contrib import messages
+
+    arabic_html = f'غیر اللغة الی العربیة، <a class="message-link" href="/{locale}/set_language/" onclick="event.preventDefault();document.getElementById("language-form-ar").submit();">انقر هنا</a><br /> <form id="language-form-ar" action="/en/set_language/" method="post">input name="next" type="hidden" value="{request.path}" /><input name="language" type="hidden" value="ar" /> </form>'
+    english_html = f'Change the language to english, <a class="message-link" href="/{locale}/set_language/" onclick="event.preventDefault();document.getElementById("language-form-en").submit();">Click here</a><br /> <form id="language-form-en" action="/ar/set_language/" method="post"><input name="next" type="hidden" value="{request.path}" /><input name="language" type="hidden" value="en" /> </form>'
+    kurdish_html = f'زمانەکە بگۆڕە بۆ کوردی، <a class="message-link" href="/{locale}/set_language/" onclick="event.preventDefault();document.getElementById("language-form-ckb").submit();">لێرە کلیک بکە</a><br /> <form id="language-form-ckb" action="/en/set_language/" method="post"><input name="next" type="hidden" value="{request.path}" /><input name="language" type="hidden" value="ckb" /> </form>'
+    
+    messages.info(
+    request, '''
+    <div class="alert alert-success alert-dismissible fixed-bottom-messages" role="alert">
+            {}{}{}
+            <button type="button" class="close position-absolute" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        '''.format(
+            english_html if locale != 'en' else '',
+            arabic_html if locale != 'ar' else '',
+            kurdish_html if locale != 'ckb' else ''
+        )
+    )
+    
+
+
+
 
 
 '''
