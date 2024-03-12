@@ -24,6 +24,7 @@ from django.conf.urls.static import static
 from django.urls import path, include
 
 from src.app import views
+from src.accounts.api.views import create_patient
 
 urlpatterns = [
     path('', views.home_view, name='index'),
@@ -35,6 +36,7 @@ urlpatterns = [
     path('blogs/', include('src.blogs.urls')),
     path('services/', views.services_view, name='services'),
     path('services/<int:id>/', views.services_detail_view, name='services-detail'),
+    path('api/create_patient/', create_patient, name='create_patient'),
 ]
 
 urlpatterns += i18n_patterns(
