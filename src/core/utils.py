@@ -112,36 +112,42 @@ class GeoLocaleDetector:
             return '', ''
 
 
-
-
-
-
-
 def create_message(request, locale):
     from django.contrib import messages
+    csrf_token = '{% csrf_token %}'
 
-    arabic_html = f'غیر اللغة الی العربیة، <a class="message-link" href="/{locale}/set_language/" onclick="event.preventDefault();document.getElementById("language-form-ar").submit();">انقر هنا</a><br /> <form id="language-form-ar" action="/en/set_language/" method="post">input name="next" type="hidden" value="{request.path}" /><input name="language" type="hidden" value="ar" /> </form>'
-    english_html = f'Change the language to english, <a class="message-link" href="/{locale}/set_language/" onclick="event.preventDefault();document.getElementById("language-form-en").submit();">Click here</a><br /> <form id="language-form-en" action="/ar/set_language/" method="post"><input name="next" type="hidden" value="{request.path}" /><input name="language" type="hidden" value="en" /> </form>'
-    kurdish_html = f'زمانەکە بگۆڕە بۆ کوردی، <a class="message-link" href="/{locale}/set_language/" onclick="event.preventDefault();document.getElementById("language-form-ckb").submit();">لێرە کلیک بکە</a><br /> <form id="language-form-ckb" action="/en/set_language/" method="post"><input name="next" type="hidden" value="{request.path}" /><input name="language" type="hidden" value="ckb" /> </form>'
-    
-    messages.info(
-    request, '''
-    <div class="alert alert-success alert-dismissible fixed-bottom-messages" role="alert">
+    arabic_html = f'''<apan dir="rtl">غیر اللغة الی العربیة، <a class="btn-link text-gray-500" href="/{locale}/set_language/" onclick="event.preventDefault();document.getElementById('language-form-ar').submit();" role="button"><strong>انقر هنا</strong></a></apan><br />'''
+    english_html = f'''<apan dir="ltr">Change the language to english, <a class="btn-link text-gray-500" href="/{locale}/set_language/" onclick="event.preventDefault();document.getElementById('language-form-en').submit();" role="button"><strong>Click here</strong></a></apan><br />'''
+    kurdish_html = f'''<apan dir="rtl">زمانەکە بگۆڕە بۆ کوردی، <a class="btn-link text-gray-500" href="/{locale}/set_language/" onclick="event.preventDefault();document.getElementById('language-form-ckb').submit();" role="button"><strong>لێرە کلیک بکە</strong></a></apan>'''
+
+    messages.info(request, '''
+    <div id="lang-message" class="alert aler text-center col-lg-6 col-lg-offset-3"
+        style="position: fixed; bottom: 20px; z-index: 10; color:black; background-color: rgba(255, 255, 255, 1);box-shadow: 5px 5px 5px gray;border: solid 1px gray;"
+        role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
             {}{}{}
-            <button type="button" class="close position-absolute" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        '''.format(
-            english_html if locale != 'en' else '',
-            arabic_html if locale != 'ar' else '',
-            kurdish_html if locale != 'ckb' else ''
-        )
+    </div>'''.format(
+        english_html if locale != 'en' else '',
+        arabic_html if locale != 'ar' else '',
+        kurdish_html if locale != 'ckb' else ''
     )
-    
-
-
-
+    )
+    # messages.info(
+    # request, '''
+    # <div class="alert alert-success alert-dismissible fixed-bottom-messages" role="alert">
+    #         {}{}{}
+    #         <button type="button" class="close position-absolute" data-dismiss="alert" aria-label="Close">
+    #             <span aria-hidden="true">&times;</span>
+    #         </button>
+    #     </div>
+    #     '''.format(
+    #         english_html if locale != 'en' else '',
+    #         arabic_html if locale != 'ar' else '',
+    #         kurdish_html if locale != 'ckb' else ''
+    #     )
+    # )
 
 
 '''

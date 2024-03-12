@@ -67,31 +67,16 @@
     </style>
 
     {% endif %}
-    <style>
-      .fixed-bottom-messages {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1000; /* Adjust the z-index to make sure it's on top of other elements */
-        width: 80%; /* Adjust the width as needed */
-        max-width: 480vw; /* Set a maximum width if desired */
-        padding: 10px;
-        background-color: rgba(76, 175, 80, 0.95); /* Background color for success messages (adjust as needed) */
-        color: #ffffff; /* Text color (adjust as needed) */
-        border-radius: 5px;
-        text-align: center;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a box shadow for a subtle effect */
-      }
-    </style>
-
+  
     <title>
       {% block head_title %}{{ site_title }}{% endblock head_title %}
     </title>
   </head>
 
   <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
-    {% if messages %} {% for message in messages %} {{ message|safe}} {% endfor %} {% endif %}
+      <!--  -->
+      {% include 'base/messages.html' %}
+
     <!--  -->
     {% include 'base/header.html' with menu_items=menu_items %}
 

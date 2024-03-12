@@ -16,7 +16,7 @@ class GeoIPMiddleware(LocaleMiddleware):
         user_ip = self.get_client_ip(request)
         # user_ip = '62.201.217.174'  # SLEMANI
         # user_ip = '130.193.241.255'  # ERBIL
-        user_ip = '86.96.239.132'  # DUBAI
+        # user_ip = '86.96.239.132'  # DUBAI
         # user_ip = '192.44.242.19'  # STOCKHOLM
         locale_detector = GeoLocaleDetector(user_ip)
         locale = locale_detector.detect_locale()

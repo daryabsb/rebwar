@@ -2708,4 +2708,5 @@ button.btn {
 .message-link {
   text-decoration: none;
   color: #fff;
+  pointer-events: none;
 }

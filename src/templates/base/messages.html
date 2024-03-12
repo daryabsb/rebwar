@@ -1,0 +1,16 @@
+{% if messages %} {% for message in messages %} {{ message|safe}} {% endfor %} {% endif %}
+<form id="language-form-ar" action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+    <input name="next" type="hidden" value="{{ request.path }}" />
+    <input name="language" type="hidden" value="ar" />
+</form>
+<form id="language-form-en" action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+    <input name="next" type="hidden" value="{{ request.path }}" />
+    <input name="language" type="hidden" value="en" />
+</form>
+<form id="language-form-ckb" action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+    <input name="next" type="hidden" value="{{ request.path }}" />
+    <input name="language" type="hidden" value="ckb" />
+</form>
