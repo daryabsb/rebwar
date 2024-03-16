@@ -8,8 +8,10 @@ def get_app_content(app_label, model_name):
     from src.core.models import SectionContent
 
     app_type = ContentType.objects.get(app_label=app_label, model=model_name)
+
     app_type_content = SectionContent.objects.filter(
         content_type=app_type).first()
+    print("app_type_content = ", app_type_content)
     if app_type_content:
         app_title = app_type_content.title
         app_description = app_type_content.description
@@ -57,6 +59,7 @@ def home_view(request):
 
     journey_title, journey_description = get_app_content("core", "journey")
     service_title, service_description = get_app_content("core", "service")
+    
     journey_opening = {
         "title": journey_title,
         "description": journey_description

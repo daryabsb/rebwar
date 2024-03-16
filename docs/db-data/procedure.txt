@@ -1,0 +1,27 @@
+1,Arthroscopy,\N,\N,\N,s\N,\N,\N,1,2
+5,Arthroscopy,\N,\N\N,\N,\N,1,3
+17,Arthroscopy,\N,\N,,\N,\N,\N,1,6
+13,Arthroscopy,\N,\N,\NN,\N,\N,1,5
+9,Arthroscopy,\N,\\N,\N,\N,1,4
+21,Arthroscopy,\N,\N,\N,tenti,\N,\N,\N,1,1
+
+2,Resurfacing,\N,\N,\N\N,\N,\N,2,2
+10,Resurfacing,\N,\N,\\N,\N,\N,2,4
+18,Resurfacing,\N,\N,\N,is at ,\N,\N,\N,2,6
+14,Resurfacing,\N,\N,\N,s at ,\N,\N,\N,2,5
+6,Resurfacing,\N,\N,\N,\N,\N,\N,2,3
+22,Resurfacing,\N,\N,\N,tenti,\N,\N,\N,2,1
+
+23,Total Replacement,\N,\N,\N,\N,\N,\N,3,1
+15,Total Replacement,\N,\N,\N.,\N,\N,\N,33,5
+11,Total Replacement,\N,\N,\N,s,\N,\N,\N,3,4
+7,Total Replacement,\N,\N,\N.,\N,\N,\N,3,3
+3,Total Replacement,\N,\N,\N,.,\N,\N,\N,3,2
+19,Total Replacement,\N,\N,\N\N,\N,\N,3,6
+
+16,Revision Replacement,\N,\N,\N,\N,\N,4,5
+12,Revision Replacement,\N,\N,\,\N,\N,\N,4,4
+8,Revision Replacement,\N,\N,,\N,\N,\N,4,3
+4,Revision Replacement,\N,\N,,\N,\N,\N,4,2
+20,Revision Replacement,\N,\N,\N, .,\N,\N,\N,4,6
+24,Revision Replacement,\N,\N,\N, .,\N,\N,\N,4,1

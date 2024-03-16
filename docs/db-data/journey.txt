@@ -1,0 +1,4 @@
+1,التشاور,Consultation,التشاور,ڕاوێژکاری,icon-medical-records,1
+2,ابحث عن الجراحة المناسبة,Find Right Surgery,ابحث عن الجراحة المناسبة,نەشتەرگەرییەکی دروست بدۆزەرەوە,icon-stethoscope,1
+3,إجراءات,Procedures,إجراءات,ڕێکارەکان,icon-drugs-3,1
+4,المتابعة والرعاية,Follow-up Care,المتابعة والرعاية,بەدواداچوون و چاودێری,icon-wheelchair,1
