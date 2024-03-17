@@ -33,6 +33,7 @@ django==5.0.2
     #   django-extensions
     #   django-filter
     #   django-modeltranslation
+    #   django-tinymce
     #   djangorestframework
 django-cors-headers==4.3.1
     # via -r src/requirements/requirements.in
@@ -45,6 +46,8 @@ django-filter==23.5
 django-modeltranslation==0.18.11
     # via -r src/requirements/requirements.in
 django-split-settings==1.2.0
+    # via -r src/requirements/requirements.in
+django-tinymce==3.7.1
     # via -r src/requirements/requirements.in
 djangorestframework==3.14.0
     # via -r src/requirements/requirements.in

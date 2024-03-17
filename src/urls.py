@@ -37,6 +37,7 @@ urlpatterns = [
     path('services/', views.services_view, name='services'),
     path('services/<int:id>/', views.services_detail_view, name='services-detail'),
     path('api/create_patient/', create_patient, name='create_patient'),
+    path('tinymce/', include('tinymce.urls')),
 ]
 
 urlpatterns += i18n_patterns(

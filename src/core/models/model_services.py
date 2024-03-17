@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce import models as tinymce_models
 from django.urls import reverse
 from src.core.modules import upload_image_file_path
 from django.contrib.auth import get_user_model
@@ -27,8 +28,10 @@ class Treatment(models.Model):
     service = models.OneToOneField(
         Service, on_delete=models.CASCADE, related_name='treatment')
     title = models.CharField(max_length=100)
-    conditions_description = models.TextField(null=True, blank=True)
-    procedure_description = models.TextField(null=True, blank=True)
+    conditions_desc = models.TextField(null=True, blank=True)
+    conditions_description = tinymce_models.HTMLField(null=True, blank=True)
+    procedure_desc = models.TextField(null=True, blank=True)
+    procedure_description = tinymce_models.HTMLField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.service.title} treatment"

@@ -19,22 +19,22 @@
         <div class="widget-dr-contact">
           <h3 class="widget-title">Contact Details</h3>
           <address>
-            {% for address in addresses %}
-            {{ address }}
-            {% endfor %}
+            {% for address in addresses %} {{ address }} {% endfor %}
             <br />
           </address>
           {% for phone in phones %}
           <p class="call-no">{{ phone }}</p>
-          {% endfor %}
-          {% for email in emails %}
+          {% endfor %} {% for email in emails %}
           <div class="email_text">{{ email }}</div>
           {% endfor %}
         </div>
         <div class="widget-clinic-hrs">
           <h3 class="widget-title">Clinic hours</h3>
           {% for schedule in schedules %}
-          <p>{{ schedule.description }} :<strong> {{ schedule.start|time:"g:i A" }} to {{ schedule.end|time:"g:i A" }}</strong>
+          <p>
+            {{ schedule.description }} :<strong>
+              {{ schedule.start|time:"g:i A" }} to {{ schedule.end|time:"g:i A" }}</strong
+            >
           </p>
           {% endfor %}
         </div>
@@ -74,9 +74,7 @@
           <span class="dr-meta">MBBS(Hons), BSc(Hons), FRCS(Tr &amp; Orth)</span>
         </div>
         <p class="lead">{{ doctor.description }}</p>
-        {{ doctor.journey|safe}}
-        
-        {% for item in resume %}
+        {{ doctor.content|safe}} {% for item in resume %}
         <div class="dr-profile-block">
           <div class="dr-profile-icon"><i class="{{ item.icon }}"></i></div>
           <div class="dr-profile-content">

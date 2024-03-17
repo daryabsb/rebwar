@@ -2,6 +2,7 @@
 from django.db import models
 from django.urls import reverse
 from src.accounts.managers import DoctorManager
+from tinymce import models as tinymce_models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from src.core.modules import upload_image_file_path
@@ -20,6 +21,7 @@ class DoctorProfile(models.Model):
     specialty = models.CharField(max_length=500)
     description = models.CharField(max_length=255)
     journey = models.TextField(blank=True, null=True)
+    content = tinymce_models.HTMLField()
     featured = models.BooleanField(default=False)
     image = models.ImageField(null=True, blank=True,
                               default='uploads/user/default-user-avatar.png',

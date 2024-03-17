@@ -11,6 +11,7 @@ base_settings = [
     'components/celery.py',
     'components/common.py',
     'components/cors.py',
+    'components/tinymce.py',
     'components/redis.py',
     'components/secretes.py',
 ]

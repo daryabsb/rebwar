@@ -1,16 +1,27 @@
 from django.contrib import admin
+from django.db import models
+from django import forms
+from tinymce.widgets import TinyMCE
 from modeltranslation.admin import TranslationAdmin
 from src.accounts.models import (DoctorProfile, DoctorLocation,
                                  DoctorResume, TitleChoice, DoctorSchedule,
                                  )
 
 
+class DoctorProfileAdminForm(forms.ModelForm):
+    class Meta:
+        model = DoctorProfile
+        fields = '__all__'
+        widgets = {
+            'journey': TinyMCE(attrs={'cols': 100, 'rows': 30})
+        }
 
 @admin.register(DoctorProfile)
 class DoctorAdmin(TranslationAdmin):
     list_display = ('id', 'name', 'specialty', 'email')
     ordering = ('id', )
-
+    form = DoctorProfileAdminForm
+ 
     class Media:
         js = (
             'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
