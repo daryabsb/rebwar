@@ -30,7 +30,7 @@ class TreatmentTranslationOptions(TranslationOptions):
 
 @register(Condition)
 class ConditionTranslationOptions(TranslationOptions):
-    fields = ('text',)
+    fields = ('text','description')
 
 
 @register(Procedure)

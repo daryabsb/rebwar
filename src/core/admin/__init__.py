@@ -6,6 +6,8 @@ from src.core.models import (Slide, Service, Journey, JourneyDetail, About,
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 # Register your models here.
 
+from .services_admin import ServiceAdmin
+
 
 class AboutAdmin(TranslationAdmin):
     # Your admin configuration here
@@ -20,10 +22,10 @@ admin.site.register(Slide, TranslationAdmin)
 admin.site.register(Journey, TranslationAdmin)
 admin.site.register(JourneyDetail, TranslationAdmin)
 
-admin.site.register(Service, TranslationAdmin)
-admin.site.register(Treatment, TranslationAdmin)
-admin.site.register(Condition, TranslationAdmin)
-admin.site.register(Procedure, TranslationAdmin)
+# admin.site.register(Service, TranslationAdmin)
+# admin.site.register(Treatment, TranslationAdmin)
+# admin.site.register(Condition, TranslationAdmin)
+# admin.site.register(Procedure, TranslationAdmin)
 
 admin.site.register(Menu, TranslationAdmin)
 admin.site.register(Testimonial, TranslationAdmin)

@@ -1,15 +1,19 @@
-<h1>{{ treatment.title }} Procedure</h1>
+{% if treatment %}
+<h2>{{procedures}}</h2>
+{% if treatment.procedure_description %}
 <p class="mb30">{{ treatment.procedure_description | safe }}</p>
+{% endif %}
 <div class="row">
-{% for procedure in treatment.procedures.all %}
-    <div class="col-lg-6 col-md-6 col-sm-6">
-        <div class="feature-number-block mb30">
-            <div class="number">{{ procedure.ordinal }}</div>
-            <div class="number-content">
-                <h3 class="feature-number-title">{{ procedure.title }}</h3>
-                <p>{{ procedure.description }}</p>
-            </div>
-        </div>
+  {% for procedure in treatment.procedures.all %}
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="feature-number-block mb30">
+      <div class="number">{{ procedure.ordinal }}</div>
+      <div class="number-content">
+        <h3 class="feature-number-title">{{ procedure.title }}</h3>
+        <p>{{ procedure.description }}</p>
+      </div>
     </div>
-    {% endfor %}
+  </div>
+  {% endfor %}
 </div>
+{% endif %}
