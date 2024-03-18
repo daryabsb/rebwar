@@ -3,8 +3,6 @@ import dj_database_url
 from src.settings.components import PROJECT_PATH, BASE_DIR
 
 DATABASE_URL = config("DATABASE_URL", default=None)
-# DATABASE_URL = "postgis://postgres:postgres2019@database.ticqc.ae:5433/allaf_gis"
-DATABASE_URL="postgres://postgres:postgres2019@database.ticqc.ae:5433/allaf_gis2"
 HOST_ENV = config('HOST_ENV', default='office')
 
 try:
