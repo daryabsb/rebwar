@@ -87,7 +87,7 @@ def about_view(request):
     abouts = About.objects.filter(featured=True).order_by('id')
     about_title, about_description = get_app_content("core", "about")
     page_crumbs = [{"title": crumb_home, "url": "/"}]
-    page_title = app_abount_us
+    page_title = app_about_us
     opening = {
         "title": about_title,
         "description": about_description
