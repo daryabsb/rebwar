@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from src.accounts.models import DoctorProfile
+from src.contact.models import Contact
 
-class BlogDetailView(DetailView):
-    model = DoctorProfile
-    template_name = 'doctors/profile.html'
-    context_object_name = 'doctor'
+class BlogDetailView(ListView):
+    model = Contact
+    template_name = 'contact/index.html'
+    context_object_name = 'contact'

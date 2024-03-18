@@ -31,7 +31,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', views.about_view, name='about'),
     path('contact-us/', views.contact_view, name='contact-us'),
-    path('contact-us/', views.contact_view, name='contact-us'),
     path('doctors/', include('src.accounts.urls')),
     path('blogs/', include('src.blogs.urls')),
     path('services/', views.services_view, name='services'),
