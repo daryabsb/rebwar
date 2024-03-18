@@ -83,7 +83,7 @@ def home_view(request):
 
 
 def about_view(request):
-    from src.core import crumb_home, app_abount_us
+    from src.core import crumb_home, app_about_us
     abouts = About.objects.filter(featured=True).order_by('id')
     about_title, about_description = get_app_content("core", "about")
     page_crumbs = [{"title": crumb_home, "url": "/"}]

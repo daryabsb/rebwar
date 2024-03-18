@@ -134,7 +134,7 @@ msgid "app_services"
 msgstr "Services"
 
 #: .\src\core\__init__.py:7
-msgid "app_abount_us"
+msgid "app_about_us"
 msgstr "About Us"
 
 #: .\src\core\__init__.py:8

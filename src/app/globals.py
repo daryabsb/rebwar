@@ -35,7 +35,7 @@ global_variables = {
         "booking_appointment": get_value("booking_appointment"),
         "crumb_home": get_value("crumb_home"),
         "app_services": get_value("app_services"),
-        "app_abount_us": get_value("app_abount_us"),
+        "app_about_us": get_value("app_about_us"),
         "app_blogs": get_value("app_blogs"),
         "footer_description": get_value("footer_description"),
     }

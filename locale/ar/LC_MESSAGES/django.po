@@ -133,7 +133,7 @@ msgid "app_services"
 msgstr "خدمات"
 
 #: .\src\core\__init__.py:7
-msgid "app_abount_us"
+msgid "app_about_us"
 msgstr "عن العيادة"
 
 #: .\src\core\__init__.py:8

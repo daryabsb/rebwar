@@ -139,7 +139,7 @@ msgid "app_services"
 msgstr "خزمەتگوزارییەكان"
 
 #: .\src\core\__init__.py:7
-msgid "app_abount_us"
+msgid "app_about_us"
 msgstr "دەربارەی ئێمە"
 
 #: .\src\core\__init__.py:8

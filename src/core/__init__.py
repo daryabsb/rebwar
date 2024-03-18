@@ -4,7 +4,7 @@ footer_description = _('contact_page_title')
 
 crumb_home = _('crumb_home')
 app_services = _('app_services')
-app_about_us = _('app_abount_us')
+app_about_us = _('app_about_us')
 app_blogs = _('app_blogs')
 
 
