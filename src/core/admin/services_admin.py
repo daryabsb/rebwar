@@ -38,7 +38,7 @@ class TreatmentAdmin(TranslationAdmin):
 @admin.register(Condition)
 class ConditionAdmin(TranslationAdmin):
     list_display = ('id','treatment_title', 'text_en', 'text_ar', 'text_ckb',)
-    ordering = ('-id', )
+    ordering = ('treatment','id', )
     list_filter = ('treatment',)
 
     def treatment_title(self, obj):
@@ -61,7 +61,7 @@ class ConditionAdmin(TranslationAdmin):
 @admin.register(Procedure)
 class ProcedureAdmin(TranslationAdmin):
     list_display = ('id','treatment_title', 'title_en', 'title_ar', 'title_ckb',)
-    ordering = ('id','ordinal',)
+    ordering = ('treatment','id','ordinal',)
     list_filter = ('treatment',)
 
     def treatment_title(self, obj):

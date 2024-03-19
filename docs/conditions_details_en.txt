@@ -1,59 +1,105 @@
 Hip:
-•	Osteoarthritis of the hip: Degenerative wear and tear of the hip joint cartilage, causing pain, stiffness, and reduced mobility.
-•	Hip fractures: Breaks in the bones of the hip, often resulting from falls or osteoporosis, leading to severe pain and immobility.
-•	Bursitis of the hip: Inflammation of the bursae, small fluid-filled sacs, around the hip joint, causing pain and tenderness.
-•	Hip impingement syndrome: Abnormal contact between the bones of the hip joint, leading to pain, stiffness, and restricted movement.
-•	Hip labral tears: Damage to the cartilage (labrum) lining the hip socket, causing pain, clicking, or locking sensations in the hip joint.
-•	Avascular necrosis of the hip: Death of bone tissue due to poor blood supply, leading to pain and eventual collapse of the hip joint.
-•	Hip dysplasia: Abnormal development of the hip joint, resulting in instability, pain, and increased risk of osteoarthritis.
-•	Trochanteric bursitis: Inflammation of the bursae located near the greater trochanter of the hip, causing pain and tenderness on the outer hip.
+Osteoarthritis of the hip: Degenerative wear and tear of the hip joint cartilage, causing pain, stiffness, and reduced mobility.
+
+Hip fractures: Breaks in the bones of the hip, often resulting from falls or osteoporosis, leading to severe pain and immobility.
+
+Bursitis of the hip: Inflammation of the bursae, small fluid-filled sacs, around the hip joint, causing pain and tenderness.
+
+Hip impingement syndrome: Abnormal contact between the bones of the hip joint, leading to pain, stiffness, and restricted movement.
+
+Hip labral tears: Damage to the cartilage (labrum) lining the hip socket, causing pain, clicking, or locking sensations in the hip joint.
+
+Avascular necrosis of the hip: Death of bone tissue due to poor blood supply, leading to pain and eventual collapse of the hip joint.
+
+Hip dysplasia: Abnormal development of the hip joint, resulting in instability, pain, and increased risk of osteoarthritis.
+
+Trochanteric bursitis: Inflammation of the bursae located near the greater trochanter of the hip, causing pain and tenderness on the outer hip.
 
 Knee:
-•	Anterior cruciate ligament (ACL) tear: Injury to the ACL, causing knee instability, swelling, and difficulty in bearing weight.
-•	Meniscal tears: Tears in the cartilage (meniscus) of the knee, leading to pain, swelling, and sometimes locking of the joint.
-•	Patellofemoral pain syndrome (runner's knee): Pain around the kneecap, aggravated by activities like running or climbing stairs.
-•	Osteoarthritis of the knee: Degenerative joint disease-causing pain, stiffness, and swelling in the knee joint.
-•	Knee bursitis (prepatellar or pes anserine): Inflammation of the bursae around the knee, resulting in pain and swelling.
-•	Patellar tendonitis (jumper's knee): Inflammation of the tendon connecting the kneecap to the shinbone, causing pain below the kneecap.
-•	Iliotibial (IT) band syndrome: Inflammation of the iliotibial band, causing pain on the outer side of the knee, especially during running or cycling.
-•	Knee dislocation: Displacement of the bones in the knee joint, causing severe pain, instability, and possible nerve or blood vessel damage.
+
+Anterior cruciate ligament (ACL) tear: Injury to the ACL, causing knee instability, swelling, and difficulty in bearing weight.
+
+Meniscal tears: Tears in the cartilage (meniscus) of the knee, leading to pain, swelling, and sometimes locking of the joint.
+
+Patellofemoral pain syndrome (runner's knee): Pain around the kneecap, aggravated by activities like running or climbing stairs.
+
+Osteoarthritis of the knee: Degenerative joint disease-causing pain, stiffness, and swelling in the knee joint.
+
+Knee bursitis (prepatellar or pes anserine): Inflammation of the bursae around the knee, resulting in pain and swelling.
+Patellar tendonitis (jumper's knee): Inflammation of the tendon connecting the kneecap to the shinbone, causing pain below the kneecap.
+
+Iliotibial (IT) band syndrome: Inflammation of the iliotibial band, causing pain on the outer side of the knee, especially during running or cycling.
+
+--Knee dislocation: Displacement of the bones in the knee joint, causing severe pain, instability, and possible nerve or blood vessel damage.
 
 Hand and Wrist:
-•	Carpal tunnel syndrome: Compression of the median nerve in the wrist, leading to numbness, tingling, and weakness in the hand.
-•	Trigger finger/thumb: Condition causing fingers to catch or lock in a bent position, often accompanied by pain and clicking.
-•	De Quervain's tenosynovitis: Inflammation of the tendons at the base of the thumb, causing pain and swelling in the wrist.
-•	Ganglion cysts: Noncancerous lumps filled with fluid, commonly occurring on the back of the hand or wrist.
-•	Wrist sprains: Injuries to the ligaments of the wrist, resulting in pain, swelling, and reduced range of motion.
-•	Hand fractures (e.g., metacarpal fractures): Breaks in the bones of the hand, causing pain, swelling, and deformity.
-•	Dupuytren's contracture: Thickening and tightening of the tissue beneath the skin of the palm, leading to finger contractures.
-•	Rheumatoid arthritis of the hand/wrist: Chronic autoimmune disease-causing joint inflammation, pain, and deformities in the hands and wrists.
+
+Carpal tunnel syndrome: Compression of the median nerve in the wrist, leading to numbness, tingling, and weakness in the hand.
+
+Trigger finger/thumb: Condition causing fingers to catch or lock in a bent position, often accompanied by pain and clicking.
+
+De Quervain's tenosynovitis: Inflammation of the tendons at the base of the thumb, causing pain and swelling in the wrist.
+
+Ganglion cysts: Noncancerous lumps filled with fluid, commonly occurring on the back of the hand or wrist.
+
+Wrist sprains: Injuries to the ligaments of the wrist, resulting in pain, swelling, and reduced range of motion.
+
+Hand fractures (e.g., metacarpal fractures): Breaks in the bones of the hand, causing pain, swelling, and deformity.
+
+Dupuytren's contracture: Thickening and tightening of the tissue beneath the skin of the palm, leading to finger contractures.
+
+--Rheumatoid arthritis of the hand/wrist: Chronic autoimmune disease-causing joint inflammation, pain, and deformities in the hands and wrists.
 
 Shoulder and Elbow:
-•	Rotator cuff tears: Tears in the muscles and tendons of the rotator cuff, causing pain and weakness in the shoulder.
-•	Shoulder impingement syndrome: Pinching of the tendons and bursa in the shoulder, resulting in pain and restricted movement.
-•	Frozen shoulder (adhesive capsulitis): Stiffness and pain in the shoulder joint, limiting mobility and causing discomfort.
-•	Shoulder dislocation: Displacement of the upper arm bone (humerus) from the shoulder socket, causing severe pain and instability.
-•	Tennis elbow (lateral epicondylitis): Pain and inflammation of the tendons on the outside of the elbow, often due to repetitive motion.
-•	Golfer's elbow (medial epicondylitis): Pain and inflammation of the tendons on the inside of the elbow, commonly caused by overuse.
-•	Biceps tendonitis: Inflammation of the biceps tendon, resulting in pain in the front of the shoulder or elbow.
-•	Shoulder instability: Condition where the shoulder joint is prone to dislocation or subluxation, leading to recurrent episodes of instability and pain.
+
+Rotator cuff tears: Tears in the muscles and tendons of the rotator cuff, causing pain and weakness in the shoulder.
+
+Shoulder impingement syndrome: Pinching of the tendons and bursa in the shoulder, resulting in pain and restricted movement.
+
+Frozen shoulder (adhesive capsulitis): Stiffness and pain in the shoulder joint, limiting mobility and causing discomfort.
+
+Shoulder dislocation: Displacement of the upper arm bone (humerus) from the shoulder socket, causing severe pain and instability.
+
+Tennis elbow (lateral epicondylitis): Pain and inflammation of the tendons on the outside of the elbow, often due to repetitive motion.
+
+Golfer's elbow (medial epicondylitis): Pain and inflammation of the tendons on the inside of the elbow, commonly caused by overuse.
+
+Biceps tendonitis: Inflammation of the biceps tendon, resulting in pain in the front of the shoulder or elbow.
+
+--Shoulder instability: Condition where the shoulder joint is prone to dislocation or subluxation, leading to recurrent episodes of instability and pain.
 
 Foot and Ankle:
-•	Plantar fasciitis: Inflammation of the plantar fascia, causing heel pain, especially with the first steps in the morning.
-•	Ankle sprains: Injuries to the ligaments surrounding the ankle joint, resulting in pain, swelling, and instability.
-•	Achilles tendonitis: Inflammation of the Achilles tendon, causing pain and stiffness in the back of the ankle.
-•	Bunions (hallux valgus): Bony bumps that form at the base of the big toe, causing pain and deformity.
-•	Morton's neuroma: Thickening of the tissue around a nerve between the toes, leading to pain, burning, or numbness.
-•	Plantar warts: Viral infections causing small, painful growths on the sole of the foot.
-•	Tarsal tunnel syndrome: Compression of the tibial nerve as it passes through the tarsal tunnel, resulting in pain, tingling, or numbness in the foot.
-•	High arches (pes cavus): Condition where the arch of the foot is abnormally raised, leading to foot pain, instability, and difficulty fitting into shoes.
+
+Plantar fasciitis: Inflammation of the plantar fascia, causing heel pain, especially with the first steps in the morning.
+
+Ankle sprains: Injuries to the ligaments surrounding the ankle joint, resulting in pain, swelling, and instability.
+
+Achilles tendonitis: Inflammation of the Achilles tendon, causing pain and stiffness in the back of the ankle.
+
+Bunions (hallux valgus): Bony bumps that form at the base of the big toe, causing pain and deformity.
+
+Morton's neuroma: Thickening of the tissue around a nerve between the toes, leading to pain, burning, or numbness.
+
+Plantar warts: Viral infections causing small, painful growths on the sole of the foot.
+
+Tarsal tunnel syndrome: Compression of the tibial nerve as it passes through the tarsal tunnel, resulting in pain, tingling, or numbness in the foot.
+
+--High arches (pes cavus): Condition where the arch of the foot is abnormally raised, leading to foot pain, instability, and difficulty fitting into shoes.
 
 Spine:
-•	Herniated disc (slipped or bulging disc): Rupture or protrusion of the intervertebral disc, causing nerve compression and pain.
-•	Spinal stenosis: Narrowing of the spinal canal, leading to pressure on the spinal cord or nerves, resulting in pain and weakness.
-•	Degenerative disc disease: Wear and tear of the spinal discs, leading to pain, stiffness, and reduced mobility.
-•	Spondylolisthesis: Forward displacement of a vertebra, causing instability and potential nerve compression.
-•	Sciatica: Pain, numbness, or tingling radiating along the sciatic nerve, often caused by compression or irritation.
-•	Spinal fractures (compression fractures): Breaks in the vertebrae, commonly due to osteoporosis or trauma, causing pain and potential spinal cord compression.
-•	Scoliosis: Abnormal curvature of the spine, causing sideways curvature and potential pain or deformity.
-•	Facet joint syndrome: Degeneration or inflammation of the facet joints in the spine, resulting in back pain and stiffness.
+
+Herniated disc (slipped or bulging disc): Rupture or protrusion of the intervertebral disc, causing nerve compression and pain.
+
+Spinal stenosis: Narrowing of the spinal canal, leading to pressure on the spinal cord or nerves, resulting in pain and weakness.
+
+Degenerative disc disease: Wear and tear of the spinal discs, leading to pain, stiffness, and reduced mobility.
+
+Spondylolisthesis: Forward displacement of a vertebra, causing instability and potential nerve compression.
+
+Sciatica: Pain, numbness, or tingling radiating along the sciatic nerve, often caused by compression or irritation.
+
+Spinal fractures (compression fractures): Breaks in the vertebrae, commonly due to osteoporosis or trauma, causing pain and potential spinal cord compression.
+
+Scoliosis: Abnormal curvature of the spine, causing sideways curvature and potential pain or deformity.
+
+--Facet joint syndrome: Degeneration or inflammation of the facet joints in the spine, resulting in back pain and stiffness.
