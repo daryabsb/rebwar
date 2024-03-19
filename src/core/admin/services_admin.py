@@ -38,7 +38,8 @@ class TreatmentAdmin(TranslationAdmin):
 @admin.register(Condition)
 class ConditionAdmin(TranslationAdmin):
     list_display = ('id','treatment', 'text')
-    ordering = ('id', )
+    ordering = ('-id', )
+    list_filter = ('treatment',)
  
     class Media:
         js = (
