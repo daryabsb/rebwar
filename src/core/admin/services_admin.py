@@ -60,8 +60,8 @@ class ConditionAdmin(TranslationAdmin):
 
 @admin.register(Procedure)
 class ProcedureAdmin(TranslationAdmin):
-    list_display = ('id','treatment_title', 'title_en', 'title_ar', 'title_ckb',)
-    ordering = ('treatment','id','ordinal',)
+    list_display = ('ordinal','treatment_title', 'title_en', 'title_ar', 'title_ckb',)
+    ordering = ('treatment','ordinal',)
     list_filter = ('treatment',)
 
     def treatment_title(self, obj):
