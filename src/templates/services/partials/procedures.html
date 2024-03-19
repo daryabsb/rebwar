@@ -10,7 +10,7 @@
       <div class="number">{{ procedure.ordinal }}</div>
       <div class="number-content">
         <h3 class="feature-number-title">{{ procedure.title }}</h3>
-        <p>{{ procedure.description }}</p>
+        <p>{{ procedure.description|safe }}</p>
       </div>
     </div>
   </div>
