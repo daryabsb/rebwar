@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
+from tinymce import models as tinymce_models
 from django.urls import reverse
 from src.core.modules import upload_image_file_path
 from src.app.const import LANGUAGES_CHOICES
@@ -27,7 +28,7 @@ class Blog(models.Model):
     language = models.CharField(
         max_length=3, default='en', choices=LANGUAGES_CHOICES, unique=True)
     short_description = models.CharField(max_length=500)
-    content = models.TextField()
+    content = tinymce_models.HTMLField()
     likes = GenericRelation(Like, related_query_name='blog_likes')
     image = models.ImageField(null=True, blank=True,
                               default='uploads/user/default-user-avatar.png',
