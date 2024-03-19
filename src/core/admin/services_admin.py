@@ -37,9 +37,15 @@ class TreatmentAdmin(TranslationAdmin):
 
 @admin.register(Condition)
 class ConditionAdmin(TranslationAdmin):
-    list_display = ('id','treatment', 'text')
+    list_display = ('id','treatment_title', 'text_en', 'text_ar', 'text_ckb',)
     ordering = ('-id', )
     list_filter = ('treatment',)
+
+    def treatment_title(self, obj):
+        from django.forms import model_to_dict
+        
+        return obj.treatment.title
+    treatment_title.short_description = 'treatment'
  
     class Media:
         js = (
@@ -54,8 +60,13 @@ class ConditionAdmin(TranslationAdmin):
 
 @admin.register(Procedure)
 class ProcedureAdmin(TranslationAdmin):
-    list_display = ('id','treatment', 'title')
+    list_display = ('id','treatment_title', 'title_en', 'title_ar', 'title_ckb',)
     ordering = ('id','ordinal',)
+    list_filter = ('treatment',)
+
+    def treatment_title(self, obj):
+        return obj.treatment.title
+    treatment_title.short_description = 'treatment'
  
     class Media:
         js = (
