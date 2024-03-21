@@ -1,11 +1,28 @@
-{% load static %}
+{% load static %} {% load i18n %} {% get_current_language_bidi as LANGUAGE_BIDI %}
+
 <div class="footer">
   <!-- footer -->
   <div class="container">
     <div class="footer_sections footer_about">
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-          <div class="footer_logo"><img class="img-responsive" src="{% static 'images/Logo-white-01.png' %}" alt="" /></div>
+          <div class="footer_logo">
+            {% if LANGUAGE_BIDI %}
+            <img
+              class="img-responsive"
+              style="max-width: 27rem;"
+              src="{% static 'images/logo-ar-light-01-01.svg' %}"
+              alt=""
+            />
+            {% else %}
+            <img
+              class="img-responsive"
+              style="max-width: 27rem;"
+              src="{% static 'images/logo-en-light-01.svg' %}"
+              alt=""
+            />
+            {% endif %}
+          </div>
         </div>
         <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
           <p>{{ footer_description }}</p>

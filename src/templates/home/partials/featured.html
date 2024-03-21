@@ -35,7 +35,7 @@
           <div class="feature">
             {% for item in resume %}
             <div class="feature-left">
-              <div class="feature-icon"><i class="icon-cup"></i></div>
+              <div class="feature-icon"><i class="{{ item.icon }}"></i></div>
               <div class="feature-content">
                 <h3 class="feature-title">{{ item.title }}</h3>
                 {% for description in item.items %}

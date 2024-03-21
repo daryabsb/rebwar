@@ -7,6 +7,7 @@ class TitleChoice(models.Model):
     value = models.CharField(max_length=50)
     display = models.CharField(max_length=50)
     icon = models.CharField(max_length=50, null=True, blank=True)
+    featured = models.BooleanField(default=False)
 
     def __str__(self):
         return self.display

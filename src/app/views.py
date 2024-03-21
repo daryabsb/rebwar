@@ -31,8 +31,8 @@ def home_view(request):
     subjects = TitleChoice.objects.all()
     doctor_resume = []
     for subject in subjects:
-        if subject.value in ['achievement', 'special_expertise', 'member_of_foundation']:
-            cv = {"title": subject.display}
+        if subject.featured: #  in ['achievement', 'special_expertise', 'member_of_foundation']:
+            cv = {"title": subject.display, "icon": subject.icon}
             items = []
             for item in subject.titles.all():
                 if item.doctor == doctor:
