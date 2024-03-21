@@ -28,7 +28,7 @@ class Blog(models.Model):
     subject = models.CharField(max_length=50)
     language = models.CharField(
         max_length=3, default='en', choices=LANGUAGES_CHOICES, unique=True)
-    short_description = models.CharField(max_length=500)
+    short_description = tinymce_models.HTMLField(blank=True, null=True)
     content = tinymce_models.HTMLField()
     likes = GenericRelation(Like, related_query_name='blog_likes')
     image = models.ImageField(null=True, blank=True,
