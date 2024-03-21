@@ -23,6 +23,7 @@ class Like(models.Model):
 
 class Blog(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    handle = models.SlugField()
     title = models.CharField(max_length=255)
     subject = models.CharField(max_length=50)
     language = models.CharField(

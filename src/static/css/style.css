@@ -995,6 +995,7 @@ button.btn {
 }
 #navigation.small-screen {
   width: 100%;
+  padding-bottom: 10px;
 }
 #navigation.small-screen ul {
   width: 100%;

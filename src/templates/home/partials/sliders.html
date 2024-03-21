@@ -6,12 +6,12 @@
     <a href="#"><img src="{{ slide.image.url }}" alt="{{slide.title}}" class="img-responsive" /></a>
     <div class="container">
       <div dir="auto" class="row">
-        <div class="col-lg-6 col-md-4 col-sm-6 col-xs-9 slider-captions-ltr">
+        <div class="col-xs-offset-3 col-lg-offset-0 col-lg-6 col-md-4 col-sm-6 col-xs-9 slider-captions-ltr">
           <!--  col-lg-offset-3 -->
           <div class="slider-captions">
             <!-- slider-captions -->
             <h3 class="slider-title">{{slide.title |safe }}</h3>
-            <p class="slider-text hidden-sm hidden-xs">
+            <p class="slider-text hidden-md hidden-xs">
               {{slide.description}}
             </p>
             <a href="#" class="btn btn-default hidden-xs">{{ make_appointment }}</a>
