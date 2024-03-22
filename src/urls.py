@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from src.xadmin import z_site
 from django.conf import settings
 
 from django.conf.urls.i18n import i18n_patterns
@@ -29,6 +30,7 @@ from src.accounts.api.views import create_patient
 urlpatterns = [
     path('', views.home_view, name='index'),
     path('admin/', admin.site.urls),
+    path('xadmin/', z_site.urls),
     path('about/', views.about_view, name='about'),
     path('contact-us/', views.contact_view, name='contact-us'),
     path('doctors/', include('src.accounts.urls')),

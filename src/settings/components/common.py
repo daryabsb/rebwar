@@ -30,6 +30,7 @@ WS_ENDPOINT = config('WS_ENDPOINT', default='ws://127.0.0.1:8000')
 DJANGO_APPS = [
     'modeltranslation',
     'django.contrib.admin',
+    'src.xadmin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -40,6 +41,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'corsheaders',
     'rest_framework',
+    'django_extensions',
     'tinymce',
 ]
 LOCAL_APPS = [

@@ -2,6 +2,7 @@ Django>5.0,<6.0
 django-extensions
 django-cors-headers
 djangorestframework>=3.14
+django-ipware
 django-filter
 django-countries
 django-tinymce

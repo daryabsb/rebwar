@@ -6,14 +6,15 @@ ENV = environ.get('DJANGO_ENV') or 'local'
 base_settings = [
     'components/paths.py',
     # 'components/storages/conf.py',
-    'components/db.py',
     'components/cache.py',
-    'components/celery.py',
+    'components/secretes.py',
+    'components/site_settings.py',
+    'components/db.py',
     'components/common.py',
     'components/cors.py',
     'components/tinymce.py',
+    'components/celery.py',
     'components/redis.py',
-    'components/secretes.py',
 ]
 
 include(*base_settings)

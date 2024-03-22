@@ -43,6 +43,8 @@ django-extensions==3.2.3
     # via -r src/requirements/requirements.in
 django-filter==23.5
     # via -r src/requirements/requirements.in
+django-ipware==6.0.4
+    # via -r src/requirements/requirements.in
 django-modeltranslation==0.18.11
     # via -r src/requirements/requirements.in
 django-split-settings==1.2.0
@@ -93,6 +95,8 @@ pygments==2.17.2
     # via icecream
 python-decouple==3.8
     # via -r src/requirements/requirements.in
+python-ipware==2.0.2
+    # via django-ipware
 pytz==2024.1
     # via
     #   -r src/requirements/requirements.in
