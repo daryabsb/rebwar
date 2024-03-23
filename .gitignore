@@ -124,6 +124,8 @@ celerybeat.pid
 .venv
 env/
 venv/
+AdminLTE-3.2.0/
+xadmin_html/
 ENV/
 env.bak/
 venv.bak/
