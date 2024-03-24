@@ -6,6 +6,7 @@ from django.views.decorators.common import no_append_slash
 from django.urls import NoReverseMatch, Resolver404, resolve, reverse
 from django.http import Http404, HttpResponsePermanentRedirect, HttpResponseRedirect
 
+
 class ZAdminSite(AdminSite):
     site_title = 'Dr Rebwar Allaf | Orthopedic & Hans Clinic'
     site_header = 'Dr Rebwar Allaf | Orthopedic & Hans Clinic'
@@ -21,7 +22,6 @@ class ZAdminSite(AdminSite):
 
     def __init__(self):
         super(ZAdminSite, self).__init__(name='zeneon')
-
 
     @no_append_slash
     def catch_all_view(self, request, url):
@@ -43,6 +43,8 @@ class ZAdminSite(AdminSite):
         Display the main admin index page, which lists all of the installed
         apps that have been registered in this site.
         """
+        from src.xadmin.menu import MenuList
+
         app_list = self.get_app_list(request)
 
         context = {
@@ -58,7 +60,6 @@ class ZAdminSite(AdminSite):
         return TemplateResponse(
             request, self.index_template or "xadmin/xindex.html", context
         )
-
 
     def app_index(self, request, app_label, extra_context=None):
         app_list = self.get_app_list(request, app_label)
@@ -83,5 +84,6 @@ class ZAdminSite(AdminSite):
             or ["admin/%s/app_index.html" % app_label, "admin/app_index.html"],
             context,
         )
+
 
 z_site = ZAdminSite()

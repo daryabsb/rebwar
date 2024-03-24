@@ -1,4 +1,4 @@
-import re
+import re, json
 
 try:
     from ipware import get_client_ip
@@ -34,6 +34,16 @@ BUILD_IN_PERMISSION = {
     'GeneralActionDelete':'delete'
     }
 
+
+def load_from_json(source, expect_type):
+    try:
+        decoded = json.loads(source)
+    except (TypeError, ValueError):
+        decoded = expect_type()
+
+    if not isinstance(decoded, expect_type):
+        decoded = expect_type()
+    return decoded
 
 def get_error_message(e, **kwargs):
     correlated_field = kwargs.get('field', None)
