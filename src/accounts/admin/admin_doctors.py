@@ -1,4 +1,5 @@
 from django.contrib import admin
+from src.xadmin import z_site
 from django.db import models
 from django import forms
 from tinymce.widgets import TinyMCE
@@ -34,6 +35,7 @@ class DoctorAdmin(TranslationAdmin):
 
 
 admin.site.register(DoctorLocation, TranslationAdmin)
+z_site.register(DoctorLocation, TranslationAdmin)
 admin.site.register(TitleChoice, TranslationAdmin)
 admin.site.register(DoctorResume, TranslationAdmin)
 admin.site.register(DoctorSchedule, TranslationAdmin)
