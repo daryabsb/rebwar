@@ -9,12 +9,14 @@ from src.accounts.models import (DoctorProfile, DoctorLocation,
                                  DoctorResume, TitleChoice, DoctorSchedule,
                                  )
 from src.accounts.widgets import InputFieldWidget
-submit_row
+
+
 class DoctorProfileAdminForm(forms.ModelForm):
     class Meta:
         model = DoctorProfile
         fields = '__all__'
         widgets = {
+            'user': forms.Select(attrs={'class': 'form-select form-select-sm mb-3'}),
             'name': forms.TextInput(attrs={'class': 'form-control form-control-sm'}),
             'email': forms.EmailInput(attrs={'class': 'form-control form-control-sm'}),
             'field': forms.TextInput(attrs={'class': 'form-control form-control-sm'}),
@@ -26,12 +28,13 @@ class DoctorProfileAdminForm(forms.ModelForm):
             'image': forms.FileInput(attrs={'class': 'form-control form-control-sm'}),
         }
 
+
 @admin.register(DoctorProfile)
 class DoctorAdmin(TranslationAdmin):
     list_display = ('id', 'name', 'specialty', 'email')
     ordering = ('id', )
     form = DoctorProfileAdminForm
- 
+
     class Media:
         js = (
             'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
@@ -42,13 +45,14 @@ class DoctorAdmin(TranslationAdmin):
             'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
         }
 
+
 @register(DoctorProfile)
 class DoctorAdmin(ZModelAdmin, TranslationAdmin):
     list_display = ('id', 'name', 'specialty', 'email')
     ordering = ('id', )
     change_form_template = "xadmin/accounts/x_doctor_change_form.html"
     form = DoctorProfileAdminForm
- 
+
     class Media:
         js = (
             'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',

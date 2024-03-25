@@ -2590,9 +2590,20 @@
             navbarTopCombo.remove(navbarTopCombo);
           }
         </script>
-        <div class="card">
+        
+        <div class="card px-lg-4 py-lg-2">
+        {% block nav-breadcrumbs %}
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="{% translate 'Breadcrumbs' %}">
+          {% block breadcrumbs %}
+            <div class="breadcrumbs">
+              <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+              {% if title %} &rsaquo; {{ title }}{% endif %}
+            </div>
+          {% endblock %}
+        </nav>
+      {% endblock %}
         {% block content %}
-          <div class="card-body overflow-hidden p-lg-6">
+          <div class="card-body overflow-hidden">
             <div class="row align-items-center">
               <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/icons/spot-illustrations/21.png' %}" alt="" /></div>
               <div class="col-lg-6 ps-lg-4 my-5 text-center text-lg-start">
@@ -2655,16 +2666,7 @@
       
       {% endblock %}
       <!-- END Header -->
-      {% block nav-breadcrumbs %}
-        <nav aria-label="{% translate 'Breadcrumbs' %}">
-          {% block breadcrumbs %}
-            <div class="breadcrumbs">
-              <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
-              {% if title %} &rsaquo; {{ title }}{% endif %}
-            </div>
-          {% endblock %}
-        </nav>
-      {% endblock %}
+      
       {% endif %}
     {% if not is_popup and is_nav_sidebar_enabled %}
       {% block nav-sidebar %}

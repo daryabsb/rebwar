@@ -38,7 +38,7 @@
 <div class="px-lg-4 py-lg-4">
 {% if is_popup %}<input type="hidden" name="{{ is_popup_var }}" value="1">{% endif %}
 {% if to_field %}<input type="hidden" name="{{ to_field_var }}" value="{{ to_field }}">{% endif %}
-{% if save_on_top %}{% block submit_buttons_top %}{% submit_row %}{% endblock %}{% endif %}
+{% if save_on_top %}{% block submit_buttons_top %}{% submit_line %}{% endblock %}{% endif %}
 {% if errors %}
     <p class="errornote">
     {% blocktranslate count counter=errors|length %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktranslate %}
@@ -62,7 +62,7 @@
 
 {% block after_related_objects %}{% endblock %}
 
-{% block submit_buttons_bottom %}{% submit_row %}{% endblock %}
+{% block submit_buttons_bottom %}{% submit_line %}{% endblock %}
 
 {% block admin_change_form_document_ready %}
     <script id="django-admin-form-add-constants"

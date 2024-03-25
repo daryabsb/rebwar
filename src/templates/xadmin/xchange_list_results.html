@@ -1,0 +1,142 @@
+{% load i18n %}
+{% if result_hidden_fields %}
+<div class="hiddenfields">{# DIV for HTML validation #}
+{% for item in result_hidden_fields %}{{ item }}{% endfor %}
+</div>
+{% endif %}
+{% if results %}
+<div data-list='{"valueNames":{{result_headers}},"page":1,"pagination":true}'>
+
+  <div class="row justify-content-end g-0">
+  <div class="row justify-content-end g-0">
+    <div class="col-auto col-sm-5 mb-3">
+      <form>
+        <div class="input-group"><input class="form-control form-control-sm shadow-none search" type="search" placeholder="Search..." aria-label="search" />
+          <div class="input-group-text bg-transparent"><span class="fa fa-search fs-10 text-600"></span></div>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+  <div class="table-responsive scrollbar">
+    <table class="table table-sm table-striped fs-10 mb-0 overflow-hidden">
+      <thead class="bg-200">
+        <tr>
+
+
+{% for header in result_headers %}
+<th scope="col"  class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="name">
+   {% if header.sortable and header.sort_priority > 0 %}
+    
+         <a class="sortremove" href="{{ header.url_remove }}" title="{% translate 'Remove from sorting' %}"></a>
+         {% if num_sorted_fields > 1 %}
+         <span class="sortpriority" 
+         title="{% blocktranslate with priority_number=header.sort_priority %}Sorting priority: {{ priority_number }}{% endblocktranslate %}"
+         >{{ header.sort_priority }}</span>{% endif %}
+         <a href="{{ header.url_toggle }}" class="toggle {{ header.ascending|yesno:'ascending,descending' }}" title="{% translate 'Toggle sorting' %}"></a>
+       
+   {% endif %}
+   {% if header.sortable %}
+   <a href="{{ header.url_primary }}">{{ header.text|capfirst }}</a>
+   {% else %}
+   <span>{{ header.text|capfirst }}</span>
+   {% endif %}
+</th>{% endfor %}
+
+
+</tr>
+</thead>
+<tbody class="list" id="table-purchase-body">
+        
+{% for result in results %}
+{% if result.form and result.form.non_field_errors %}
+    <tr class="btn-reveal-trigger">
+    <th colspan="{{ result|length }}">{{ result.form.non_field_errors }}</th></tr>
+{% endif %}
+<tr class="btn-reveal-trigger">
+{% for item in result %}
+{{ item }}
+{% endfor %}</tr>
+{% endfor %}
+</tbody>
+</table>
+  </div>
+</div> 
+{% endif %}
+
+{% comment %} 
+<div id="tableExample4" data-list='{"valueNames":["name","email","payment"],"filter":{"key":"payment"}}'>
+  <div class="row justify-content-end g-0">
+    <div class="col-auto px-3"><select class="form-select form-select-sm mb-3" aria-label="Bulk actions" data-list-filter="data-list-filter">
+        <option selected="" value="">Select payment status</option>
+        <option value="Pending">Pending</option>
+        <option value="Success">Success</option>
+        <option value="Blocked">Blocked</option>
+      </select></div>
+  </div>
+  <div class="table-responsive scrollbar">
+    <table class="table table-sm table-striped fs-10 mb-0 overflow-hidden">
+      <thead class="bg-200">
+        <tr>
+          <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="name">Customer</th>
+          <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="email">Email</th>
+          <th class="text-900 sort align-middle white-space-nowrap text-end pe-4" data-sort="payment">Payment</th>
+        </tr>
+      </thead>
+      <tbody class="list" id="table-purchase-body">
+        <tr class="btn-reveal-trigger">
+          
+          <th class="align-middle white-space-nowrap name"><a href="../../app/e-commerce/customer-details.html">Sylvia Plath</a></th>
+          
+          <td class="align-middle white-space-nowrap email">john@gmail.com</td>
+          <td class="align-middle text-end fs-9 white-space-nowrap payment"><span class="badge badge rounded-pill badge-subtle-success">Success<span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span></span></td>
+        </tr>
+        <tr class="btn-reveal-trigger">
+          <th class="align-middle white-space-nowrap name"><a href="../../app/e-commerce/customer-details.html">Homer</a></th>
+          <td class="align-middle white-space-nowrap email">sylvia@mail.ru</td>
+          <td class="align-middle text-end fs-9 white-space-nowrap payment"><span class="badge badge rounded-pill badge-subtle-warning">Pending<span class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span></span></td>
+        </tr>
+        <tr class="btn-reveal-trigger">
+          <th class="align-middle white-space-nowrap name"><a href="../../app/e-commerce/customer-details.html">Edgar Allan Poe</a></th>
+          <td class="align-middle white-space-nowrap email">edgar@yahoo.com</td>
+          <td class="align-middle text-end fs-9 white-space-nowrap payment"><span class="badge badge rounded-pill badge-subtle-secondary">Blocked<span class="ms-1 fas fa-ban" data-fa-transform="shrink-2"></span></span></td>
+        </tr>
+        <tr class="btn-reveal-trigger">
+          <th class="align-middle white-space-nowrap name"><a href="../../app/e-commerce/customer-details.html">William Butler Yeats</a></th>
+          <td class="align-middle white-space-nowrap email">william@gmail.com</td>
+          <td class="align-middle text-end fs-9 white-space-nowrap payment"><span class="badge badge rounded-pill badge-subtle-success">Success<span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span></span></td>
+        </tr>
+        <tr class="btn-reveal-trigger">
+          <th class="align-middle white-space-nowrap name"><a href="../../app/e-commerce/customer-details.html">Rabindranath Tagore</a></th>
+          <td class="align-middle white-space-nowrap email">tagore@twitter.com</td>
+          <td class="align-middle text-end fs-9 white-space-nowrap payment"><span class="badge badge rounded-pill badge-subtle-warning">Pending<span class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span></span></td>
+        </tr>
+        <tr class="btn-reveal-trigger">
+          <th class="align-middle white-space-nowrap name"><a href="../../app/e-commerce/customer-details.html">Emily Dickinson</a></th>
+          <td class="align-middle white-space-nowrap email">emily@gmail.com</td>
+          <td class="align-middle text-end fs-9 white-space-nowrap payment"><span class="badge badge rounded-pill badge-subtle-secondary">Blocked<span class="ms-1 fas fa-ban" data-fa-transform="shrink-2"></span></span></td>
+        </tr>
+        <tr class="btn-reveal-trigger">
+          <th class="align-middle white-space-nowrap name"><a href="../../app/e-commerce/customer-details.html">Giovanni Boccaccio</a></th>
+          <td class="align-middle white-space-nowrap email">giovanni@outlook.com</td>
+          <td class="align-middle text-end fs-9 white-space-nowrap payment"><span class="badge badge rounded-pill badge-subtle-warning">Pending<span class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span></span></td>
+        </tr>
+        <tr class="btn-reveal-trigger">
+          <th class="align-middle white-space-nowrap name"><a href="../../app/e-commerce/customer-details.html">Oscar Wilde</a></th>
+          <td class="align-middle white-space-nowrap email">oscar@hotmail.com</td>
+          <td class="align-middle text-end fs-9 white-space-nowrap payment"><span class="badge badge rounded-pill badge-subtle-success">Success<span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span></span></td>
+        </tr>
+        <tr class="btn-reveal-trigger">
+          <th class="align-middle white-space-nowrap name"><a href="../../app/e-commerce/customer-details.html">John Doe</a></th>
+          <td class="align-middle white-space-nowrap email">doe@gmail.com</td>
+          <td class="align-middle text-end fs-9 white-space-nowrap payment"><span class="badge badge rounded-pill badge-subtle-success">Success<span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span></span></td>
+        </tr>
+        <tr class="btn-reveal-trigger">
+          <th class="align-middle white-space-nowrap name"><a href="../../app/e-commerce/customer-details.html">Emma Watson</a></th>
+          <td class="align-middle white-space-nowrap email">emma@gmail.com</td>
+          <td class="align-middle text-end fs-9 white-space-nowrap payment"><span class="badge badge rounded-pill badge-subtle-warning">Pending<span class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> {% endcomment %}
