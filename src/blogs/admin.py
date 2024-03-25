@@ -2,6 +2,7 @@ from django.contrib import admin
 from src.blogs.models import Blog, Like, Comment, Reply
 from modeltranslation.admin import TranslationAdmin
 # Register your models here.
+from src.xadmin import z_site
 
 
 # admin.site.register(Blog, TranslationAdmin)
@@ -27,3 +28,8 @@ class BlogAdmin(TranslationAdmin):
 admin.site.register(Like)
 admin.site.register(Comment)
 admin.site.register(Reply)
+
+z_site.register(Blog, BlogAdmin)
+z_site.register(Like)
+z_site.register(Comment)
+z_site.register(Reply)
