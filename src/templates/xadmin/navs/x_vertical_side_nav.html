@@ -1,0 +1,115 @@
+{% load i18n static %}
+
+<div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+  <div class="navbar-vertical-content scrollbar">
+    <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+      <li class="nav-item">
+        <!-- parent pages + href="#dashboard" -->
+        <a class="nav-link dropdown-indicator" href="#" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="dashboard" >
+          <div class="d-flex align-items-center" disabled><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">Dashboard</span></div>
+        </a>
+        <ul class="nav collapse" id="dashboard">
+          <li class="nav-item"><a class="nav-link" href="../index.html">
+              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Default</span></div>
+            </a><!-- more inner pages--></li>
+          <li class="nav-item"><a class="nav-link" href="../dashboard/analytics.html">
+              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Analytics</span></div>
+            </a><!-- more inner pages--></li>
+          <li class="nav-item"><a class="nav-link" href="../dashboard/crm.html">
+              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">CRM</span></div>
+            </a><!-- more inner pages--></li>
+          <li class="nav-item"><a class="nav-link" href="../dashboard/e-commerce.html">
+              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">E commerce</span></div>
+            </a><!-- more inner pages--></li>
+          <li class="nav-item"><a class="nav-link" href="../dashboard/lms.html">
+              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">LMS</span><span class="badge rounded-pill ms-2 badge-subtle-success">New</span></div>
+            </a><!-- more inner pages--></li>
+          <li class="nav-item"><a class="nav-link" href="../dashboard/project-management.html">
+              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Management</span></div>
+            </a><!-- more inner pages--></li>
+          <li class="nav-item"><a class="nav-link" href="../dashboard/saas.html">
+              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">SaaS</span></div>
+            </a><!-- more inner pages--></li>
+          <li class="nav-item"><a class="nav-link" href="../dashboard/support-desk.html">
+              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Support desk</span><span class="badge rounded-pill ms-2 badge-subtle-success">New</span></div>
+            </a><!-- more inner pages--></li>
+        </ul>
+      </li>
+      {% if app_list %} 
+       {% for app in app_list %}
+      <li class="nav-item"><!-- label-->
+        <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+          <div class="col-auto navbar-vertical-label">{{ app.name }}</div>
+          <div class="col ps-0">
+            <hr class="mb-0 navbar-vertical-divider" />
+          </div>
+        </div>
+        <!-- parent pages-->
+        {% for model in app.models %}
+        {% if model.admin_url %}
+
+        <a class="nav-link" href="{{ model.admin_url }}" role="button">
+          <div class="d-flex align-items-center">
+            <div class=""></div>
+              <span class="nav-link-text ps-1">{{ model.name }}</span>
+            </div>
+        </a>
+        {% else %}
+        <div class="d-flex align-items-center">
+          <div class=""></div>
+            <span class="nav-link-text ps-1">{{ model.name }}</span>
+          </div>
+        {% endif %}
+          <div class="col-1 row">
+            <a class="col icon-link text-uppercase text-success fs-11 link-opacity-75-hover" href="#!">
+              <span class="far fa-plus-square"></span>
+            </a>
+            <span class="px-1"></span>
+            <a class="col icon-link text-uppercase fs-11 link-opacity-75-hover" href="#!">
+              <span class="far fa-edit"></span>
+            </a>
+          </div>
+        {% endfor %}
+        {% endfor %} 
+        {% else %}
+          <p>{% translate 'You don’t have permission to view or edit anything.' %}</p>
+        {% endif %}
+          </li>
+
+      <li class="nav-item"><!-- label-->
+        <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+          <div class="col-auto navbar-vertical-label">Documentation</div>
+          <div class="col ps-0">
+            <hr class="mb-0 navbar-vertical-divider" />
+          </div>
+        </div><!-- parent pages--><a class="nav-link" href="../documentation/getting-started.html" role="button">
+          <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-rocket"></span></span><span class="nav-link-text ps-1">Getting started</span></div>
+        </a><!-- parent pages--><a class="nav-link dropdown-indicator" href="#customization" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="customization">
+          <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-wrench"></span></span><span class="nav-link-text ps-1">Customization</span></div>
+        </a>
+        <ul class="nav collapse" id="customization">
+          <li class="nav-item"><a class="nav-link" href="../documentation/customization/configuration.html">
+              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Configuration</span></div>
+            </a><!-- more inner pages--></li>
+          <li class="nav-item"><a class="nav-link" href="../documentation/customization/styling.html">
+              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Styling</span><span class="badge rounded-pill ms-2 badge-subtle-success">Updated</span></div>
+            </a><!-- more inner pages--></li>
+          <li class="nav-item"><a class="nav-link" href="../documentation/customization/dark-mode.html">
+              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Dark mode</span></div>
+            </a><!-- more inner pages--></li>
+          <li class="nav-item"><a class="nav-link" href="../documentation/customization/plugin.html">
+              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Plugin</span></div>
+            </a><!-- more inner pages--></li>
+        </ul><!-- parent pages--><a class="nav-link" href="../documentation/faq.html" role="button">
+          <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-question-circle"></span></span><span class="nav-link-text ps-1">Faq</span></div>
+        </a>
+        <!-- parent pages--><a class="nav-link" href="../documentation/design-file.html" role="button">
+          <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-palette"></span></span><span class="nav-link-text ps-1">Design file</span></div>
+        </a><!-- parent pages--><a class="nav-link" href="../changelog.html" role="button">
+          <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-code-branch"></span></span><span class="nav-link-text ps-1">Changelog</span></div>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</div>

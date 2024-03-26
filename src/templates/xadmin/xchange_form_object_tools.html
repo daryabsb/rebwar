@@ -3,8 +3,8 @@
 
 <li class="list-group-item border-0">
     {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
-    <a href="{% add_preserved_filters history_url %}" class="btn btn-primary me-md-2">{% translate "History" %}</a>
+    <a href="{% add_preserved_filters history_url %}" class="btn btn-primary btn-sm me-md-2">{% translate "History" %}</a>
 </li>
-{% if has_absolute_url %}<li class="list-group-item border-0"><a href="{{ absolute_url }}" class="btn btn-primary">{% translate "View on site" %}</a></li>{% endif %}
+{% if has_absolute_url %}<li class="list-group-item border-0"><a href="{{ absolute_url }}" class="btn btn-primary btn-sm">{% translate "View on site" %}</a></li>{% endif %}
 
 {% endblock %}
