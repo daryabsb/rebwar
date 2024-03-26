@@ -21,6 +21,7 @@
 
 {% block bodyclass %}{{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} change-list{% endblock %}
 
+<!-- =================== BREADCRUMB ============================-->
 {% if not is_popup %}
 {% block breadcrumbs %}
 <nav class="navbar bg-body-tertiary mb-4">
@@ -40,8 +41,15 @@
 </nav>
 {% endblock %}
 {% endif %}
+<!-- ===============================================-->
 
 {% block coltype %}{% endblock %}
+
+<!-- =================== NAVBAR ============================-->
+{% block nav-content %}
+{% include './includes/x_nav.html' with app_list=available_apps  show_changelinks=True %}
+{% endblock %}
+<!-- ===============================================-->
 
 {% block content %}
   <div id="content-main">

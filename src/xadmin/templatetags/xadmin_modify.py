@@ -128,3 +128,25 @@ def change_form_object_tools_tag(parser, token):
         func=lambda context: context,
         template_name="xchange_form_object_tools.html",
     )
+
+
+def available_apps_list():
+    """
+    Returns a list of dictionaries representing installed apps and their models.
+    Each dictionary contains keys 'app_label', 'name', and 'models'.
+    """
+    from django.apps import apps
+    app_list = []
+    for app_config in apps.get_app_configs():
+        if app_config.models_module is None:
+            continue
+        app_label = app_config.label
+        app_name = app_config.verbose_name
+        models = [{'name': model._meta.verbose_name_plural, 'object_name': model.__name__}
+                  for model in app_config.get_models()]
+        app_list.append({
+            'app_label': app_label,
+            'name': app_name,
+            'models': models,
+        })
+    return app_list

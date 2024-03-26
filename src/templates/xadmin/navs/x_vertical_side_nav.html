@@ -47,27 +47,30 @@
         <!-- parent pages-->
         {% for model in app.models %}
         {% if model.admin_url %}
-
-        <a class="nav-link" href="{{ model.admin_url }}" role="button">
-          <div class="d-flex align-items-center">
-            <div class=""></div>
+          <div class="row g-1 align-items-center justify-content-between">
+            <a class="nav-link col-auto" href="{{ model.admin_url }}" role="button">
+              <div class="d-flex align-items-center">
+                <span class="nav-link-text ps-1">{{ model.name }}</span>
+              </div>
+            </a>
+          {% else %}
+            <div class="col-auto d-flex align-items-center">
               <span class="nav-link-text ps-1">{{ model.name }}</span>
             </div>
-        </a>
-        {% else %}
-        <div class="d-flex align-items-center">
-          <div class=""></div>
-            <span class="nav-link-text ps-1">{{ model.name }}</span>
-          </div>
-        {% endif %}
-          <div class="col-1 row">
-            <a class="col icon-link text-uppercase text-success fs-11 link-opacity-75-hover" href="#!">
-              <span class="far fa-plus-square"></span>
-            </a>
-            <span class="px-1"></span>
-            <a class="col icon-link text-uppercase fs-11 link-opacity-75-hover" href="#!">
-              <span class="far fa-edit"></span>
-            </a>
+          {% endif %}
+            <div class="col-auto row ml-auto">
+            {% if model.add_url %}
+              <a href="{{ model.add_url }}" class="icon-item fs-11 icon-item-sm col-auto">
+                <span class="far fa-plus-square"></span>
+              </a>
+              {% endif %}
+              {% if model.admin_url and show_changelinks %}
+              {% if model.view_only %}
+              <a href="{{ model.admin_url }}" class="icon-item fs-11 icon-item-sm col">
+                <span class="far fa-edit"></span></a>
+                {% endif %}
+                {% endif %}
+            </div>
           </div>
         {% endfor %}
         {% endfor %} 
