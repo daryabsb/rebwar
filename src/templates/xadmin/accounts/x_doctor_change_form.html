@@ -56,7 +56,8 @@
 {% include '../includes/x_nav.html' with app_list=available_apps  show_changelinks=True %}
 {% endblock %}
 <!-- ===============================================-->
-{% block content %}<div class="px-lg-4 py-lg-4" id="content-main">
+{% block content %}
+<div class="px-lg-4 py-lg-4" id="content-main">
 
 <form {% if has_file_field %}enctype="multipart/form-data" {% endif %}{% if form_url %}action="{{ form_url }}" {% endif %}method="post" id="{{ opts.model_name }}_form" novalidate>{% csrf_token %}{% block form_top %}{% endblock %}
 <div>
