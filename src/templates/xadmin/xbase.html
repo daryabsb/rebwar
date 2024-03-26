@@ -55,10 +55,10 @@
     {% block nav-content %}
         {% include './includes/x_nav.html' %}
     {% endblock %}
-        <div class="content">
+        <div class="content pb-0">
           
           {% include './includes/x_second_nav.html' %}
-          <div class="card px-lg-4 py-lg-2" style="min-height: 85vh;">
+          <div class="card px-lg-4" style="min-height: 75vh;">
             {% block nav-breadcrumbs %}
             {% block breadcrumbs %}
             {% endblock %}
@@ -67,7 +67,7 @@
             {% include './includes/x_starter_card.html' %}
           {% endblock content %}
         </div>
-        <footer class="footer">
+       <footer class="footer">
           <div class="row g-0 justify-content-between fs-10 mt-4 mb-3">
             <div class="col-12 col-sm-auto text-center">
               <p class="mb-0 text-600">Thank you for creating with Falcon <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2024 &copy; <a href="https://themewagon.com">Themewagon</a></p>
@@ -76,7 +76,7 @@
               <p class="mb-0 text-600">v3.20.0</p>
             </div>
           </div>
-        </footer>
+        </footer> 
       </div>
       {% include './includes/x_register_modal.html' %}
     </main>
@@ -86,7 +86,7 @@
     {% endblock %}
     {% endif %}
     <!-- SVGs -->
-    {% include './includes/x_svgs.svg' %}
+    {% comment %} {% include './includes/x_svgs.svg' %} {% endcomment %}
     <!-- END SVGs -->
     <!-- ================ Settings --><!-- ===================-->
     {% include './includes/x_settings_sidebar.html' %}

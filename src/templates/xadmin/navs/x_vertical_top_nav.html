@@ -1,12 +1,20 @@
-{% load static %}
+{% load static %}{% load i18n %} {% get_current_language_bidi as LANGUAGE_BIDI %}
 <div class="d-flex align-items-center">
     <div class="toggle-icon-wrapper">
       <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
     </div><a class="navbar-brand" href="../index.html">
       <div class="d-flex align-items-center py-3">
+{% if LANGUAGE_BIDI %}
         <img class="me-2" 
-        src="{% static 'assets/img/icons/spot-illustrations/falcon.png' %}" alt="" width="40" />
-        <span class="font-sans-serif text-primary">falcon</span>
+        src="{% static 'images/logo-rebwar-falcon.svg' %}" alt="" width="40" />
+{% else %}
+        <img class="me-2" 
+        style="min-width: 10rem;"
+        src="{% static 'images/logo-rebwar-falcon.svg' %}"alt="" width="40" />
+{% endif %}
+
+    
       </div>
+
     </a>
   </div>
