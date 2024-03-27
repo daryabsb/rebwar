@@ -25,9 +25,25 @@
 {% endblock %}
 <!-- ===============================================-->
 {% block content %}
+<!-- ============ PAGE HEADER NAV =======================-->
+<div class="card mb-3">
+  <div class="card-header d-flex align-items-center justify-content-between"><button class="btn btn-falcon-default btn-sm" type="button"><span class="fas fa-arrow-left"></span></button>
+    <div class="d-flex"><button class="btn btn-sm btn-falcon-default d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#contactDetailsOffcanvas" aria-controls="contactDetailsOffcanvas"><span class="fas fa-tasks" data-fa-transform="shrink-2"></span><span class="ms-1">To-do</span></button>
+      <div class="bg-300 mx-3 d-xl-none" style="width:1px; height:29px"></div><button class="btn btn-falcon-default btn-sm me-2" type="button"><span class="fas fa-edit"></span><span class="d-none d-xl-inline-block ms-1">Edit</span></button><button class="btn btn-falcon-default btn-sm d-none d-sm-block" type="button"><span class="fas fa-sync-alt"></span><span class="d-none d-xl-inline-block ms-1">Convert to Agent</span></button><button class="btn btn-falcon-default btn-sm btn-sm d-none d-sm-block mx-2" type="button"><span class="fas fa-lock"></span><span class="d-none d-xl-inline-block ms-1">Send Activation Email</span></button><button class="btn btn-falcon-default btn-sm d-none d-sm-block me-2" type="button"><span class="fas fa-trash-alt"></span><span class="d-none d-xl-inline-block ms-1">Delete</span></button><button class="btn btn-falcon-default btn-sm d-none d-sm-block me-2" type="button"><span class="fas fa-key"></span><span class="d-none d-xl-inline-block ms-1">Change Password</span></button>
+      <div class="dropdown font-sans-serif"><button class="btn btn-falcon-default text-600 btn-sm dropdown-toggle dropdown-caret-none" type="button" id="preview-dropdown" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-v fs-11"></span></button>
+        <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="preview-dropdown"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a><a class="dropdown-item d-sm-none" href="#!">Convert to Agent</a><a class="dropdown-item d-sm-none" href="#!">Send Activation Email</a><a class="dropdown-item d-sm-none" href="#!">Delete</a><a class="dropdown-item d-sm-none" href="#!">Change Password</a>
+          <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ================ PAGE HEADER END ===================-->
+{% comment %} 
 <div class="px-lg-4 py-lg-4 row">
   <div class="col-12 col-md-6 col-lg-8">
     <div id="content-main">
+      
   <!-- ===============================================-->
   {% include "./xapp_list.html" with app_list=app_list show_changelinks=True %}
   <!-- ===============================================-->
@@ -87,6 +103,343 @@
   </div>
 </div>
 
+{% endcomment %}
+{% comment %} <h6 class="mb-0">{% translate 'Recent actions' %}</h6>
+{% endcomment %}
+{% comment %} LEFT SIDE COL {% endcomment %}
 
 
-{% endblock %}
+
+{% comment %} MAIN CARD {% endcomment %}
+<div class="row g-3 pb-6">
+  {% block sidebar %}
+  <div class="col-xxl-3 col-xl-4 order-xl-1">
+    <div class="position-xl-sticky top-0">
+      <div class="card mh-100">
+        <div class="card-header d-flex align-items-center justify-content-between py-2">
+          <h5 class="mb-0">{% translate 'Recent actions' %}</h5>
+          
+          <div class="dropdown font-sans-serif btn-reveal-trigger"><button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal" type="button" id="dropdown-contact-information" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs-11"></span></button>
+            <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-contact-information"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+              <div class="dropdown-divider">
+              </div><a class="dropdown-item text-danger" href="#!">Remove</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body bg-body-tertiary">
+          <div class="border rounded-3 ps-xl bg-white dark__bg-1000 row mx-0 g-0">
+
+            
+            <div class="card-header d-flex align-items-center justify-content-between py-2 border-bottom border-1">
+              <h5 class="mb-0">{% translate 'My actions' %}</h5>
+              <div class="dropdown font-sans-serif btn-reveal-trigger"><button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal" type="button" id="dropdown-contact-information" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs-11"></span></button>
+                <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-contact-information"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                  <div class="dropdown-divider">
+                  </div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                </div>
+              </div>
+            </div>
+            {% load log %} {% get_admin_log 8 as admin_log for_user user %}
+            <div class="col-md-6 pt-2 px-x1 col-xl-12 pe-md-4 pe-xl-0">
+              {% if not admin_log %}
+              <div class="mb-4">
+                <h6 class="mb-1 false">{% translate 'None available' %}</h6>
+                <p class="mb-0 text-900 fs-10" >You have not made any changes recently</p>
+              </div>
+              {% else %}
+              {% for entry in admin_log %}
+              <div class="mb-2">
+                
+                <h6 class="false false  
+                {% if entry.is_addition %}text-success{% endif %}{% if entry.is_change %}text-warning{% endif %}{% if entry.is_deletion %}text-danger{% endif %}
+                ">
+                  {% if entry.is_addition %}{% translate 'Added:' %}
+                  {% elif entry.is_change %}{% translate 'Changed:' %}
+                  {% elif entry.is_deletion %}{% translate 'Deleted:' %}{% endif %}
+                </h6>
+
+                {% if entry.is_deletion or not entry.get_admin_url %}
+                <p class="mb-0 text-900 fs-10">{{ entry.object_repr }}</p>
+                {% else %}
+                <a class="fs-10" href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                {% endif %}
+                {% if entry.content_type %}
+                <p class="mb-0 text-700 fs-10">
+                  {% filter capfirst %}{{ entry.content_type.name }}{% endfilter %}
+                </p>
+                {% else %}
+                <p class="mb-0 text-700 fs-10">
+                  {% translate 'Unknown content' %}
+                </p>
+                {% endif %}
+              </div>
+              {% endfor %}
+                </div>
+            {% endif %}
+            <div class="col-md-6 py-4 px-x1 col-xl-12 pe-md-4 pe-xl-0">
+              <h6>Tag</h6><a class="badge border link-secondary me-1 text-decoration-none fs-11" href="#!">New</a><a class="badge border link-secondary me-1 text-decoration-none fs-11" href="#!">Payment</a><a class="badge border link-secondary text-decoration-none fs-11" href="#!">Subscribe</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {% endblock %}
+  <div class="col-xxl-9 col-xl-8">
+
+    <div class="card overflow-hidden">
+      <div class="card-header p-0 scrollbar-overlay border-bottom">
+        <ul class="nav nav-tabs border-0 tab-contact-details flex-nowrap" id="contact-details-tab" role="tablist">
+          <li class="nav-item text-nowrap" role="presentation">
+            <a class="nav-link mb-0 d-flex align-items-center gap-1 py-3 px-x1 active" 
+            id="contact-timeline-tab" data-bs-toggle="tab" href="#apps" role="tab" aria-controls="apps" aria-selected="true"><span class="fas fa-stream icon text-600"></span>
+              <h6 class="mb-0 text-600">Apps</h6>
+            </a></li>
+          <li class="nav-item text-nowrap" role="presentation"><a class="nav-link mb-0 d-flex align-items-center gap-1 py-3 px-x1" id="contact-tickets-tab" data-bs-toggle="tab" href="#tickets" role="tab" aria-controls="tickets" aria-selected="false"><span class="fas fa-ticket-alt text-600"></span>
+              <h6 class="mb-0 text-600">Permissions Manager</h6>
+            </a></li>
+          <li class="nav-item text-nowrap" role="presentation"><a class="nav-link mb-0 d-flex align-items-center gap-1 py-3 px-x1" id="contact-notes-tab" data-bs-toggle="tab" href="#notes" role="tab" aria-controls="notes" aria-selected="false"><span class="fas fa-file-alt icon text-600"></span>
+              <h6 class="mb-0 text-600">Accounts</h6>
+            </a></li>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <div class="card-body bg-body-tertiary tab-pane active" id="apps" role="tabpanel" aria-labelledby="contact-timeline-tab">
+          <div class="timeline-vertical py-0">
+            <div class="card" id="ticketsTable" data-list='{"valueNames":["client","subject","status","priority","agent"],"page":11,"pagination":true,"fallback":"tickets-table-fallback"}'>
+              <div class="card-header border-bottom border-200 px-0">
+                <div class="d-lg-flex justify-content-between">
+                  <div class="row flex-between-center gy-2 px-x1">
+                    <div class="col-auto pe-0">
+                      <h6 class="mb-0">All tickets</h6>
+                    </div>
+                    <div class="col-auto">
+                      <form>
+                        <div class="input-group input-search-width"><input class="form-control form-control-sm shadow-none search" type="search" placeholder="Search  by name" aria-label="search" /><button class="btn btn-sm btn-outline-secondary border-300 hover-border-secondary"><span class="fa fa-search fs-10"></span></button></div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="border-bottom border-200 my-3"></div>
+                  <div class="d-flex align-items-center justify-content-between justify-content-lg-end px-x1"><button class="btn btn-sm btn-falcon-default d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#ticketOffcanvas" aria-controls="ticketOffcanvas"><span class="fas fa-filter" data-fa-transform="shrink-4 down-1"></span><span class="ms-1 d-none d-sm-inline-block">Filter</span></button>
+                    <div class="bg-300 mx-3 d-none d-lg-block d-xl-none" style="width:1px; height:29px"></div>
+                    <div class="d-none" id="table-ticket-actions">
+                      <div class="d-flex"><select class="form-select form-select-sm" aria-label="Bulk actions">
+                          <option selected="">Bulk actions</option>
+                          <option value="Refund">Refund</option>
+                          <option value="Delete">Delete</option>
+                          <option value="Archive">Archive</option>
+                        </select><button class="btn btn-falcon-default btn-sm ms-2" type="button">Apply</button></div>
+                    </div>
+                    <div class="d-flex align-items-center" id="table-ticket-replace-element">
+                      <div class="dropdown"><button class="btn btn-sm btn-falcon-default dropdown-toggle dropdown-caret-none" type="button" id="ticket-layout" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span class="d-none d-sm-inline-block d-xl-none d-xxl-inline-block me-1">Table View</span><span class="fas fa-chevron-down" data-fa-transform="shrink-3 down-1"></span></button>
+                        <div class="dropdown-menu dropdown-toggle-item dropdown-menu-end border py-2" aria-labelledby="ticket-layout"><a class="dropdown-item active" href="../../app/support-desk/table-view.html">Table View</a><a class="dropdown-item" href="../../app/support-desk/card-view.html">Card View</a></div>
+                      </div><button class="btn btn-falcon-default btn-sm mx-2" type="button"><span class="fas fa-plus" data-fa-transform="shrink-3"></span><span class="d-none d-sm-inline-block d-xl-none d-xxl-inline-block ms-1">New</span></button><button class="btn btn-falcon-default btn-sm" type="button"><span class="fas fa-external-link-alt" data-fa-transform="shrink-3"></span><span class="d-none d-sm-inline-block d-xl-none d-xxl-inline-block ms-1">Export</span></button>
+                      <div class="dropdown font-sans-serif ms-2"><button class="btn btn-falcon-default text-600 btn-sm dropdown-toggle dropdown-caret-none" type="button" id="preview-dropdown" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs-11"></span></button>
+                        <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="preview-dropdown"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                          <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body p-xl">
+<!-- ===============================================-->
+  {% include "./xapp_list.html" with app_list=app_list show_changelinks=True %}
+  <!-- ===============================================-->
+</div>
+<div class="card-footer">
+  <div class="d-flex justify-content-center"><button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous" data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
+    <ul class="pagination mb-0"></ul><button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next" data-list-pagination="next"><span class="fas fa-chevron-right"></span></button>
+  </div>
+</div>
+</div>
+  
+  <!-- ===============================================-->
+  
+  
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  <!-- ===============================================-->
+
+</div>
+        </div>
+
+        <div class="card-body tab-pane p-0" id="tickets" role="tabpanel" aria-labelledby="contact-tickets-tab">
+          <div class="bg-body-tertiary d-flex flex-column gap-3 p-x1">
+            <div class="bg-white dark__bg-1100 p-x1 rounded-3 shadow-sm d-md-flex d-xl-inline-block d-xxl-flex align-items-center">
+              <div>
+                <p class="fw-semi-bold"><a href="../../app/support-desk/tickets-preview.html">Got a new television | Order #377</a></p>
+                <div class="d-flex align-items-center">
+                  <h6 class="mb-0 me-3 text-800">25 September, 2022</h6><small class="badge rounded badge-subtle-success false">Recent</small>
+                </div>
+              </div>
+              <div class="border-bottom mt-4 mb-x1"></div>
+              <div class="d-flex justify-content-between ms-auto">
+                <div class="d-flex align-items-center gap-2 ms-md-4 ms-xl-0 ms-xxl-4" style="width:7.5rem;">
+                  <div style="--falcon-circle-progress-bar:100"><svg class="circle-progress-svg" width="26" height="26" viewBox="0 0 120 120">
+                      <circle class="progress-bar-rail" cx="60" cy="60" r="54" fill="none" stroke-width="12"></circle>
+                      <circle class="progress-bar-top" cx="60" cy="60" r="54" fill="none" stroke-linecap="round" stroke="#e63757" stroke-width="12"></circle>
+                    </svg></div>
+                  <h6 class="mb-0 text-700">Urgent</h6>
+                </div><select class="form-select form-select-sm" aria-label="agents actions" style="width:9.375rem;">
+                  <option>Select Agent</option>
+                  <option selected="selected">Anindya</option>
+                  <option>Nowrin</option>
+                  <option>Khalid</option>
+                  <option>Shajeeb</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body tab-pane p-0" id="notes" role="tabpanel" aria-labelledby="contact-notes-tab">
+          <div class="bg-body-tertiary d-flex flex-column gap-3 p-x1">
+
+            <div class="bg-white dark__bg-1100 p-x1 rounded-3 shadow-sm">
+              <div class="row flex-between-center">
+                <div class="col-12 col-md-7 col-xl-12 col-xxl-8 order-1 order-md-0 order-xl-1 order-xxl-0">
+                  <h5 class="mb-0 border-top border-top-md-0 border-top-xl border-top-xxl-0 mt-x1 mt-md-0 mt-xl-x1 mt-xxl-0 pt-x1 pt-md-0 pt-xl-x1 pt-xxl-0 border-200 border-xl-200">Not able to access the system</h5>
+                </div>
+                <div class="col-12 col-md-auto col-xl-12 col-xxl-auto d-flex flex-between-center"><select class="form-select form-select-sm me-2 w-auto" aria-label="agents actions">
+                    <option>Select Agent</option>
+                    <option selected="selected">Anindya</option>
+                    <option>Nowrin</option>
+                    <option>Khalid</option>
+                    <option>Shajeeb</option>
+                  </select>
+                  <div class="dropdown font-sans-serif"><button class="btn btn-falcon-default text-600 btn-sm dropdown-toggle dropdown-caret-none" type="button" id="notes-dropdown-0" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs-11"></span></button>
+                    <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="notes-dropdown-0"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                      <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h6 class="mb-0 mt-2"><span class="fas fa-clock text-primary me-2"></span><span class="text-600">28 Sep, 2020</span><span class="text-500"> at </span><span class="text-600">12:06 AM</span></h6>
+              <p class="w-lg-75 w-xl-100 w-xxl-75 mb-0 border-top border-top-md-0 border-top-xl border-top-xxl-0 mt-x1 mt-md-4 mt-xl-x1 mt-xxl-4 pt-x1 pt-md-0 pt-xl-x1 pt-xxl-0 border-200 border-xl-200">The PS4's hard drive is most likely the source of this CE-34335-8 safe mode error notice. Try these techniques to fix the hard drive issue if your PS4 won't start and won't let you access system storage because of error number CE-34335-8.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}  
+
+{% comment %} <div class="col-xxl-9 col-xl-8">
+    <div class="card overflow-hidden">
+      <div class="card-header p-0 scrollbar-overlay border-bottom">
+        <ul class="nav nav-tabs border-0 tab-contact-details flex-nowrap" id="contact-details-tab" role="tablist">
+          <li class="nav-item text-nowrap" role="presentation"><a class="nav-link mb-0 d-flex align-items-center gap-1 py-3 px-x1 active" id="contact-timeline-tab" data-bs-toggle="tab" href="#timeline" role="tab" aria-controls="timeline" aria-selected="true"><span class="fas fa-stream icon text-600"></span>
+              <h6 class="mb-0 text-600">Apps</h6>
+            </a></li>
+          <li class="nav-item text-nowrap" role="presentation"><a class="nav-link mb-0 d-flex align-items-center gap-1 py-3 px-x1" id="contact-tickets-tab" data-bs-toggle="tab" href="#tickets" role="tab" aria-controls="tickets" aria-selected="false"><span class="fas fa-ticket-alt text-600"></span>
+              <h6 class="mb-0 text-600">Permissions Manager</h6>
+            </a></li>
+          <li class="nav-item text-nowrap" role="presentation"><a class="nav-link mb-0 d-flex align-items-center gap-1 py-3 px-x1" id="contact-notes-tab" data-bs-toggle="tab" href="#notes" role="tab" aria-controls="notes" aria-selected="false"><span class="fas fa-file-alt icon text-600"></span>
+              <h6 class="mb-0 text-600">Accounts</h6>
+            </a></li>
+        </ul>
+      </div>
+
+
+      <div class="tab-content">
+
+        <div class="card-body bg-body-tertiary tab-pane active" id="timeline" role="tabpanel" aria-labelledby="contact-timeline-tab">
+          <div class="timeline-vertical py-0">
+            <div class="timeline-item timeline-item-start mb-3">
+              <div class="row">
+               row 1
+              </div>
+            </div>
+            <div class="timeline-item timeline-item-end mb-3">
+              <div class="row">
+              row 2
+              </div>
+            </div>
+            <div class="timeline-item timeline-item-start mb-3">
+              <div class="row">
+             row3
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body tab-pane p-0" id="tickets" role="tabpanel" aria-labelledby="contact-tickets-tab">
+          <div class="bg-body-tertiary d-flex flex-column gap-3 p-x1">
+            <div class="bg-white dark__bg-1100 p-x1 rounded-3 shadow-sm d-md-flex d-xl-inline-block d-xxl-flex align-items-center">
+              <div>
+                <p class="fw-semi-bold"><a href="../../app/support-desk/tickets-preview.html">Got a new television | Order #377</a></p>
+                <div class="d-flex align-items-center">
+                  <h6 class="mb-0 me-3 text-800">25 September, 2022</h6><small class="badge rounded badge-subtle-success false">Recent</small>
+                </div>
+              </div>
+              <div class="border-bottom mt-4 mb-x1"></div>
+              <div class="d-flex justify-content-between ms-auto">
+                <div class="d-flex align-items-center gap-2 ms-md-4 ms-xl-0 ms-xxl-4" style="width:7.5rem;">
+                  <div style="--falcon-circle-progress-bar:100"><svg class="circle-progress-svg" width="26" height="26" viewBox="0 0 120 120">
+                      <circle class="progress-bar-rail" cx="60" cy="60" r="54" fill="none" stroke-width="12"></circle>
+                      <circle class="progress-bar-top" cx="60" cy="60" r="54" fill="none" stroke-linecap="round" stroke="#e63757" stroke-width="12"></circle>
+                    </svg></div>
+                  <h6 class="mb-0 text-700">Urgent</h6>
+                </div><select class="form-select form-select-sm" aria-label="agents actions" style="width:9.375rem;">
+                  <option>Select Agent</option>
+                  <option selected="selected">Anindya</option>
+                  <option>Nowrin</option>
+                  <option>Khalid</option>
+                  <option>Shajeeb</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body tab-pane p-0" id="notes" role="tabpanel" aria-labelledby="contact-notes-tab">
+          <div class="bg-body-tertiary d-flex flex-column gap-3 p-x1">
+
+            <div class="bg-white dark__bg-1100 p-x1 rounded-3 shadow-sm">
+              <div class="row flex-between-center">
+                <div class="col-12 col-md-7 col-xl-12 col-xxl-8 order-1 order-md-0 order-xl-1 order-xxl-0">
+                  <h5 class="mb-0 border-top border-top-md-0 border-top-xl border-top-xxl-0 mt-x1 mt-md-0 mt-xl-x1 mt-xxl-0 pt-x1 pt-md-0 pt-xl-x1 pt-xxl-0 border-200 border-xl-200">Not able to access the system</h5>
+                </div>
+                <div class="col-12 col-md-auto col-xl-12 col-xxl-auto d-flex flex-between-center"><select class="form-select form-select-sm me-2 w-auto" aria-label="agents actions">
+                    <option>Select Agent</option>
+                    <option selected="selected">Anindya</option>
+                    <option>Nowrin</option>
+                    <option>Khalid</option>
+                    <option>Shajeeb</option>
+                  </select>
+                  <div class="dropdown font-sans-serif"><button class="btn btn-falcon-default text-600 btn-sm dropdown-toggle dropdown-caret-none" type="button" id="notes-dropdown-0" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs-11"></span></button>
+                    <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="notes-dropdown-0"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                      <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h6 class="mb-0 mt-2"><span class="fas fa-clock text-primary me-2"></span><span class="text-600">28 Sep, 2020</span><span class="text-500"> at </span><span class="text-600">12:06 AM</span></h6>
+              <p class="w-lg-75 w-xl-100 w-xxl-75 mb-0 border-top border-top-md-0 border-top-xl border-top-xxl-0 mt-x1 mt-md-4 mt-xl-x1 mt-xxl-4 pt-x1 pt-md-0 pt-xl-x1 pt-xxl-0 border-200 border-xl-200">The PS4's hard drive is most likely the source of this CE-34335-8 safe mode error notice. Try these techniques to fix the hard drive issue if your PS4 won't start and won't let you access system storage because of error number CE-34335-8.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div> {% endcomment %}

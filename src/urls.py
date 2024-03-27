@@ -29,8 +29,8 @@ from src.accounts.api.views import create_patient
 
 urlpatterns = [
     path('', views.home_view, name='index'),
-    path('admin/', admin.site.urls),
     path('xadmin/', z_site.urls),
+    path('admin/', admin.site.urls),
     path('about/', views.about_view, name='about'),
     path('contact-us/', views.contact_view, name='contact-us'),
     path('doctors/', include('src.accounts.urls')),

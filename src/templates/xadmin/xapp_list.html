@@ -1,55 +1,53 @@
 {% load i18n %}
-{% if app_list %} 
-{% for app in app_list %}
+<div class="card overflow-hidden">
+{% if app_list %}
 
-<div class="table-responsive scrollbar border border-primary-subtle border-1 mb-3">
-  <div class="bg-primary-subtle px-3 py-2">
+{% for app in app_list %}
+<div class="table-responsive scrollbar app-{{ app.app_label }} module{% if app.app_url in request.path|urlencode %} current-app{% endif %}">
+  <table class="table table-sm mb-4 fs-10 table-view-tickets">
+    {% comment %} <caption>
       <a
         href="{{ app.app_url }}"
-        class="section fs-8"
+        class="section"
         title="{% blocktranslate with name=app.name %}Models in the {{ name }} application{% endblocktranslate %}"
         >{{ app.name }}</a
       >
-  </div>
-  <table class="table table-sm overflow-hidden">
-    {% for model in app.models %}
-    <tr
-      class="border-t"
-    >
-      {% if model.admin_url %}
-      <th scope="row">
-        <a href="{{ model.admin_url }}" 
-        {% if model.admin_url in request.path|urlencode %}
-          aria-current="page"
-          {% endif %}
-          >{{ model.name }}</a
-        >
-      </th>
-      {% else %}
-      <th scope="row">{{ model.name }}</th>
-      {% endif %} {% if model.add_url %}
-      <td class="text-end">
-          <div>
-          <a href="{{ model.add_url }}" class="btn btn-link p-0" type="button" 
-          data-bs-toggle="tooltip" data-bs-placement="top" 
-          title="Edit">
-          <span class="text-500 far fa-plus-square"></span></a>
-          {% else %}
-            <td></td>
-          {% endif %}
-          {% if model.admin_url and show_changelinks %} 
-          {% if model.view_only %}
-          <a href="{{ model.admin_url }}" class="btn btn-link p-0 ms-2" type="button" 
-          data-bs-toggle="tooltip" data-bs-placement="top" t
-          itle="Delete"><span class="text-500 far fa-edit"></span></a>
-          {% endif %} 
+    </caption> {% endcomment %}
+    <thead class="bg-body-tertiary">
+      <div class="card-header px-4 bg-light  border-bottom">
+        <a href="{{ app.app_url }}">
+          <h5 class="mb-2 hover-primary">{{ app.name }}</h5>
+        </a>
+      </div>
+    </thead>
+    <tbody class="list" id="table-ticket-body">
+      <tr>
+        <td class="align-middle fs-9 py-3">
+          <div class="form-check mb-0"><input class="form-check-input" type="checkbox" id="table-view-tickets-0" data-bulk-select-row="data-bulk-select-row" /></div>
+        </td>
+        <td class="align-middle client white-space-nowrap pe-3 pe-xxl-4 ps-2">
+          <div class="d-flex align-items-center gap-2 position-relative">
+            <h6 class="mb-0"><a class="stretched-link text-900" href="../../app/support-desk/contact-details.html">Emma Watson</a></h6>
           </div>
         </td>
-        {% endif %}
-    </tr>
-    {% endfor %}
+        <td class="align-middle subject py-2 pe-4"><a class="fw-semi-bold" href="../../app/support-desk/tickets-preview.html">Synapse Design #1125</a></td>
+        <td class="align-middle agent"><select class="form-select form-select-sm w-auto ms-auto" aria-label="agents actions">
+            <option>Select Agent</option>
+            <option selected="selected">Anindya</option>
+            <option>Nowrin</option>
+            <option>Khalid</option>
+          </select></td>
+      </tr>
+
+    </tbody>
   </table>
+  <div class="text-center d-none" id="tickets-table-fallback">
+    <p class="fw-bold fs-8 mt-3">No ticket found</p>
+  </div>
 </div>
-{% endfor %} {% else %}
+{% endfor %} 
+{% else %}
 <p>{% translate 'You don’t have permission to view or edit anything.' %}</p>
 {% endif %}
+</div>
+

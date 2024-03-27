@@ -1,0 +1,55 @@
+{% load i18n %}
+{% if app_list %} 
+{% for app in app_list %}
+
+<div class="table-responsive scrollbar border border-primary-subtle border-1 mb-3">
+  <div class="bg-primary-subtle px-3 py-2">
+      <a
+        href="{{ app.app_url }}"
+        class="section fs-8"
+        title="{% blocktranslate with name=app.name %}Models in the {{ name }} application{% endblocktranslate %}"
+        >{{ app.name }}</a
+      >
+  </div>
+  <table class="table table-sm overflow-hidden">
+    {% for model in app.models %}
+    <tr
+      class="border-t"
+    >
+      {% if model.admin_url %}
+      <th scope="row">
+        <a href="{{ model.admin_url }}" 
+        {% if model.admin_url in request.path|urlencode %}
+          aria-current="page"
+          {% endif %}
+          >{{ model.name }}</a
+        >
+      </th>
+      {% else %}
+      <th scope="row">{{ model.name }}</th>
+      {% endif %} {% if model.add_url %}
+      <td class="text-end">
+          <div>
+          <a href="{{ model.add_url }}" class="btn btn-link p-0" type="button" 
+          data-bs-toggle="tooltip" data-bs-placement="top" 
+          title="Edit">
+          <span class="text-500 far fa-plus-square"></span></a>
+          {% else %}
+            <td></td>
+          {% endif %}
+          {% if model.admin_url and show_changelinks %} 
+          {% if model.view_only %}
+          <a href="{{ model.admin_url }}" class="btn btn-link p-0 ms-2" type="button" 
+          data-bs-toggle="tooltip" data-bs-placement="top" t
+          itle="Delete"><span class="text-500 far fa-edit"></span></a>
+          {% endif %} 
+          </div>
+        </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endfor %} {% else %}
+<p>{% translate 'You don’t have permission to view or edit anything.' %}</p>
+{% endif %}

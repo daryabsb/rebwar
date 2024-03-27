@@ -1,0 +1,6 @@
+{
+    "html.autoClosingTags": true,
+    "html.autoCreateQuotes": true,
+    "auto-close-tag.disableOnLanguage": [],
+    "auto-close-tag.fullMode": true
+}

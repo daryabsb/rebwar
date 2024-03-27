@@ -58,7 +58,7 @@
         <div class="content pb-0">
           
           {% include './includes/x_second_nav.html' %}
-          <div class="card px-lg-4" style="min-height: 75vh;">
+          {% comment %} <div class="card px-lg-4" style="min-height: 75vh;"> {% endcomment %}
             {% block nav-breadcrumbs %}
             {% block breadcrumbs %}
             {% endblock %}
@@ -66,7 +66,7 @@
             {% block content %}
             {% include './includes/x_starter_card.html' %}
           {% endblock content %}
-        </div>
+        {% comment %} </div> {% endcomment %}
        <footer class="footer">
           <div class="row g-0 justify-content-between fs-10 mt-4 mb-3">
             <div class="col-12 col-sm-auto text-center">
