@@ -1,0 +1,36 @@
+{% load i18n %}
+{% if title %}
+<div class="card shadow-none border">
+            <div class="card-header z-1">
+              <div class="row flex-between-center gx-0">
+                <div class="col-lg-auto d-flex align-items-center">
+                  <div class="ms-x1">
+                    {% comment %} <h4 class="mb-0 text-primary fw-bold">Falcon <span class="text-info fw-medium">Support - Reports</span></h4> {% endcomment %}
+                    <h4 class="mb-0 text-primary fw-bold">{{ title }}</h4>
+                  </div>
+                </div>
+                <div class="col-lg-auto pt-3 pt-lg-0">
+               <nav class="navbar bg-body-tertiary mb-4">
+  <div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'admin:index' %}">{% translate 'Home' %}</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'admin:app_list' app_label=opts.app_label %}"
+      >{{ opts.app_config.verbose_name }}</a></li>
+      <li class="breadcrumb-item">{{ cl.opts.verbose_name_plural|capfirst }}</li>
+    </ol>
+    
+  </div>
+</nav>
+                </div>
+                {% comment %} <div class="col-lg-auto pt-3 pt-lg-0">
+                  <form class="row flex-lg-column flex-xxl-row gx-3 gy-2 align-items-center align-items-lg-start align-items-xxl-center">
+                    <div class="col-auto">
+                      <h6 class="text-700 mb-0">Showing Data For: </h6>
+                    </div>
+                    <div class="col-md-auto position-relative"><input class="form-control form-control-sm datetimepicker ps-4" id="reportsDateRange" type="text" data-options="{&quot;mode&quot;:&quot;range&quot;,&quot;dateFormat&quot;:&quot;M d&quot;,&quot;disableMobile&quot;:true , &quot;defaultDate&quot;: [&quot;Feb 20&quot;, &quot;Feb 27&quot;] }" /><span class="fas fa-calendar-alt text-primary position-absolute top-50 translate-middle-y ms-2"> </span></div>
+                  </form>
+                </div> {% endcomment %}
+              </div>
+            </div>
+          </div>
+{% endif %}

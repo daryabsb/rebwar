@@ -64,13 +64,20 @@ class DoctorAdmin(ZModelAdmin, TranslationAdmin):
         }
 
 
+@register(DoctorLocation)
+class DoctorLocationAdmin(ZModelAdmin, TranslationAdmin):
+    # list_display = ('id', 'name', 'specialty', 'email')
+    # ordering = ('id', )
+    change_form_template = "xadmin/accounts/x_doctor_change_form.html"
+
+
 admin.site.register(DoctorLocation, TranslationAdmin)
 admin.site.register(TitleChoice, TranslationAdmin)
 admin.site.register(DoctorResume, TranslationAdmin)
 admin.site.register(DoctorSchedule, TranslationAdmin)
 
 # z_site.register(DoctorProfile, ZModelAdmin)
-z_site.register(DoctorLocation, TranslationAdmin)
+# z_site.register(DoctorLocation, TranslationAdmin)
 z_site.register(TitleChoice, TranslationAdmin)
 z_site.register(DoctorResume, TranslationAdmin)
 z_site.register(DoctorSchedule, TranslationAdmin)

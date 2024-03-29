@@ -1,12 +1,40 @@
-{% load i18n admin_urls %}
+{% load i18n xadmin_urls %}
 
 {% block object-tools-items %}
   {% if has_add_permission %}
-  <li class="list-group-item border-0">
-    {% url cl.opts|admin_urlname:'add' as add_url %}
-    <a href="{% add_preserved_filters add_url is_popup to_field %}" class="btn btn-primary btn-sm me-md-2">
-      {% blocktranslate with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktranslate %}
-    </a>
-  </li>
-  {% endif %}
+
+  <div class="d-flex align-items-center" id="table-ticket-replace-element">
+          <div class="dropdown">
+<button class="btn btn-sm btn-falcon-default dropdown-toggle dropdown-caret-none" type="button" 
+            id="ticket-layout" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" 
+            data-bs-reference="parent">
+            <span class="d-none d-sm-inline-block d-xl-none d-xxl-inline-block me-1">Table View</span>
+            <span class="fas fa-chevron-down" data-fa-transform="shrink-3 down-1"></span>
+          </button>
+            <div class="dropdown-menu dropdown-toggle-item dropdown-menu-end border py-2" aria-labelledby="ticket-layout">
+              <a class="dropdown-item active" href="../../app/support-desk/table-view.html">Table View</a>
+              <a class="dropdown-item" href="../../app/support-desk/card-view.html">Card View</a></div>
+            </div>
+          <button class="btn btn-falcon-default btn-sm mx-2" type="button">
+            <span class="fas fa-plus" data-fa-transform="shrink-3"></span>
+            {% url cl.opts|admin_urlname:'add' as add_url %}
+            <span class="d-none d-sm-inline-block d-xl-none d-xxl-inline-block ms-1">
+            <a href="{% add_preserved_filters add_url is_popup to_field %}">
+            {% blocktranslate with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktranslate %}</a>
+            </span>
+          </button>
+          <div class="dropdown font-sans-serif ms-2">
+            <button class="btn btn-falcon-default text-600 btn-sm dropdown-toggle dropdown-caret-none" type="button" 
+              id="preview-dropdown" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false">
+              <span class="fas fa-ellipsis-h fs-11"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="preview-dropdown">
+              <a class="dropdown-item" href="#!">View</a>
+              <a class="dropdown-item" href="#!">Export</a>
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item text-danger" href="#!">Remove</a>
+              </div>
+     </div>
+        </div>
+          {% endif %}
 {% endblock %}

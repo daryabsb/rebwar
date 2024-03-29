@@ -3,9 +3,9 @@
 {% if app_list %}
 
 {% for app in app_list %}
-<div class="table-responsive scrollbar app-{{ app.app_label }} module{% if app.app_url in request.path|urlencode %} current-app{% endif %}">
-  <table class="table table-sm mb-4 fs-10 table-view-tickets">
-    {% comment %} <caption>
+  <div class="table-responsive scrollbar fs-10">
+                <table class="table table-striped border-bottom">
+                 {% comment %} <caption>
       <a
         href="{{ app.app_url }}"
         class="section"
@@ -13,38 +13,55 @@
         >{{ app.name }}</a
       >
     </caption> {% endcomment %}
-    <thead class="bg-body-tertiary">
-      <div class="card-header px-4 bg-light  border-bottom">
-        <a href="{{ app.app_url }}">
-          <h5 class="mb-2 hover-primary">{{ app.name }}</h5>
+                  <thead data-bs-theme="light">
+                    <div class="bg-primary dark__bg-1000 px-3 py-2">
+                      
+                       <a href="{{ app.app_url }}" class="text-white uppercase">{{ app.name }}</h5></a>
+                 
+                      
+                    </div>
+                  </thead>
+                  <tbody>
+                  {% for model in app.models %}
+                    <tr>
+                    {% if model.admin_url %}
+                    <th class="align-middle" scope="row">
+        <a href="{{ model.admin_url }}" 
+        {% if model.admin_url in request.path|urlencode %}aria-current="page" {% endif %}>
+        <h6 class="mb-0 text-nowrap">{{ model.name }}</h6>
         </a>
-      </div>
-    </thead>
-    <tbody class="list" id="table-ticket-body">
-      <tr>
-        <td class="align-middle fs-9 py-3">
-          <div class="form-check mb-0"><input class="form-check-input" type="checkbox" id="table-view-tickets-0" data-bulk-select-row="data-bulk-select-row" /></div>
-        </td>
-        <td class="align-middle client white-space-nowrap pe-3 pe-xxl-4 ps-2">
-          <div class="d-flex align-items-center gap-2 position-relative">
-            <h6 class="mb-0"><a class="stretched-link text-900" href="../../app/support-desk/contact-details.html">Emma Watson</a></h6>
-          </div>
-        </td>
-        <td class="align-middle subject py-2 pe-4"><a class="fw-semi-bold" href="../../app/support-desk/tickets-preview.html">Synapse Design #1125</a></td>
-        <td class="align-middle agent"><select class="form-select form-select-sm w-auto ms-auto" aria-label="agents actions">
-            <option>Select Agent</option>
-            <option selected="selected">Anindya</option>
-            <option>Nowrin</option>
-            <option>Khalid</option>
-          </select></td>
-      </tr>
+      </th>
+      {% else %}
+      <th scope="row">{{ model.name }}</th>
+      {% endif %}
+    {% if model.add_url %}
+    <td class="align-middle text-end">
+    <a class="badge border link-primary p-xl me-2  text-decoration-none fs-10" 
+    href="{{ model.add_url }}">{% translate 'Add' %}</a>
+      
+      {% endif %}
+      {% if model.admin_url and show_changelinks %} 
+      {% if model.view_only %}
+      <a class="badge border link-primary p-xl me-2  text-decoration-none fs-10"
+      href="{{ model.admin_url }}" 
+      >{% translate 'View' %}</a>
+     
+      {% else %}
+        <a class="badge border link-primary p-xl me-2  text-decoration-none fs-10"
+        href="{{ model.admin_url }}"
+          >{% translate 'Change' %}</a>
+      </td>
+      {% endif %} {% elif show_changelinks %}
+      <td></td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+                     
+                    </tr>
 
-    </tbody>
-  </table>
-  <div class="text-center d-none" id="tickets-table-fallback">
-    <p class="fw-bold fs-8 mt-3">No ticket found</p>
-  </div>
-</div>
+                  </tbody>
+                </table>
+              </div>
 {% endfor %} 
 {% else %}
 <p>{% translate 'You don’t have permission to view or edit anything.' %}</p>
